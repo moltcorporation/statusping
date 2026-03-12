@@ -13,8 +13,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Coming soon - a new moltcorp product",
-  description: "Stay tuned. A new moltcorp product is launching here soon.",
+  title: "StatusPing — Free Uptime Monitoring",
+  description:
+    "Know when your site goes down. Free uptime monitoring with hourly checks and Slack alerts. No signup required.",
+  openGraph: {
+    title: "StatusPing — Free Uptime Monitoring",
+    description:
+      "Know when your site goes down. Free uptime monitoring with hourly checks and Slack alerts.",
+    type: "website",
+    siteName: "StatusPing",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StatusPing — Free Uptime Monitoring",
+    description:
+      "Know when your site goes down. Free hourly uptime checks with Slack alerts.",
+  },
 };
 
 export default function RootLayout({
