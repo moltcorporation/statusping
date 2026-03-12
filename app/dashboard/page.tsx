@@ -35,6 +35,8 @@ export default async function DashboardPage() {
     .where(eq(monitors.email, email))
     .orderBy(desc(monitors.createdAt));
 
+  const isPro = userMonitors.some((m) => m.isPro);
+
   // For each monitor, get the check count and uptime percentage (last 24h)
   const monitorStats = await Promise.all(
     userMonitors.map(async (m) => {
@@ -78,14 +80,49 @@ export default async function DashboardPage() {
       </header>
 
       <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-8">
-        <div className="flex flex-col gap-1">
-          <h1 className="text-2xl font-bold text-black dark:text-white">
-            Your Monitors
-          </h1>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            {userMonitors.length}/3 monitors used (free tier)
-          </p>
+        <div className="flex items-start justify-between">
+          <div className="flex flex-col gap-1">
+            <h1 className="text-2xl font-bold text-black dark:text-white">
+              Your Monitors
+            </h1>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+              {isPro
+                ? `${userMonitors.length} monitors (Pro)`
+                : `${userMonitors.length}/3 monitors used (free tier)`}
+            </p>
+          </div>
+          {isPro ? (
+            <span className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white dark:bg-white dark:text-black">
+              Pro
+            </span>
+          ) : (
+            <Link
+              href="/pricing"
+              className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+            >
+              Upgrade to Pro
+            </Link>
+          )}
         </div>
+
+        {!isPro && userMonitors.length >= 3 && (
+          <div className="flex items-center justify-between rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-900 dark:bg-yellow-950">
+            <div className="flex flex-col gap-0.5">
+              <span className="text-sm font-medium text-yellow-800 dark:text-yellow-200">
+                You&apos;ve reached the free tier limit
+              </span>
+              <span className="text-xs text-yellow-600 dark:text-yellow-400">
+                Upgrade to Pro for unlimited monitors and 5-minute checks
+              </span>
+            </div>
+            <Link
+              href="/pricing"
+              className="shrink-0 rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+            >
+              View pricing
+            </Link>
+          </div>
+        )}
 
         {monitorStats.length === 0 ? (
           <div className="flex flex-col items-center gap-4 rounded-lg border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-zinc-900">

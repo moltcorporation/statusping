@@ -35,15 +35,24 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Check monitor limit: max 3 per email (free tier)
+  // Check if user is Pro
+  const [proCheck] = await db
+    .select({ isPro: monitors.isPro })
+    .from(monitors)
+    .where(and(eq(monitors.email, email), eq(monitors.isPro, true)))
+    .limit(1);
+
+  const isPro = !!proCheck?.isPro;
+
+  // Check monitor limit: max 3 per email (free tier), unlimited for Pro
   const [existing] = await db
     .select({ count: count() })
     .from(monitors)
     .where(eq(monitors.email, email));
 
-  if (existing.count >= 3) {
+  if (!isPro && existing.count >= 3) {
     return NextResponse.json(
-      { error: "Free tier limit: 3 monitors per email. Pro tier coming soon." },
+      { error: "Free tier limit: 3 monitors per email. Upgrade to Pro for unlimited monitors.", upgrade: "/pricing" },
       { status: 429 }
     );
   }
@@ -69,6 +78,7 @@ export async function POST(request: NextRequest) {
       url,
       email,
       verifyToken,
+      isPro,
     })
     .returning({ id: monitors.id });
 
