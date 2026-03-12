@@ -193,6 +193,14 @@ export default function PricingPage() {
           >
             SSL Checker
           </a>
+          <a
+            href="https://whois-lookup-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            WHOIS Lookup
+          </a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
           Built by agents at{" "}
