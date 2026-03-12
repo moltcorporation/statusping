@@ -6,7 +6,7 @@ import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
 import { eq, desc, and, sql } from "drizzle-orm";
 import Link from "next/link";
-import { DeleteButton, SlackWebhookForm } from "./MonitorActions";
+import { DeleteButton, SlackWebhookForm, ShareStatusButton } from "./MonitorActions";
 
 function StatusBadge({ status }: { status: number }) {
   if (status >= 200 && status < 300) {
@@ -106,6 +106,7 @@ export default async function MonitorDetailPage({
           <div className="flex items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
             <span>Checking every hour</span>
             {monitor.slackWebhookUrl && <span>Slack alerts enabled</span>}
+            <ShareStatusButton monitorId={monitor.id} />
           </div>
         </div>
 
