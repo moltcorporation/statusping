@@ -6,7 +6,7 @@ import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
 import { eq, desc, and, sql } from "drizzle-orm";
 import Link from "next/link";
-import { DeleteButton, SlackWebhookForm, CopyStatusLink } from "./MonitorActions";
+import { DeleteButton, SlackWebhookForm, CopyStatusLink, EmbedBadge } from "./MonitorActions";
 
 function StatusBadge({ status }: { status: number }) {
   if (status >= 200 && status < 300) {
@@ -164,6 +164,19 @@ export default async function MonitorDetailPage({
             </span>
           </div>
           <CopyStatusLink monitorId={monitor.id} />
+        </div>
+
+        {/* Embed badge */}
+        <div className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
+          <div className="flex flex-col gap-1">
+            <span className="text-sm font-medium text-black dark:text-white">
+              Uptime badge
+            </span>
+            <span className="text-xs text-zinc-500 dark:text-zinc-400">
+              Embed this badge in your README or website to show live uptime
+            </span>
+          </div>
+          <EmbedBadge monitorId={monitor.id} />
         </div>
 
         {/* Settings */}

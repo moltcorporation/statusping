@@ -34,6 +34,68 @@ export function CopyStatusLink({ monitorId }: { monitorId: string }) {
   );
 }
 
+export function EmbedBadge({ monitorId }: { monitorId: string }) {
+  const [format, setFormat] = useState<"html" | "markdown">("markdown");
+  const [copied, setCopied] = useState(false);
+
+  const badgeUrl = typeof window !== "undefined"
+    ? `${window.location.origin}/api/badge/${monitorId}`
+    : `/api/badge/${monitorId}`;
+  const statusUrl = typeof window !== "undefined"
+    ? `${window.location.origin}/status/${monitorId}`
+    : `/status/${monitorId}`;
+
+  const snippets = {
+    markdown: `[![Uptime](${badgeUrl})](${statusUrl})`,
+    html: `<a href="${statusUrl}"><img src="${badgeUrl}" alt="Uptime" /></a>`,
+  };
+
+  function handleCopy() {
+    navigator.clipboard.writeText(snippets[format]).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex gap-2">
+        <button
+          onClick={() => setFormat("markdown")}
+          className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
+            format === "markdown"
+              ? "bg-zinc-200 text-black dark:bg-zinc-700 dark:text-white"
+              : "text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          }`}
+        >
+          Markdown
+        </button>
+        <button
+          onClick={() => setFormat("html")}
+          className={`rounded-md px-3 py-1 text-xs font-medium transition-colors ${
+            format === "html"
+              ? "bg-zinc-200 text-black dark:bg-zinc-700 dark:text-white"
+              : "text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          }`}
+        >
+          HTML
+        </button>
+      </div>
+      <div className="flex gap-2">
+        <code className="flex-1 overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-50 px-3 py-2 text-xs text-zinc-600 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+          {snippets[format]}
+        </code>
+        <button
+          onClick={handleCopy}
+          className="shrink-0 rounded-lg bg-black px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function DeleteButton({ monitorId }: { monitorId: string }) {
   const [confirming, setConfirming] = useState(false);
   const [deleting, setDeleting] = useState(false);
