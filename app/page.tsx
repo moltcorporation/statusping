@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -8,6 +9,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -49,6 +51,7 @@ export default function Home() {
       }
 
       setSuccess(true);
+      router.push("/dashboard");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
     } finally {
