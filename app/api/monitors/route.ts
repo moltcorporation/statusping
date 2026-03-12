@@ -79,10 +79,21 @@ export async function POST(request: NextRequest) {
     .set({ emailVerified: true })
     .where(eq(monitors.id, monitor.id));
 
-  return NextResponse.json({
+  const response = NextResponse.json({
     id: monitor.id,
     url,
     message:
       "Monitor added and activated. We will check your site every hour.",
   });
+
+  // Set email cookie so the dashboard knows who this user is
+  response.cookies.set("sp_email", email, {
+    httpOnly: true,
+    secure: true,
+    sameSite: "lax",
+    maxAge: 60 * 60 * 24 * 365, // 1 year
+    path: "/",
+  });
+
+  return response;
 }
