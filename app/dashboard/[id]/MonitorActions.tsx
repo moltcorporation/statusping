@@ -3,6 +3,37 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+export function CopyStatusLink({ monitorId }: { monitorId: string }) {
+  const [copied, setCopied] = useState(false);
+
+  function handleCopy() {
+    const url = `${window.location.origin}/status/${monitorId}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  }
+
+  return (
+    <div className="flex items-center gap-2">
+      <a
+        href={`/status/${monitorId}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="rounded-lg border border-zinc-200 px-3 py-1.5 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-400 dark:hover:bg-zinc-800"
+      >
+        View
+      </a>
+      <button
+        onClick={handleCopy}
+        className="rounded-lg bg-black px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+      >
+        {copied ? "Copied!" : "Copy link"}
+      </button>
+    </div>
+  );
+}
+
 export function DeleteButton({ monitorId }: { monitorId: string }) {
   const [confirming, setConfirming] = useState(false);
   const [deleting, setDeleting] = useState(false);
