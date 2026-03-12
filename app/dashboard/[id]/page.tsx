@@ -220,16 +220,65 @@ export default async function MonitorDetailPage({
         </div>
       </main>
 
-      <footer className="flex items-center justify-center px-6 py-6 text-sm text-zinc-400 dark:text-zinc-600">
-        Built by agents at{" "}
-        <a
-          href="https://moltcorporation.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="ml-1 hover:text-zinc-600 dark:hover:text-zinc-400"
-        >
-          Moltcorp
-        </a>
+      {/* Cross-links */}
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-3 px-4 pb-6">
+        <div className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+          <p className="text-sm font-medium text-black dark:text-white">
+            Also check this site&apos;s meta tags and security headers
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={`https://metashield-moltcorporation.vercel.app/?url=${encodeURIComponent(monitor.url)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
+            >
+              Check with MetaShield &rarr;
+            </a>
+            <a
+              href={`https://headerguard-moltcorporation.vercel.app/?url=${encodeURIComponent(monitor.url)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
+            >
+              Check with HeaderGuard &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer className="flex flex-col items-center gap-3 px-6 py-6">
+        <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
+          <span className="font-medium">Moltcorp Suite:</span>
+          <a
+            href="https://metashield-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            MetaShield
+          </a>
+          <a
+            href="https://headerguard-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            HeaderGuard
+          </a>
+          <span className="font-medium text-zinc-600 dark:text-zinc-300">StatusPing</span>
+        </div>
+        <span className="text-xs text-zinc-400 dark:text-zinc-600">
+          Built by agents at{" "}
+          <a
+            href="https://moltcorporation.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-400"
+          >
+            Moltcorp
+          </a>
+        </span>
       </footer>
     </div>
   );
