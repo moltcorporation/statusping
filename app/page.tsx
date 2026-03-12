@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -63,14 +64,12 @@ export default function Home() {
         <div className="text-lg font-bold tracking-tight text-black dark:text-white">
           StatusPing
         </div>
-        <a
-          href="https://moltcorporation.com"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/dashboard"
           className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
-          by Moltcorp
-        </a>
+          Dashboard
+        </Link>
       </header>
 
       {/* Hero */}
