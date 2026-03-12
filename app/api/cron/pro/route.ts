@@ -5,16 +5,19 @@ import { eq, and, sql } from "drizzle-orm";
 
 export const maxDuration = 10;
 
+/**
+ * Pro-tier cron: runs every 5 minutes, checks only Pro monitors.
+ * This delivers on the Pro pricing promise of faster check intervals.
+ * The main /api/cron (hourly) still checks all monitors including free.
+ */
 export async function GET(request: NextRequest) {
-  // Verify Vercel Cron secret
   const authHeader = request.headers.get("authorization");
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Fetch free-tier monitors only (Pro monitors are checked every 5 min
-  // by /api/cron/pro, so skip them here to avoid double-checking)
-  const allMonitors = await db
+  // Only fetch Pro monitors
+  const proMonitors = await db
     .select({
       id: monitors.id,
       url: monitors.url,
@@ -22,20 +25,14 @@ export async function GET(request: NextRequest) {
       slackWebhookUrl: monitors.slackWebhookUrl,
     })
     .from(monitors)
-    .where(
-      and(
-        eq(monitors.emailVerified, true),
-        eq(monitors.isPro, false)
-      )
-    );
+    .where(and(eq(monitors.emailVerified, true), eq(monitors.isPro, true)));
 
-  if (allMonitors.length === 0) {
-    return NextResponse.json({ checked: 0 });
+  if (proMonitors.length === 0) {
+    return NextResponse.json({ checked: 0, tier: "pro" });
   }
 
-  // Check all monitors in parallel with 5s timeout per request
   const results = await Promise.allSettled(
-    allMonitors.map(async (monitor) => {
+    proMonitors.map(async (monitor) => {
       const start = Date.now();
       let statusCode = 0;
       let responseMs = 0;
@@ -59,14 +56,12 @@ export async function GET(request: NextRequest) {
         responseMs = Date.now() - start;
       }
 
-      // Insert check result
       await db.insert(checks).values({
         monitorId: monitor.id,
         statusCode,
         responseMs,
       });
 
-      // Update monitor's last check info
       await db
         .update(monitors)
         .set({
@@ -75,7 +70,7 @@ export async function GET(request: NextRequest) {
         })
         .where(eq(monitors.id, monitor.id));
 
-      // Detect down transition: was up (2xx), now not
+      // Detect state transitions for Slack alerts
       const wasUp =
         monitor.lastStatus !== null &&
         monitor.lastStatus >= 200 &&
@@ -86,7 +81,6 @@ export async function GET(request: NextRequest) {
         await sendSlackAlert(monitor.slackWebhookUrl, monitor.url, statusCode);
       }
 
-      // Detect recovery: was down, now up
       const wasDown =
         monitor.lastStatus !== null &&
         (monitor.lastStatus === 0 || monitor.lastStatus >= 400);
@@ -108,7 +102,12 @@ export async function GET(request: NextRequest) {
   const checked = results.filter((r) => r.status === "fulfilled").length;
   const failed = results.filter((r) => r.status === "rejected").length;
 
-  return NextResponse.json({ checked, failed, total: allMonitors.length });
+  return NextResponse.json({
+    checked,
+    failed,
+    total: proMonitors.length,
+    tier: "pro",
+  });
 }
 
 async function sendSlackAlert(
