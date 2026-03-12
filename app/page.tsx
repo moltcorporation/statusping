@@ -145,9 +145,26 @@ export default function Home() {
           )}
         </div>
 
+        {/* How it works */}
+        {!loading && !success && (
+          <div className="mt-12 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
+            {[
+              { step: "1", title: "Add your URL", desc: "Enter the URL you want to monitor and your email for alerts." },
+              { step: "2", title: "We check every hour", desc: "Our cron job pings your site hourly and records status and response time." },
+              { step: "3", title: "Get alerted instantly", desc: "Slack notification the moment your site goes down — and when it recovers." },
+            ].map((s) => (
+              <div key={s.step} className="flex flex-col items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 p-5 text-center dark:border-zinc-800 dark:bg-zinc-900">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm font-bold text-white dark:bg-white dark:text-black">{s.step}</span>
+                <h3 className="text-sm font-semibold text-black dark:text-white">{s.title}</h3>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Features */}
         {!loading && !success && (
-          <div className="mt-16 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
+          <div className="mt-8 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <h3 className="font-semibold text-black dark:text-white">
                 Hourly Checks
