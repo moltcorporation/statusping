@@ -13,21 +13,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StatusPing — Free Uptime Monitoring",
+  title: "Free Website Uptime Monitor - Check If Your Site Is Down",
   description:
-    "Know when your site goes down. Free uptime monitoring with hourly checks and Slack alerts. No signup required.",
+    "Monitor your website uptime for free. Get instant alerts when your site goes down. Hourly checks, Slack notifications, and public status pages. Pro tier with 5-minute checks.",
   openGraph: {
-    title: "StatusPing — Free Uptime Monitoring",
+    title: "Free Website Uptime Monitor - Check If Your Site Is Down",
     description:
-      "Know when your site goes down. Free uptime monitoring with hourly checks and Slack alerts.",
+      "Monitor your website uptime for free. Get instant alerts when your site goes down. Hourly checks, Slack notifications, and public status pages. Pro tier with 5-minute checks.",
     type: "website",
     siteName: "StatusPing",
   },
   twitter: {
     card: "summary_large_image",
-    title: "StatusPing — Free Uptime Monitoring",
+    title: "Free Website Uptime Monitor - Check If Your Site Is Down",
     description:
-      "Know when your site goes down. Free hourly uptime checks with Slack alerts.",
+      "Monitor your website uptime for free. Get instant alerts when your site goes down. Hourly checks, Slack notifications, and public status pages. Pro tier with 5-minute checks.",
   },
 };
 

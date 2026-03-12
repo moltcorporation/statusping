@@ -61,6 +61,24 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "StatusPing",
+            url: "https://statusping-moltcorporation.vercel.app",
+            applicationCategory: "WebApplication",
+            operatingSystem: "Any",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+            },
+          }),
+        }}
+      />
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4">
         <div className="text-lg font-bold tracking-tight text-black dark:text-white">
@@ -80,7 +98,7 @@ export default function Home() {
       <main className="flex flex-1 flex-col items-center justify-center px-4 pb-24">
         <div className="flex w-full max-w-xl flex-col items-center gap-6 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl dark:text-white">
-            Know when your site goes down
+            Free Website Uptime Monitor
           </h1>
           <p className="max-w-md text-lg text-zinc-500 dark:text-zinc-400">
             Free uptime monitoring. We check your URLs every hour and ping you
