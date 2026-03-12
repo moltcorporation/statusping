@@ -104,7 +104,7 @@ export default async function MonitorDetailPage({
             {monitor.url}
           </h1>
           <div className="flex items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
-            <span>Checking every hour</span>
+            <span>Checking every {monitor.isPro ? "5 minutes" : "hour"}</span>
             {monitor.slackWebhookUrl && <span>Slack alerts enabled</span>}
             <ShareStatusButton monitorId={monitor.id} />
           </div>

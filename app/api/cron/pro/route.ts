@@ -1,19 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
-import { eq, sql } from "drizzle-orm";
+import { eq, and, sql } from "drizzle-orm";
 
 export const maxDuration = 10;
 
 export async function GET(request: NextRequest) {
-  // Verify Vercel Cron secret
   const authHeader = request.headers.get("authorization");
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  // Fetch all verified, non-Pro monitors (Pro monitors use /api/cron/pro)
-  const allMonitors = await db
+  // Fetch only Pro, verified monitors
+  const proMonitors = await db
     .select({
       id: monitors.id,
       url: monitors.url,
@@ -21,17 +20,14 @@ export async function GET(request: NextRequest) {
       slackWebhookUrl: monitors.slackWebhookUrl,
     })
     .from(monitors)
-    .where(
-      sql`${monitors.emailVerified} = true AND (${monitors.isPro} = false OR ${monitors.isPro} IS NULL)`
-    );
+    .where(and(eq(monitors.emailVerified, true), eq(monitors.isPro, true)));
 
-  if (allMonitors.length === 0) {
+  if (proMonitors.length === 0) {
     return NextResponse.json({ checked: 0 });
   }
 
-  // Check all monitors in parallel with 5s timeout per request
   const results = await Promise.allSettled(
-    allMonitors.map(async (monitor) => {
+    proMonitors.map(async (monitor) => {
       const start = Date.now();
       let statusCode = 0;
       let responseMs = 0;
@@ -55,14 +51,12 @@ export async function GET(request: NextRequest) {
         responseMs = Date.now() - start;
       }
 
-      // Insert check result
       await db.insert(checks).values({
         monitorId: monitor.id,
         statusCode,
         responseMs,
       });
 
-      // Update monitor's last check info
       await db
         .update(monitors)
         .set({
@@ -71,7 +65,7 @@ export async function GET(request: NextRequest) {
         })
         .where(eq(monitors.id, monitor.id));
 
-      // Detect down transition: was up (2xx), now not
+      // Detect down transition
       const wasUp =
         monitor.lastStatus !== null &&
         monitor.lastStatus >= 200 &&
@@ -82,7 +76,7 @@ export async function GET(request: NextRequest) {
         await sendSlackAlert(monitor.slackWebhookUrl, monitor.url, statusCode);
       }
 
-      // Detect recovery: was down, now up
+      // Detect recovery
       const wasDown =
         monitor.lastStatus !== null &&
         (monitor.lastStatus === 0 || monitor.lastStatus >= 400);
@@ -104,7 +98,7 @@ export async function GET(request: NextRequest) {
   const checked = results.filter((r) => r.status === "fulfilled").length;
   const failed = results.filter((r) => r.status === "rejected").length;
 
-  return NextResponse.json({ checked, failed, total: allMonitors.length });
+  return NextResponse.json({ checked, failed, total: proMonitors.length });
 }
 
 async function sendSlackAlert(
@@ -117,7 +111,7 @@ async function sendSlackAlert(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        text: `🔴 *DOWN* — ${siteUrl} is not responding${statusCode > 0 ? ` (HTTP ${statusCode})` : " (timeout/unreachable)"}. Checked by StatusPing.`,
+        text: `\ud83d\udd34 *DOWN* \u2014 ${siteUrl} is not responding${statusCode > 0 ? ` (HTTP ${statusCode})` : " (timeout/unreachable)"}. Checked by StatusPing.`,
       }),
     });
   } catch {
@@ -136,7 +130,7 @@ async function sendSlackRecovery(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        text: `🟢 *UP* — ${siteUrl} is back online (HTTP ${statusCode}, ${responseMs}ms). Checked by StatusPing.`,
+        text: `\ud83d\udfe2 *UP* \u2014 ${siteUrl} is back online (HTTP ${statusCode}, ${responseMs}ms). Checked by StatusPing.`,
       }),
     });
   } catch {
