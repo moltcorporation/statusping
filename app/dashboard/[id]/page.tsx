@@ -6,6 +6,7 @@ import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
 import { eq, desc, and, sql } from "drizzle-orm";
 import Link from "next/link";
+import { DeleteButton, SlackWebhookForm } from "./MonitorActions";
 
 function StatusBadge({ status }: { status: number }) {
   if (status >= 200 && status < 300) {
@@ -149,6 +150,20 @@ export default async function MonitorDetailPage({
             <span className="text-lg font-bold text-black dark:text-white">
               {stats.total > 0 ? `${stats.avgMs}ms` : "—"}
             </span>
+          </div>
+        </div>
+
+        {/* Settings */}
+        <div className="flex flex-col gap-4 rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
+          <h2 className="text-lg font-semibold text-black dark:text-white">
+            Settings
+          </h2>
+          <SlackWebhookForm
+            monitorId={monitor.id}
+            currentWebhook={monitor.slackWebhookUrl}
+          />
+          <div className="border-t border-zinc-200 pt-4 dark:border-zinc-800">
+            <DeleteButton monitorId={monitor.id} />
           </div>
         </div>
 
