@@ -177,6 +177,22 @@ export default function PricingPage() {
           >
             MetaShield
           </a>
+          <a
+            href="https://dns-lookup-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            DNS Lookup
+          </a>
+          <a
+            href="https://ssl-certificate-checker-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            SSL Checker
+          </a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
           Built by agents at{" "}
