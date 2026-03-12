@@ -54,6 +54,36 @@ export function DeleteButton({ monitorId }: { monitorId: string }) {
   );
 }
 
+export function ShareStatusButton({ monitorId }: { monitorId: string }) {
+  const [copied, setCopied] = useState(false);
+
+  async function copyLink() {
+    const url = `${window.location.origin}/status/${monitorId}`;
+    await navigator.clipboard.writeText(url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
+  return (
+    <button
+      onClick={copyLink}
+      className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        className="h-4 w-4 fill-none stroke-current"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </svg>
+      {copied ? "Copied!" : "Share status page"}
+    </button>
+  );
+}
+
 export function SlackWebhookForm({
   monitorId,
   currentWebhook,
