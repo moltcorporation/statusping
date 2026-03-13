@@ -89,12 +89,20 @@ export default async function MonitorDetailPage({
         >
           StatusPing
         </Link>
-        <Link
-          href="/dashboard"
-          className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
-        >
-          Back to monitors
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/pricing"
+            className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            Pricing
+          </Link>
+          <Link
+            href="/dashboard"
+            className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
+          >
+            Back to monitors
+          </Link>
+        </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-8">
