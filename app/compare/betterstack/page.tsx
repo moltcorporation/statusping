@@ -276,6 +276,24 @@ export default function BetterStackComparison() {
           </Link>
         </div>
 
+        {/* More comparisons */}
+        <div className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+          <p className="text-sm font-medium text-black dark:text-white">
+            More uptime monitor comparisons
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/compare/uptimerobot" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+              vs UptimeRobot &rarr;
+            </Link>
+            <Link href="/compare/freshping" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+              vs Freshping &rarr;
+            </Link>
+            <Link href="/compare/pingdom" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+              vs Pingdom &rarr;
+            </Link>
+          </div>
+        </div>
+
         {/* Related tools */}
         <div className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
           <p className="text-sm font-medium text-black dark:text-white">
