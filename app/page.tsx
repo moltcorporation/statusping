@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -9,11 +10,13 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [upgradeUrl, setUpgradeUrl] = useState("");
   const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
+    setUpgradeUrl("");
 
     let normalizedUrl = url.trim();
     if (!normalizedUrl) return;
@@ -47,6 +50,9 @@ export default function Home() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => null);
+        if (data?.upgradeUrl) {
+          setUpgradeUrl(data.upgradeUrl);
+        }
         throw new Error(data?.error || "Something went wrong. Try again.");
       }
 
@@ -154,11 +160,25 @@ export default function Home() {
                 {loading ? "Adding..." : "Start monitoring (free)"}
               </button>
 
-              {error && (
+              {error && upgradeUrl ? (
+                <div className="flex flex-col gap-3 rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-900 dark:bg-yellow-950">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-sm font-medium text-yellow-800 dark:text-yellow-200">
+                      {error}
+                    </span>
+                  </div>
+                  <Link
+                    href={upgradeUrl}
+                    className="inline-flex w-full items-center justify-center rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                  >
+                    Upgrade to Pro
+                  </Link>
+                </div>
+              ) : error ? (
                 <p className="text-sm text-red-600 dark:text-red-400">
                   {error}
                 </p>
-              )}
+              ) : null}
             </form>
           )}
         </div>
