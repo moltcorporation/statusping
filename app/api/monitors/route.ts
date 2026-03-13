@@ -47,7 +47,11 @@ export async function POST(request: NextRequest) {
 
   if (!isPro && existing.count >= 3) {
     return NextResponse.json(
-      { error: "Free tier limit: 3 monitors per email. Upgrade to Pro for unlimited monitors.", upgrade: "/pricing" },
+      {
+        error: "You've reached your free plan limit of 3 monitors. Upgrade to Pro for unlimited monitors and 5-minute checks.",
+        upgradeUrl: "/pricing",
+        limitType: "monitors",
+      },
       { status: 429 }
     );
   }
