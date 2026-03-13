@@ -328,20 +328,20 @@ export default function PingdomComparison() {
           </Link>
         </div>
 
-        {/* Cross-links */}
-        <div className="flex flex-col gap-3 text-sm text-zinc-500 dark:text-zinc-400">
-          <p className="font-medium text-black dark:text-white">
-            More comparisons
+        {/* More comparisons */}
+        <div className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+          <p className="text-sm font-medium text-black dark:text-white">
+            More uptime monitor comparisons
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="/compare/uptimerobot" className="hover:text-black dark:hover:text-white">
-              vs UptimeRobot
+          <div className="flex flex-wrap gap-3">
+            <Link href="/compare/uptimerobot" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+              vs UptimeRobot &rarr;
             </Link>
-            <Link href="/compare/freshping" className="hover:text-black dark:hover:text-white">
-              vs Freshping
+            <Link href="/compare/freshping" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+              vs Freshping &rarr;
             </Link>
-            <Link href="/compare/betterstack" className="hover:text-black dark:hover:text-white">
-              vs Better Stack
+            <Link href="/compare/betterstack" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+              vs Better Stack &rarr;
             </Link>
           </div>
         </div>
