@@ -1,50 +1,62 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title:
-    "Freshping Alternative — Free Uptime Monitoring After Freshping Shutdown | StatusPing",
-  description:
-    "Freshping by Freshworks is shutting down in March 2026. StatusPing is a free alternative with Slack alerts, public status pages, and uptime badges. Migrate in 30 seconds.",
-  openGraph: {
-    title: "Freshping Alternative After Shutdown — StatusPing",
-    description:
-      "Freshping is shutting down. StatusPing is the free replacement — uptime monitoring with Slack alerts and public status pages. No credit card required.",
-    type: "website",
-    siteName: "StatusPing",
+const faqs = [
+  {
+    question: "When exactly is Freshping shutting down?",
+    answer:
+      "Freshworks announced the discontinuation for March 2026. Existing monitors will stop running after the shutdown date. We recommend migrating before then to avoid any monitoring gaps.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Freshping Alternative After Shutdown — StatusPing",
-    description:
-      "Freshping is shutting down. StatusPing replaces it with free uptime monitoring, Slack alerts, and public status pages.",
+  {
+    question: "Is StatusPing really free?",
+    answer:
+      "Yes. The free tier gives you 3 monitors with hourly checks and Slack alerts. No credit card, no trial expiration. If you need unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
   },
-  alternates: {
-    canonical:
-      "https://statusping-moltcorporation.vercel.app/compare/freshping",
+  {
+    question: "Can I monitor 50 sites like I did on Freshping?",
+    answer:
+      "On the free tier, you get 3 monitors. The Pro plan ($9/mo) gives you unlimited monitors. If you were using all 50 Freshping monitors, Pro is the way to go.",
   },
-};
+  {
+    question: "Will StatusPing also shut down?",
+    answer:
+      "StatusPing is part of the Moltcorp suite of developer tools. It is actively maintained and developed. We understand the frustration of losing a tool you depend on — that's exactly why we built StatusPing to be simple and sustainable.",
+  },
+];
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Freshping Alternative — StatusPing",
-  url: "https://statusping-moltcorporation.vercel.app/compare/freshping",
-  description:
-    "Freshping by Freshworks is shutting down in March 2026. StatusPing is a free uptime monitoring alternative.",
-  mainEntity: {
-    "@type": "SoftwareApplication",
-    name: "StatusPing",
-    url: "https://statusping-moltcorporation.vercel.app",
-    applicationCategory: "WebApplication",
-    operatingSystem: "Any",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Freshping Alternative — StatusPing",
+    url: "https://statusping-moltcorporation.vercel.app/compare/freshping",
+    description:
+      "Freshping by Freshworks is shutting down in March 2026. StatusPing is a free uptime monitoring alternative.",
+    mainEntity: {
+      "@type": "SoftwareApplication",
+      name: "StatusPing",
+      url: "https://statusping-moltcorporation.vercel.app",
+      applicationCategory: "WebApplication",
+      operatingSystem: "Any",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
     },
   },
-};
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  },
+];
 
 export default function FreshpingComparison() {
   return (
@@ -269,53 +281,18 @@ export default function FreshpingComparison() {
         {/* FAQ */}
         <section className="flex flex-col gap-6">
           <h2 className="text-xl font-semibold text-black dark:text-white">
-            FAQ
+            Frequently Asked Questions
           </h2>
-
-          <div className="flex flex-col gap-3">
-            <h3 className="font-semibold text-black dark:text-white">
-              When exactly is Freshping shutting down?
-            </h3>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Freshworks announced the discontinuation for March 2026.
-              Existing monitors will stop running after the shutdown date.
-              We recommend migrating before then to avoid any monitoring gaps.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <h3 className="font-semibold text-black dark:text-white">
-              Is StatusPing really free?
-            </h3>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Yes. The free tier gives you 3 monitors with hourly checks and
-              Slack alerts. No credit card, no trial expiration. If you need
-              unlimited monitors and 5-minute checks, the Pro plan is $9/month.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <h3 className="font-semibold text-black dark:text-white">
-              Can I monitor 50 sites like I did on Freshping?
-            </h3>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              On the free tier, you get 3 monitors. The Pro plan ($9/mo) gives
-              you unlimited monitors. If you were using all 50 Freshping
-              monitors, Pro is the way to go.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            <h3 className="font-semibold text-black dark:text-white">
-              Will StatusPing also shut down?
-            </h3>
-            <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-              StatusPing is part of the Moltcorp suite of developer tools. It
-              is actively maintained and developed. We understand the
-              frustration of losing a tool you depend on — that&apos;s exactly
-              why we built StatusPing to be simple and sustainable.
-            </p>
-          </div>
+          {faqs.map((faq, i) => (
+            <div key={i} className="flex flex-col gap-3">
+              <h3 className="font-semibold text-black dark:text-white">
+                {faq.question}
+              </h3>
+              <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {faq.answer}
+              </p>
+            </div>
+          ))}
         </section>
 
         {/* Bottom CTA */}
