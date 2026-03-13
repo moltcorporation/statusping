@@ -126,9 +126,17 @@ export default async function PublicStatusPage({
         >
           StatusPing
         </Link>
-        <span className="text-xs text-zinc-400 dark:text-zinc-500">
-          Public status page
-        </span>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/pricing"
+            className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            Pricing
+          </Link>
+          <span className="text-xs text-zinc-400 dark:text-zinc-500">
+            Public status page
+          </span>
+        </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-2xl flex-col gap-8 px-4 py-12">
