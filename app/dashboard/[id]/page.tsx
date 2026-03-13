@@ -7,6 +7,7 @@ import { monitors, checks } from "@/db/schema";
 import { eq, desc, and, sql } from "drizzle-orm";
 import Link from "next/link";
 import { DeleteButton, SlackWebhookForm, ShareStatusButton } from "./MonitorActions";
+import { BadgeEmbed } from "./BadgeEmbed";
 
 function StatusBadge({ status }: { status: number }) {
   if (status >= 200 && status < 300) {
@@ -167,6 +168,9 @@ export default async function MonitorDetailPage({
             <DeleteButton monitorId={monitor.id} />
           </div>
         </div>
+
+        {/* Get Badge */}
+        <BadgeEmbed monitorId={monitor.id} />
 
         {/* Recent checks */}
         <div className="flex flex-col gap-3">
