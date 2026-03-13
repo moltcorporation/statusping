@@ -1,81 +1,136 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "UptimeRobot Alternative — Free Website Uptime Monitor | StatusPing",
-  description:
-    "Looking for an UptimeRobot alternative? StatusPing is a free uptime monitor with Slack alerts, public status pages, and embeddable uptime badges. No credit card required.",
-  openGraph: {
-    title: "UptimeRobot Alternative — StatusPing",
-    description:
-      "Free uptime monitoring with Slack alerts, public status pages, and uptime badges. No credit card required.",
-    type: "website",
-    siteName: "StatusPing",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "UptimeRobot Alternative — StatusPing",
-    description:
-      "Free uptime monitoring with Slack alerts and public status pages.",
-  },
-};
 
 const features = [
   {
-    statuspng: "Free tier with hourly checks, no credit card",
-    competitor: "Free tier with 5-minute checks (50 monitors)",
+    feature: "Free tier monitors",
+    statusping: "3 monitors",
+    competitor: "50 monitors",
   },
   {
-    statuspng: "Pro: 5-minute checks at $9/mo",
-    competitor: "Pro: 5-minute checks at $7/mo (50 monitors)",
+    feature: "Free check interval",
+    statusping: "Every hour",
+    competitor: "Every 5 minutes",
   },
   {
-    statuspng: "Slack alerts on down/recovery transitions",
+    feature: "Pro pricing",
+    statusping: "$9/mo — unlimited monitors, 5-min checks",
+    competitor: "$7/mo — 50 monitors, 5-min checks",
+  },
+  {
+    feature: "Pricing model",
+    statusping: "Two tiers: Free and Pro. Straightforward.",
+    competitor: "Multiple tiers (Free, Solo, Team, Enterprise)",
+  },
+  {
+    feature: "Alert channels",
+    statusping: "Slack and email alerts on down/recovery",
     competitor: "Email, SMS, Slack, webhooks, and more",
   },
   {
-    statuspng: "Public status page with shareable URL",
-    competitor: "Status pages available on paid plans",
+    feature: "Public status pages",
+    statusping: "Included free — shareable URL for every monitor",
+    competitor: "Available on paid plans",
   },
   {
-    statuspng: "Embeddable uptime badge (Markdown & HTML)",
-    competitor: "No embeddable badges",
+    feature: "Uptime badges",
+    statusping: "Embeddable Markdown & HTML badges",
+    competitor: "Not available",
   },
   {
-    statuspng: "Part of the Moltcorp suite (SSL, DNS, Headers, Meta)",
+    feature: "Setup time",
+    statusping: "30 seconds — no account required",
+    competitor: "Account registration + dashboard configuration",
+  },
+  {
+    feature: "Ecosystem",
+    statusping: "Part of Moltcorp Suite (SSL, DNS, Headers, Meta, WHOIS)",
     competitor: "Standalone monitoring tool",
   },
+];
+
+const faqs = [
   {
-    statuspng: "Simple, focused — set up in 30 seconds",
-    competitor: "Feature-rich but more complex setup",
+    question: "Can I migrate my monitors from UptimeRobot to StatusPing?",
+    answer:
+      "Yes. Just add each URL to StatusPing — enter the URL and your email, and monitoring starts immediately. There is no import tool needed because setup takes seconds per monitor. You can run both services in parallel during the transition.",
+  },
+  {
+    question: "Does StatusPing support SMS or webhook alerts like UptimeRobot?",
+    answer:
+      "StatusPing currently supports Slack and email alerts. UptimeRobot offers more notification channels including SMS and webhooks. If Slack and email cover your alert needs, StatusPing keeps things simple. More channels are on the roadmap.",
+  },
+  {
+    question: "Is StatusPing really free? What are the limits?",
+    answer:
+      "The free tier gives you 3 monitors with hourly checks, Slack/email alerts, public status pages, and uptime badges — no credit card, no trial expiration. If you need unlimited monitors and 5-minute check intervals, Pro is $9/month.",
+  },
+  {
+    question:
+      "Why choose StatusPing over UptimeRobot if UptimeRobot has more features?",
+    answer:
+      "UptimeRobot is a great tool with more features and a longer track record. StatusPing is built for developers who value simplicity and want uptime monitoring as part of a broader website health workflow. With the Moltcorp Suite, you get SSL checking, DNS lookups, security header analysis, and meta tag validation alongside your uptime monitors — all from the same ecosystem.",
   },
 ];
 
 export default function UptimeRobotComparison() {
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+      {/* Structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
+
+      {/* Header */}
       <header className="flex items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-bold tracking-tight text-black dark:text-white">
-          StatusPing
-        </Link>
         <Link
           href="/"
-          className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+          className="text-lg font-bold tracking-tight text-black dark:text-white"
         >
-          Monitor your site free
+          StatusPing
         </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/pricing"
+            className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            Pricing
+          </Link>
+          <Link
+            href="/"
+            className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+          >
+            Monitor your site free
+          </Link>
+        </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-3xl flex-col gap-10 px-4 py-12">
+        {/* Hero */}
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl font-bold text-black sm:text-4xl dark:text-white">
             UptimeRobot Alternative
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            UptimeRobot is the most popular free uptime monitor. StatusPing is
-            a simpler alternative built for developers who want quick setup,
-            Slack alerts, and public status pages — all part of a full website
-            health suite. No credit card. No complex dashboards.
+            UptimeRobot is the most popular free uptime monitor with 50 monitors
+            on the free tier and 5-minute check intervals. Their Pro plan starts
+            at $7/mo with multiple pricing tiers. StatusPing takes a different
+            approach: simple setup, a clean dashboard, Slack and email alerts,
+            and straightforward pricing with just two tiers. No complex tier
+            ladders to navigate.
           </p>
         </div>
 
@@ -88,10 +143,12 @@ export default function UptimeRobotComparison() {
             UptimeRobot has more features: more notification channels, more
             monitors on the free tier, and a longer track record. If you need
             SMS alerts, 50+ monitors, or detailed incident management,
-            UptimeRobot is hard to beat. But if you want a simple monitor
-            that&apos;s part of a broader website security suite — with SSL
-            checks, DNS lookups, header analysis, and meta tag validation all
-            in one place — StatusPing fits that workflow.
+            UptimeRobot is hard to beat. But if you want a simple monitor with a
+            clean dashboard that&apos;s part of a broader website health suite
+            &mdash; with SSL checks, DNS lookups, header analysis, and meta tag
+            validation all in one place &mdash; StatusPing fits that workflow.
+            StatusPing&apos;s pricing is also straightforward: Free or Pro.
+            No Solo, Team, or Enterprise tiers to compare.
           </p>
         </div>
 
@@ -104,6 +161,9 @@ export default function UptimeRobotComparison() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
+                  <th className="px-4 py-3 text-left font-medium text-zinc-500 dark:text-zinc-500">
+                    Feature
+                  </th>
                   <th className="px-4 py-3 text-left font-medium text-black dark:text-white">
                     StatusPing
                   </th>
@@ -118,7 +178,12 @@ export default function UptimeRobotComparison() {
                     key={i}
                     className="border-b border-zinc-100 last:border-0 dark:border-zinc-800/50"
                   >
-                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">{row.statuspng}</td>
+                    <td className="px-4 py-3 font-medium text-zinc-600 dark:text-zinc-400">
+                      {row.feature}
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      {row.statusping}
+                    </td>
                     <td className="px-4 py-3 text-zinc-500 dark:text-zinc-500">
                       {row.competitor}
                     </td>
@@ -137,28 +202,54 @@ export default function UptimeRobotComparison() {
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
-                title: "You want a full security suite",
-                desc: "StatusPing works alongside HeaderGuard, SSL Checker, DNS Lookup, and MetaShield. One domain, every angle.",
+                title: "You want a full website health suite",
+                desc: "StatusPing works alongside HeaderGuard, SSL Checker, DNS Lookup, MetaShield, and WHOIS Lookup. One domain, every angle covered.",
               },
               {
                 title: "You want minimal setup",
-                desc: "Enter a URL and email. That's it. Monitor is live in seconds. No account creation, no credit card.",
+                desc: "Enter a URL and email. Monitor is live in seconds. No account creation, no credit card, no dashboard to configure.",
               },
               {
                 title: "You need public status pages",
-                desc: "Every monitor gets a shareable public status page with uptime stats, response times, and check history.",
+                desc: "Every monitor gets a shareable public status page with uptime stats, response times, and check history — included free.",
               },
               {
-                title: "You embed uptime badges",
-                desc: "Copy a Markdown or HTML snippet to show live uptime status on your README or website.",
+                title: "You want simple pricing",
+                desc: "Two tiers: Free and Pro ($9/mo). No comparing Solo vs Team vs Enterprise plans. Upgrade when you need more, downgrade anytime.",
               },
             ].map((item) => (
               <div
                 key={item.title}
                 className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
               >
-                <h3 className="font-semibold text-black dark:text-white">{item.title}</h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">{item.desc}</p>
+                <h3 className="font-semibold text-black dark:text-white">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* FAQ */}
+        <div className="flex flex-col gap-4">
+          <h2 className="text-xl font-semibold text-black dark:text-white">
+            Frequently asked questions
+          </h2>
+          <div className="flex flex-col gap-4">
+            {faqs.map((faq) => (
+              <div
+                key={faq.question}
+                className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
+              >
+                <h3 className="font-semibold text-black dark:text-white">
+                  {faq.question}
+                </h3>
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
@@ -170,13 +261,13 @@ export default function UptimeRobotComparison() {
             Start monitoring in 30 seconds
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400">
-            Free. No signup. Slack alerts included.
+            Free. No signup. Slack and email alerts included.
           </p>
           <Link
             href="/"
             className="rounded-lg bg-black px-8 py-3 text-base font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
           >
-            Open StatusPing
+            Try StatusPing free
           </Link>
         </div>
 
@@ -230,19 +321,64 @@ export default function UptimeRobotComparison() {
         </div>
       </main>
 
+      {/* Footer */}
       <footer className="flex flex-col items-center gap-3 px-6 py-6">
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
           <span className="font-medium">Moltcorp Suite:</span>
-          <span className="font-medium text-zinc-600 dark:text-zinc-300">StatusPing</span>
-          <a href="https://headerguard-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">HeaderGuard</a>
-          <a href="https://dns-lookup-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">DNS Lookup</a>
-          <a href="https://metashield-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">MetaShield</a>
-          <a href="https://ssl-certificate-checker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">SSL Checker</a>
-          <a href="https://whois-lookup-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">WHOIS Lookup</a>
+          <span className="font-medium text-zinc-600 dark:text-zinc-300">
+            StatusPing
+          </span>
+          <a
+            href="https://headerguard-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            HeaderGuard
+          </a>
+          <a
+            href="https://dns-lookup-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            DNS Lookup
+          </a>
+          <a
+            href="https://metashield-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            MetaShield
+          </a>
+          <a
+            href="https://ssl-certificate-checker-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            SSL Checker
+          </a>
+          <a
+            href="https://whois-lookup-moltcorporation.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-300"
+          >
+            WHOIS Lookup
+          </a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
           Built by agents at{" "}
-          <a href="https://moltcorporation.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-400">Moltcorp</a>
+          <a
+            href="https://moltcorporation.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-400"
+          >
+            Moltcorp
+          </a>
         </span>
       </footer>
     </div>

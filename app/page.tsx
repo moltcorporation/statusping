@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -9,11 +10,13 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [upgradeUrl, setUpgradeUrl] = useState("");
   const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
+    setUpgradeUrl("");
 
     let normalizedUrl = url.trim();
     if (!normalizedUrl) return;
@@ -47,6 +50,9 @@ export default function Home() {
 
       if (!res.ok) {
         const data = await res.json().catch(() => null);
+        if (data?.upgradeUrl) {
+          setUpgradeUrl(data.upgradeUrl);
+        }
         throw new Error(data?.error || "Something went wrong. Try again.");
       }
 
@@ -84,26 +90,42 @@ export default function Home() {
         <div className="text-lg font-bold tracking-tight text-black dark:text-white">
           StatusPing
         </div>
-        <a
-          href="https://moltcorporation.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
-        >
-          by Moltcorp
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href="/pricing"
+            className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            Pricing
+          </a>
+          <a
+            href="https://moltcorporation.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            by Moltcorp
+          </a>
+        </div>
       </header>
 
       {/* Hero */}
       <main className="flex flex-1 flex-col items-center justify-center px-4 pb-24">
         <div className="flex w-full max-w-xl flex-col items-center gap-6 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl dark:text-white">
-            Free Website Uptime Monitor
+            Know when your site
+            <span className="text-red-500"> goes down</span>
           </h1>
           <p className="max-w-md text-lg text-zinc-500 dark:text-zinc-400">
-            Free uptime monitoring. We check your URLs every hour and ping you
-            on Slack when something breaks.
+            Your users shouldn&apos;t be the ones telling you. StatusPing checks
+            your site every hour and alerts you on Slack the moment something breaks.
           </p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-400 dark:text-zinc-500">
+            <span>Checks every hour</span>
+            <span className="text-zinc-300 dark:text-zinc-700">|</span>
+            <span>Slack alerts in seconds</span>
+            <span className="text-zinc-300 dark:text-zinc-700">|</span>
+            <span>Free for 3 monitors</span>
+          </div>
 
           {success ? (
             <div className="flex w-full flex-col items-center gap-3 rounded-lg border border-green-200 bg-green-50 p-6 dark:border-green-900 dark:bg-green-950">
@@ -154,11 +176,27 @@ export default function Home() {
                 {loading ? "Adding..." : "Start monitoring (free)"}
               </button>
 
-              {error && (
+              {error && upgradeUrl ? (
+                <div className="flex flex-col items-center gap-2 rounded-lg border border-zinc-300 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
+                  <p className="text-sm font-medium text-black dark:text-white">
+                    You&apos;ve reached the free tier limit of 3 monitors.
+                  </p>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                    Upgrade to Pro for unlimited monitors and 5-minute checks.
+                  </p>
+                  <Link
+                    href={upgradeUrl}
+                    className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                  >
+                    Upgrade to Pro — $9/mo
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+              ) : error ? (
                 <p className="text-sm text-red-600 dark:text-red-400">
                   {error}
                 </p>
-              )}
+              ) : null}
             </form>
           )}
         </div>
@@ -167,9 +205,9 @@ export default function Home() {
         {!loading && !success && (
           <div className="mt-12 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
             {[
-              { step: "1", title: "Add your URL", desc: "Enter the URL you want to monitor and your email for alerts." },
-              { step: "2", title: "We check every hour", desc: "Our cron job pings your site hourly and records status and response time." },
-              { step: "3", title: "Get alerted instantly", desc: "Slack notification the moment your site goes down — and when it recovers." },
+              { step: "1", title: "Add your URL", desc: "Paste your site URL and your email. Takes 10 seconds." },
+              { step: "2", title: "We watch it for you", desc: "Hourly checks. We record status codes, response times, and downtime." },
+              { step: "3", title: "Get pinged, not surprised", desc: "Slack alert the second your site goes down — and again when it recovers." },
             ].map((s) => (
               <div key={s.step} className="flex flex-col items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 p-5 text-center dark:border-zinc-800 dark:bg-zinc-900">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm font-bold text-white dark:bg-white dark:text-black">{s.step}</span>
@@ -185,29 +223,29 @@ export default function Home() {
           <div className="mt-8 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <h3 className="font-semibold text-black dark:text-white">
-                Hourly Checks
+                Built for indie devs
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                We ping your site every hour and record the response time and
-                status code.
+                No enterprise sales calls. No 14-day trial traps. Free tier
+                that actually works. Pro when you need more.
               </p>
             </div>
             <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <h3 className="font-semibold text-black dark:text-white">
-                Slack Alerts
+                Slack-first alerts
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                Get instant Slack notifications when your site goes down or
-                comes back up.
+                Down and recovery alerts go straight to Slack. No email
+                noise. No app to install.
               </p>
             </div>
             <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <h3 className="font-semibold text-black dark:text-white">
-                Uptime History
+                Public status pages
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                See your uptime percentage and response time history at a
-                glance.
+                Share a live status page with your users. Show them you care
+                about uptime as much as they do.
               </p>
             </div>
           </div>

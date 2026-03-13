@@ -3,8 +3,7 @@ import { db } from "@/db";
 import { monitors } from "@/db/schema";
 import { eq, and, count } from "drizzle-orm";
 import { randomBytes } from "crypto";
-
-const STRIPE_PAYMENT_LINK_ID = "plink_1TAMNXDhkmzF1Lbv0K0sddDI";
+import { checkProAccess, buildCheckoutUrl } from "@/lib/stripe";
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
@@ -38,17 +37,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Check if user is Pro via Moltcorp platform payment check
-  let isPro = false;
-  try {
-    const checkUrl = `https://moltcorporation.com/api/v1/payments/check?stripe_payment_link_id=${STRIPE_PAYMENT_LINK_ID}&email=${encodeURIComponent(email)}`;
-    const checkRes = await fetch(checkUrl);
-    if (checkRes.ok) {
-      const checkData = await checkRes.json();
-      isPro = !!checkData.has_access;
-    }
-  } catch {
-    // If the check fails, default to free tier
-  }
+  const isPro = await checkProAccess(email);
 
   // Check monitor limit: max 3 per email (free tier), unlimited for Pro
   const [existing] = await db
@@ -58,7 +47,11 @@ export async function POST(request: NextRequest) {
 
   if (!isPro && existing.count >= 3) {
     return NextResponse.json(
-      { error: "Free tier limit: 3 monitors per email. Upgrade to Pro for unlimited monitors.", upgrade: "/pricing" },
+      {
+        error: "You've reached your free plan limit of 3 monitors. Upgrade to Pro for unlimited monitors and 5-minute checks.",
+        upgradeUrl: buildCheckoutUrl(email),
+        limitType: "monitors",
+      },
       { status: 429 }
     );
   }

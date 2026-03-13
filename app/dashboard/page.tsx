@@ -71,12 +71,20 @@ export default async function DashboardPage() {
         >
           StatusPing
         </Link>
-        <Link
-          href="/"
-          className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-        >
-          Add monitor
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/pricing"
+            className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            Pricing
+          </Link>
+          <Link
+            href="/"
+            className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+          >
+            Add monitor
+          </Link>
+        </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-3xl flex-col gap-6 px-4 py-8">
@@ -106,20 +114,21 @@ export default async function DashboardPage() {
         </div>
 
         {!isPro && userMonitors.length >= 3 && (
-          <div className="flex items-center justify-between rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-900 dark:bg-yellow-950">
+          <div className="flex items-center justify-between rounded-lg border border-zinc-300 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
             <div className="flex flex-col gap-0.5">
-              <span className="text-sm font-medium text-yellow-800 dark:text-yellow-200">
-                You&apos;ve reached the free tier limit
+              <span className="text-sm font-medium text-black dark:text-white">
+                You&apos;ve used all 3 free monitors.
               </span>
-              <span className="text-xs text-yellow-600 dark:text-yellow-400">
-                Upgrade to Pro for unlimited monitors and 5-minute checks
+              <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                Upgrade to Pro for unlimited monitors and 5-minute checks — $9/mo.
               </span>
             </div>
             <Link
               href="/pricing"
-              className="shrink-0 rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
-              View pricing
+              Upgrade to Pro
+              <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         )}
