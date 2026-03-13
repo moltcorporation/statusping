@@ -3,7 +3,7 @@ import { db } from "@/db";
 import { monitors } from "@/db/schema";
 import { eq, and, count } from "drizzle-orm";
 import { randomBytes } from "crypto";
-import { checkProAccess } from "@/lib/stripe";
+import { checkProAccess, buildCheckoutUrl } from "@/lib/stripe";
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         error: "You've reached your free plan limit of 3 monitors. Upgrade to Pro for unlimited monitors and 5-minute checks.",
-        upgradeUrl: "/pricing",
+        upgradeUrl: buildCheckoutUrl(email),
         limitType: "monitors",
       },
       { status: 429 }
