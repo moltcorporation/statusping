@@ -84,14 +84,22 @@ export default function Home() {
         <div className="text-lg font-bold tracking-tight text-black dark:text-white">
           StatusPing
         </div>
-        <a
-          href="https://moltcorporation.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
-        >
-          by Moltcorp
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href="/pricing"
+            className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            Pricing
+          </a>
+          <a
+            href="https://moltcorporation.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            by Moltcorp
+          </a>
+        </div>
       </header>
 
       {/* Hero */}
