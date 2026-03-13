@@ -1,333 +1,348 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Pingdom Alternative — Simple, Affordable Uptime Monitoring | StatusPing",
-  description:
-    "Looking for a Pingdom alternative? StatusPing offers simple uptime monitoring at $9/mo flat — no per-check pricing. Free tier included. Slack alerts, status pages, and uptime badges.",
-  openGraph: {
-    title: "Pingdom Alternative — StatusPing",
-    description:
-      "Simple uptime monitoring without the enterprise price tag. $9/mo flat vs Pingdom's per-check pricing. Free tier available.",
-    type: "website",
-    siteName: "StatusPing",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Pingdom Alternative — StatusPing",
-    description:
-      "Simple uptime monitoring at $9/mo flat. No per-check pricing, no complexity.",
-  },
-};
-
-const features = [
-  {
-    statuspng: "Free tier with hourly checks, no credit card",
-    competitor: "No free tier — starts at $15/mo for 10 monitors",
-  },
-  {
-    statuspng: "Pro: $9/mo flat for 5-minute checks",
-    competitor: "Starts at $15/mo, scales to $85/mo+ with more checks",
-  },
-  {
-    statuspng: "Simple pricing — one plan, everything included",
-    competitor: "Per-check pricing adds up fast as you scale",
-  },
-  {
-    statuspng: "Slack alerts on down/recovery transitions",
-    competitor: "Email, SMS, Slack, webhooks, and integrations",
-  },
-  {
-    statuspng: "Public status page with shareable URL",
-    competitor: "Status pages available (additional cost on some plans)",
-  },
-  {
-    statuspng: "Embeddable uptime badge (Markdown & HTML)",
-    competitor: "Banners and widgets available",
-  },
-  {
-    statuspng: "Part of the Moltcorp suite (SSL, DNS, Headers, Meta, WHOIS)",
-    competitor: "Standalone monitoring tool (SolarWinds ecosystem)",
-  },
-  {
-    statuspng: "Set up in 30 seconds — enter URL and go",
-    competitor: "Full-featured but more complex onboarding",
-  },
-];
 
 const faqs = [
   {
-    q: "Is StatusPing really a good alternative to Pingdom?",
-    a: "For indie developers and small teams who need straightforward uptime monitoring, yes. StatusPing covers the essentials — HTTP checks, Slack alerts, public status pages, and uptime badges — at a fraction of Pingdom's cost. If you need enterprise features like transaction monitoring or 60+ probe locations, Pingdom is the better choice.",
+    question: "Is StatusPing really free?",
+    answer:
+      "Yes. The free tier gives you 3 monitors with hourly checks and Slack alerts. No credit card, no trial that expires. If you need unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
   },
   {
-    q: "How does pricing compare between StatusPing and Pingdom?",
-    a: "StatusPing offers a free tier with hourly checks and a Pro plan at $9/mo flat. Pingdom has no free tier and starts at $15/mo for 10 synthetic monitors, with costs scaling to $85/mo or more as you add checks. For small teams, StatusPing is significantly cheaper.",
+    question: "How does StatusPing compare to Pingdom's free tier?",
+    answer:
+      "Pingdom discontinued their free tier years ago. Their cheapest plan starts at $15/month for 10 monitors. StatusPing offers 3 free monitors forever with no credit card required, and Pro is $9/month for unlimited monitors.",
   },
   {
-    q: "What can Pingdom do that StatusPing can't?",
-    a: "Pingdom offers transaction monitoring (multi-step scripts), Real User Monitoring (RUM), over 60 global probe locations, and deep SolarWinds integrations for enterprise observability. If you need those capabilities, Pingdom is worth the premium.",
+    question: "Does StatusPing support SMS or email alerts?",
+    answer:
+      "StatusPing currently sends alerts via Slack. Pingdom supports SMS, email, and integrations with many incident management tools. If you need SMS alerting, Pingdom or BetterStack may be a better fit.",
   },
   {
-    q: "Does StatusPing support alerts other than Slack?",
-    a: "Currently, StatusPing supports Slack alerts on down and recovery transitions. Pingdom supports email, SMS, Slack, PagerDuty, webhooks, and many other notification channels. If you rely on SMS or PagerDuty, Pingdom has you covered.",
+    question: "Can StatusPing monitor from multiple locations?",
+    answer:
+      "StatusPing currently monitors from a single location. Pingdom checks from over 100 probe servers worldwide. For multi-region latency monitoring, Pingdom has the advantage. StatusPing focuses on simple, reliable up/down detection.",
   },
   {
-    q: "What is the Moltcorp Suite?",
-    a: "StatusPing is part of a family of free website health tools built by Moltcorp: SSL Certificate Checker, DNS Lookup, HeaderGuard (security headers), MetaShield (meta tags), and WHOIS Lookup. Together they give you a complete picture of your site's health from one ecosystem.",
+    question: "Does StatusPing have an API?",
+    answer:
+      "API access is coming soon on the Pro plan. Pingdom has a mature REST API for managing checks, retrieving results, and integrating with CI/CD pipelines.",
   },
 ];
 
-export default function PingdomComparison() {
-  const faqJsonLd = {
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Pingdom Alternative — StatusPing",
+    url: "https://statusping-moltcorporation.vercel.app/compare/pingdom",
+    description:
+      "Compare StatusPing vs Pingdom. Free uptime monitoring alternative with Slack alerts and public status pages.",
+    mainEntity: {
+      "@type": "SoftwareApplication",
+      name: "StatusPing",
+      url: "https://statusping-moltcorporation.vercel.app",
+      applicationCategory: "WebApplication",
+      operatingSystem: "Any",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+      },
+    },
+  },
+  {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      name: faq.q,
+      name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.a,
+        text: faq.answer,
       },
     })),
-  };
+  },
+];
 
+export default function PingdomComparison() {
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       <header className="flex items-center justify-between px-6 py-4">
-        <Link href="/" className="text-lg font-bold tracking-tight text-black dark:text-white">
-          StatusPing
-        </Link>
         <Link
           href="/"
-          className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+          className="text-lg font-bold tracking-tight text-black dark:text-white"
         >
-          Monitor your site free
+          StatusPing
         </Link>
+        <div className="flex items-center gap-4">
+          <Link
+            href="/pricing"
+            className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            Pricing
+          </Link>
+          <Link
+            href="/"
+            className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+          >
+            Monitor your site free
+          </Link>
+        </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-3xl flex-col gap-10 px-4 py-12">
         <div className="flex flex-col gap-4">
+          <p className="text-sm font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+            Comparison
+          </p>
           <h1 className="text-3xl font-bold text-black sm:text-4xl dark:text-white">
-            Pingdom Alternative
+            Pingdom Alternative — Free Uptime Monitoring
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Pingdom is one of the oldest uptime monitoring services around, but
-            its per-check pricing and SolarWinds enterprise focus can be
-            overkill for indie developers and small teams. StatusPing is a
-            simpler, more affordable alternative — $9/mo flat for everything,
-            with a free tier to get started. No credit card. No complex
-            dashboards.
+            Pingdom by SolarWinds is the industry standard for uptime
+            monitoring — but it starts at $15/month with no free tier.
+            StatusPing gives you free uptime monitoring with Slack alerts
+            and public status pages. No credit card, no trial expiration.
           </p>
         </div>
 
-        {/* Honest comparison */}
-        <div className="flex flex-col gap-3 rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
-          <h2 className="text-xl font-semibold text-black dark:text-white">
-            An honest comparison
-          </h2>
-          <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Pingdom has been around since 2007 and earned its reputation.
-            It offers transaction monitoring, Real User Monitoring (RUM), 60+
-            probe locations worldwide, and deep integrations across the
-            SolarWinds platform. If you need enterprise-grade observability or
-            multi-step transaction scripts, Pingdom delivers. But if you&apos;re
-            an indie dev or small team that just needs to know when your site
-            goes down — without paying $15+/mo per service — StatusPing gets
-            the job done at a fraction of the cost, and it&apos;s part of a
-            broader website health suite.
-          </p>
-        </div>
+        <Link
+          href="/"
+          className="inline-flex self-start rounded-lg bg-black px-8 py-3 text-base font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+        >
+          Start monitoring free
+        </Link>
 
         {/* Comparison table */}
-        <div className="flex flex-col gap-4">
+        <section className="flex flex-col gap-4">
           <h2 className="text-xl font-semibold text-black dark:text-white">
-            StatusPing vs Pingdom
+            Pingdom vs StatusPing
           </h2>
           <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
                   <th className="px-4 py-3 text-left font-medium text-black dark:text-white">
-                    StatusPing
+                    Feature
                   </th>
-                  <th className="px-4 py-3 text-left font-medium text-zinc-500 dark:text-zinc-500">
+                  <th className="px-4 py-3 text-left font-medium text-zinc-400 dark:text-zinc-500">
                     Pingdom
+                  </th>
+                  <th className="px-4 py-3 text-left font-medium text-black dark:text-white">
+                    StatusPing
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                {features.map((row, i) => (
-                  <tr
-                    key={i}
-                    className="border-b border-zinc-100 last:border-0 dark:border-zinc-800/50"
-                  >
-                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">{row.statuspng}</td>
-                    <td className="px-4 py-3 text-zinc-500 dark:text-zinc-500">
-                      {row.competitor}
+              <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/50">
+                {[
+                  [
+                    "Free tier",
+                    "None (removed)",
+                    "3 monitors, forever free",
+                  ],
+                  [
+                    "Cheapest paid plan",
+                    "$15/mo (10 monitors)",
+                    "$9/mo (unlimited monitors)",
+                  ],
+                  [
+                    "Check interval",
+                    "1 minute",
+                    "1 hour (Pro: 5 min)",
+                  ],
+                  [
+                    "Check locations",
+                    "100+ global probes",
+                    "Single location",
+                  ],
+                  [
+                    "Setup time",
+                    "Account + billing info",
+                    "30 seconds, no account",
+                  ],
+                  [
+                    "Slack alerts",
+                    "Via integrations",
+                    "Native — down + recovery",
+                  ],
+                  [
+                    "Public status page",
+                    "Yes (paid add-on)",
+                    "Yes (included free)",
+                  ],
+                  [
+                    "Uptime badges",
+                    "No",
+                    "Yes — HTML + Markdown",
+                  ],
+                  [
+                    "Transaction monitoring",
+                    "Yes (multi-step scripts)",
+                    "No — HTTP checks only",
+                  ],
+                  [
+                    "RUM (Real User Monitoring)",
+                    "Yes",
+                    "No",
+                  ],
+                  [
+                    "Part of a suite",
+                    "SolarWinds ecosystem",
+                    "Moltcorp Suite — SSL, DNS, Headers, Meta, WHOIS",
+                  ],
+                ].map(([feature, pingdom, statusping]) => (
+                  <tr key={feature} className="bg-white dark:bg-black">
+                    <td className="px-4 py-3 font-medium text-black dark:text-white">
+                      {feature}
+                    </td>
+                    <td className="px-4 py-3 text-zinc-400 dark:text-zinc-500">
+                      {pingdom}
+                    </td>
+                    <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
+                      {statusping}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        </div>
+        </section>
 
         {/* When Pingdom is better */}
-        <div className="flex flex-col gap-4">
+        <section className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold text-black dark:text-white">
             When Pingdom is the better choice
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              {
-                title: "You need transaction monitoring",
-                desc: "Pingdom can script multi-step user flows — login, add to cart, checkout — and alert if any step fails. StatusPing does HTTP checks only.",
-              },
-              {
-                title: "You need 60+ global probe locations",
-                desc: "Pingdom monitors from dozens of locations worldwide for geo-specific latency data. StatusPing checks from a single region.",
-              },
-              {
-                title: "You need Real User Monitoring",
-                desc: "Pingdom RUM tracks actual visitor performance with page load metrics. StatusPing focuses on synthetic uptime checks.",
-              },
-              {
-                title: "You're in the SolarWinds ecosystem",
-                desc: "If your team already uses SolarWinds for infrastructure observability, Pingdom integrates seamlessly with that stack.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
-              >
-                <h3 className="font-semibold text-black dark:text-white">{item.title}</h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+          <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                You need sub-minute check intervals and global probe locations
+                for latency monitoring across regions.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                You need transaction monitoring — multi-step scripts that
+                simulate user flows like login, checkout, or form submissions.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                You need Real User Monitoring (RUM) to track actual page load
+                performance from real visitors.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                You&apos;re already in the SolarWinds ecosystem and want
+                integrated observability across infrastructure.
+              </span>
+            </li>
+          </ul>
+        </section>
 
         {/* When StatusPing is better */}
-        <div className="flex flex-col gap-4">
+        <section className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold text-black dark:text-white">
             When StatusPing is the better choice
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              {
-                title: "You want simple, flat pricing",
-                desc: "StatusPing is $9/mo for everything. Pingdom starts at $15/mo and costs scale with every check you add. No surprises with StatusPing.",
-              },
-              {
-                title: "You want a full website health suite",
-                desc: "StatusPing works alongside HeaderGuard, SSL Checker, DNS Lookup, MetaShield, and WHOIS Lookup. One ecosystem, every angle.",
-              },
-              {
-                title: "You want minimal setup",
-                desc: "Enter a URL and email. That's it. Monitor is live in seconds. No account creation, no credit card.",
-              },
-              {
-                title: "You need public status pages & badges",
-                desc: "Every monitor gets a shareable public status page and an embeddable uptime badge for your README or website.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
-              >
-                <h3 className="font-semibold text-black dark:text-white">{item.title}</h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+          <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                You want free uptime monitoring with zero commitment — no credit
+                card, no trial, no account creation.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                You monitor a small number of sites and don&apos;t need
+                enterprise-grade features like RUM or transaction scripts.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                You want Slack alerts natively — no integration setup, just
+                instant down and recovery notifications.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                You want a suite of related tools — check SSL certificates, DNS
+                records, security headers, meta tags, and WHOIS data alongside
+                uptime monitoring.
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 text-zinc-400">&bull;</span>
+              <span>
+                Budget matters — StatusPing Pro is $9/month for unlimited
+                monitors vs Pingdom&apos;s $15/month for 10.
+              </span>
+            </li>
+          </ul>
+        </section>
 
         {/* FAQ */}
-        <div className="flex flex-col gap-4">
+        <section className="flex flex-col gap-6">
           <h2 className="text-xl font-semibold text-black dark:text-white">
-            Frequently asked questions
+            Frequently Asked Questions
           </h2>
-          <div className="flex flex-col gap-3">
-            {faqs.map((faq) => (
-              <div
-                key={faq.q}
-                className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900"
-              >
-                <h3 className="font-semibold text-black dark:text-white">{faq.q}</h3>
-                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{faq.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+          {faqs.map((faq, i) => (
+            <div key={i} className="flex flex-col gap-3">
+              <h3 className="font-semibold text-black dark:text-white">
+                {faq.question}
+              </h3>
+              <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+                {faq.answer}
+              </p>
+            </div>
+          ))}
+        </section>
 
-        {/* CTA */}
+        {/* Bottom CTA */}
         <div className="flex flex-col items-center gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-8 text-center dark:border-zinc-800 dark:bg-zinc-900">
           <h2 className="text-2xl font-bold text-black dark:text-white">
-            Start monitoring in 30 seconds
+            Try StatusPing — it&apos;s free
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Free. No signup. Slack alerts included.
+          <p className="max-w-md text-sm text-zinc-600 dark:text-zinc-400">
+            Paste your URL, add your email, get Slack alerts when your site goes
+            down. 30 seconds to set up. No credit card.
           </p>
           <Link
             href="/"
             className="rounded-lg bg-black px-8 py-3 text-base font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
           >
-            Open StatusPing
+            Start monitoring free
           </Link>
         </div>
 
-        {/* Related tools */}
-        <div className="flex flex-col gap-3 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
-          <p className="text-sm font-medium text-black dark:text-white">
-            Also check your site with
+        {/* Cross-links */}
+        <div className="flex flex-col gap-3 text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="font-medium text-black dark:text-white">
+            More comparisons
           </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="https://headerguard-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              Security Headers &rarr;
-            </a>
-            <a
-              href="https://ssl-certificate-checker-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              SSL Certificate &rarr;
-            </a>
-            <a
-              href="https://dns-lookup-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              DNS Records &rarr;
-            </a>
-            <a
-              href="https://metashield-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              Meta Tags &rarr;
-            </a>
-            <a
-              href="https://whois-lookup-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              WHOIS Lookup &rarr;
-            </a>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/compare/uptimerobot" className="hover:text-black dark:hover:text-white">
+              vs UptimeRobot
+            </Link>
+            <Link href="/compare/freshping" className="hover:text-black dark:hover:text-white">
+              vs Freshping
+            </Link>
+            <Link href="/compare/betterstack" className="hover:text-black dark:hover:text-white">
+              vs Better Stack
+            </Link>
           </div>
         </div>
       </main>
@@ -335,7 +350,9 @@ export default function PingdomComparison() {
       <footer className="flex flex-col items-center gap-3 px-6 py-6">
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
           <span className="font-medium">Moltcorp Suite:</span>
-          <span className="font-medium text-zinc-600 dark:text-zinc-300">StatusPing</span>
+          <span className="font-medium text-zinc-600 dark:text-zinc-300">
+            StatusPing
+          </span>
           <a href="https://headerguard-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">HeaderGuard</a>
           <a href="https://dns-lookup-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">DNS Lookup</a>
           <a href="https://metashield-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">MetaShield</a>
@@ -344,7 +361,14 @@ export default function PingdomComparison() {
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
           Built by agents at{" "}
-          <a href="https://moltcorporation.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-400">Moltcorp</a>
+          <a
+            href="https://moltcorporation.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-600 dark:hover:text-zinc-400"
+          >
+            Moltcorp
+          </a>
         </span>
       </footer>
     </div>
