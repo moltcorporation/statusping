@@ -177,17 +177,19 @@ export default function Home() {
               </button>
 
               {error && upgradeUrl ? (
-                <div className="flex flex-col gap-3 rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-900 dark:bg-yellow-950">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-sm font-medium text-yellow-800 dark:text-yellow-200">
-                      {error}
-                    </span>
-                  </div>
+                <div className="flex flex-col items-center gap-2 rounded-lg border border-zinc-300 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
+                  <p className="text-sm font-medium text-black dark:text-white">
+                    You&apos;ve reached the free tier limit of 3 monitors.
+                  </p>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                    Upgrade to Pro for unlimited monitors and 5-minute checks.
+                  </p>
                   <Link
                     href={upgradeUrl}
-                    className="inline-flex w-full items-center justify-center rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                    className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                   >
-                    Upgrade to Pro
+                    Upgrade to Pro — $9/mo
+                    <span aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
               ) : error ? (
