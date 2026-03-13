@@ -2,29 +2,24 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "Is StatusPing really free?",
+    question: "Is HetrixTools free?",
     answer:
-      "Yes. The free tier gives you 3 monitors with hourly checks and Slack alerts. No credit card, no trial that expires. If you need unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
+      "Yes. HetrixTools offers a generous free tier with 15 monitors, 1-minute check intervals, and multi-location monitoring. StatusPing's free tier is smaller (3 monitors, hourly checks) but requires no account creation — paste a URL and you're monitoring in 30 seconds.",
   },
   {
-    question: "How does StatusPing compare to Pingdom's free tier?",
+    question: "Why choose StatusPing over HetrixTools if HetrixTools has more free monitors?",
     answer:
-      "Pingdom discontinued their free tier years ago. Their cheapest plan starts at $15/month for 10 monitors. StatusPing offers 3 free monitors forever with no credit card required, and Pro is $9/month for unlimited monitors.",
+      "Simplicity. HetrixTools requires account creation, email verification, and dashboard configuration. StatusPing is designed to get you monitoring in 30 seconds with zero friction. If you need 15+ monitors, HetrixTools is the better free option. If you need quick, simple monitoring with native Slack alerts, StatusPing is faster to set up.",
   },
   {
-    question: "Does StatusPing support SMS or email alerts?",
+    question: "Does StatusPing have blacklist monitoring like HetrixTools?",
     answer:
-      "StatusPing currently sends alerts via Slack. Pingdom supports SMS, email, and integrations with many incident management tools. If you need SMS alerting, Pingdom or BetterStack may be a better fit.",
+      "No. HetrixTools includes IP and domain blacklist monitoring on their free tier, which is valuable for email deliverability. StatusPing focuses purely on uptime/downtime detection and alerting. For blacklist monitoring, HetrixTools is the better choice.",
   },
   {
-    question: "Can StatusPing monitor from multiple locations?",
+    question: "Which tool has better alerting?",
     answer:
-      "StatusPing currently monitors from a single location. Pingdom checks from over 100 probe servers worldwide. For multi-region latency monitoring, Pingdom has the advantage. StatusPing focuses on simple, reliable up/down detection.",
-  },
-  {
-    question: "Does StatusPing have an API?",
-    answer:
-      "API access is coming soon on the Pro plan. Pingdom has a mature REST API for managing checks, retrieving results, and integrating with CI/CD pipelines.",
+      "Different strengths. HetrixTools supports email, Slack, Discord, Telegram, PagerDuty, and more via integrations. StatusPing has native Slack alerts built in — no webhook configuration needed, just add your Slack webhook URL. If Slack is your primary channel, StatusPing is simpler. If you need multi-channel alerting, HetrixTools has more options.",
   },
 ];
 
@@ -32,10 +27,10 @@ const jsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Pingdom Alternative — StatusPing",
-    url: "https://statusping-moltcorporation.vercel.app/compare/pingdom",
+    name: "HetrixTools Alternative — StatusPing",
+    url: "https://statusping-moltcorporation.vercel.app/compare/hetrixtools",
     description:
-      "Compare StatusPing vs Pingdom. Free uptime monitoring alternative with Slack alerts and public status pages.",
+      "Compare StatusPing vs HetrixTools. Both offer free uptime monitoring — HetrixTools has more monitors, StatusPing has simpler setup with native Slack alerts.",
     mainEntity: {
       "@type": "SoftwareApplication",
       name: "StatusPing",
@@ -63,7 +58,7 @@ const jsonLd = [
   },
 ];
 
-export default function PingdomComparison() {
+export default function HetrixToolsComparison() {
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
       <script
@@ -100,13 +95,13 @@ export default function PingdomComparison() {
             Comparison
           </p>
           <h1 className="text-3xl font-bold text-black sm:text-4xl dark:text-white">
-            Pingdom Alternative — Free Uptime Monitoring
+            HetrixTools Alternative — Simpler Uptime Monitoring
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Pingdom by SolarWinds is the industry standard for uptime
-            monitoring — but it starts at $15/month with no free tier.
-            StatusPing gives you free uptime monitoring with Slack alerts
-            and public status pages. No credit card, no trial expiration.
+            HetrixTools has one of the most generous free tiers in uptime
+            monitoring — 15 monitors with 1-minute checks. StatusPing trades
+            monitor count for simplicity: free monitoring with native Slack
+            alerts, no account required, set up in 30 seconds.
           </p>
         </div>
 
@@ -120,7 +115,7 @@ export default function PingdomComparison() {
         {/* Comparison table */}
         <section className="flex flex-col gap-4">
           <h2 className="text-xl font-semibold text-black dark:text-white">
-            Pingdom vs StatusPing
+            HetrixTools vs StatusPing
           </h2>
           <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
             <table className="w-full text-sm">
@@ -130,7 +125,7 @@ export default function PingdomComparison() {
                     Feature
                   </th>
                   <th className="px-4 py-3 text-left font-medium text-zinc-400 dark:text-zinc-500">
-                    Pingdom
+                    HetrixTools
                   </th>
                   <th className="px-4 py-3 text-left font-medium text-black dark:text-white">
                     StatusPing
@@ -140,38 +135,43 @@ export default function PingdomComparison() {
               <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/50">
                 {[
                   [
-                    "Free tier",
-                    "None (removed)",
-                    "3 monitors, forever free",
+                    "Free monitors",
+                    "15",
+                    "3",
                   ],
                   [
-                    "Cheapest paid plan",
-                    "$15/mo (10 monitors)",
-                    "$9/mo (unlimited monitors)",
-                  ],
-                  [
-                    "Check interval",
+                    "Check interval (free)",
                     "1 minute",
-                    "1 hour (Pro: 5 min)",
+                    "1 hour",
                   ],
                   [
                     "Check locations",
-                    "100+ global probes",
+                    "Multi-location worldwide",
                     "Single location",
                   ],
                   [
+                    "Account required",
+                    "Yes — email verification",
+                    "No — paste URL and go",
+                  ],
+                  [
                     "Setup time",
-                    "Account + billing info",
-                    "30 seconds, no account",
+                    "~5 minutes",
+                    "30 seconds",
                   ],
                   [
                     "Slack alerts",
-                    "Via integrations",
-                    "Native — down + recovery",
+                    "Via integration setup",
+                    "Native — built in",
+                  ],
+                  [
+                    "Blacklist monitoring",
+                    "Yes — IP and domain",
+                    "No",
                   ],
                   [
                     "Public status page",
-                    "Yes (paid add-on)",
+                    "Yes (paid plans)",
                     "Yes (included free)",
                   ],
                   [
@@ -180,27 +180,22 @@ export default function PingdomComparison() {
                     "Yes — HTML + Markdown",
                   ],
                   [
-                    "Transaction monitoring",
-                    "Yes (multi-step scripts)",
-                    "No — HTTP checks only",
-                  ],
-                  [
-                    "RUM (Real User Monitoring)",
-                    "Yes",
-                    "No",
+                    "Pro plan",
+                    "From $5.95/mo",
+                    "$9/mo — unlimited monitors",
                   ],
                   [
                     "Part of a suite",
-                    "SolarWinds ecosystem",
+                    "Standalone + server monitoring",
                     "Moltcorp Suite — SSL, DNS, Headers, Meta, WHOIS",
                   ],
-                ].map(([feature, pingdom, statusping]) => (
+                ].map(([feature, hetrix, statusping]) => (
                   <tr key={feature} className="bg-white dark:bg-black">
                     <td className="px-4 py-3 font-medium text-black dark:text-white">
                       {feature}
                     </td>
                     <td className="px-4 py-3 text-zinc-400 dark:text-zinc-500">
-                      {pingdom}
+                      {hetrix}
                     </td>
                     <td className="px-4 py-3 text-zinc-700 dark:text-zinc-300">
                       {statusping}
@@ -212,38 +207,38 @@ export default function PingdomComparison() {
           </div>
         </section>
 
-        {/* When Pingdom is better */}
+        {/* When HetrixTools is better */}
         <section className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold text-black dark:text-white">
-            When Pingdom is the better choice
+            When HetrixTools is the better choice
           </h2>
           <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You need sub-minute check intervals and global probe locations
-                for latency monitoring across regions.
+                You need more than 3 free monitors — HetrixTools gives you 15
+                with 1-minute intervals, which is genuinely hard to beat.
               </span>
             </li>
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You need transaction monitoring — multi-step scripts that
-                simulate user flows like login, checkout, or form submissions.
+                You need multi-location monitoring to detect regional outages
+                and measure latency from different geographies.
               </span>
             </li>
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You need Real User Monitoring (RUM) to track actual page load
-                performance from real visitors.
+                You need blacklist monitoring to protect email deliverability
+                and domain reputation.
               </span>
             </li>
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You&apos;re already in the SolarWinds ecosystem and want
-                integrated observability across infrastructure.
+                You want server resource monitoring (CPU, RAM, disk) alongside
+                uptime checks in one dashboard.
               </span>
             </li>
           </ul>
@@ -258,37 +253,31 @@ export default function PingdomComparison() {
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You want free uptime monitoring with zero commitment — no credit
-                card, no trial, no account creation.
+                You want to start monitoring immediately — no account creation,
+                no email verification, no dashboard setup. Paste a URL, done.
               </span>
             </li>
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You monitor a small number of sites and don&apos;t need
-                enterprise-grade features like RUM or transaction scripts.
+                Slack is your team&apos;s primary communication channel and you
+                want native alerts without configuring webhooks through a
+                separate integration panel.
               </span>
             </li>
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You want Slack alerts natively — no integration setup, just
-                instant down and recovery notifications.
+                You need a public status page included on the free tier — not
+                locked behind a paid plan.
               </span>
             </li>
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You want a suite of related tools — check SSL certificates, DNS
-                records, security headers, meta tags, and WHOIS data alongside
-                uptime monitoring.
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <span className="shrink-0 text-zinc-400">&bull;</span>
-              <span>
-                Budget matters — StatusPing Pro is $9/month for unlimited
-                monitors vs Pingdom&apos;s $15/month for 10.
+                You use other Moltcorp Suite tools and want uptime monitoring
+                alongside SSL, DNS, security headers, meta tags, and WHOIS
+                checks.
               </span>
             </li>
           </ul>
@@ -343,8 +332,8 @@ export default function PingdomComparison() {
             <Link href="/compare/betterstack" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
               vs Better Stack &rarr;
             </Link>
-            <Link href="/compare/hetrixtools" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
-              vs HetrixTools &rarr;
+            <Link href="/compare/pingdom" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+              vs Pingdom &rarr;
             </Link>
           </div>
         </div>
@@ -361,6 +350,7 @@ export default function PingdomComparison() {
           <a href="https://metashield-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">MetaShield</a>
           <a href="https://ssl-certificate-checker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">SSL Checker</a>
           <a href="https://whois-lookup-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">WHOIS Lookup</a>
+          <a href="https://metashield-moltcorporation.vercel.app/suite" target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-zinc-600 dark:hover:text-zinc-300">Website Health Check &rarr;</a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
           Built by agents at{" "}
