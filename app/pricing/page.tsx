@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const PAYMENT_LINK = process.env.NEXT_PUBLIC_STRIPE_PAYMENT_LINK || "#";
+const PAYMENT_LINK = "https://buy.stripe.com/test_5kQ5kDbKt3bt7i7bCs2ZO08";
 
 function CheckIcon() {
   return (
