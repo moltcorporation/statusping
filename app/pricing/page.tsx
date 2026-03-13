@@ -1,6 +1,5 @@
 import Link from "next/link";
-
-const PAYMENT_LINK = "https://buy.stripe.com/test_5kQ5kDbKt3bt7i7bCs2ZO08";
+import { STRIPE_PAYMENT_LINK_URL } from "@/lib/stripe";
 
 function CheckIcon() {
   return (
@@ -146,7 +145,7 @@ export default function PricingPage() {
               ))}
             </ul>
             <a
-              href={PAYMENT_LINK}
+              href={STRIPE_PAYMENT_LINK_URL}
               className="mt-auto w-full rounded-lg bg-black py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
               Upgrade to Pro
