@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
 import { eq, and, sql } from "drizzle-orm";
+import { sendSlackAlert, sendSlackRecovery } from "@/lib/alerts";
 
 export const maxDuration = 10;
 
@@ -101,39 +102,3 @@ export async function GET(request: NextRequest) {
   return NextResponse.json({ checked, failed, total: proMonitors.length });
 }
 
-async function sendSlackAlert(
-  webhookUrl: string,
-  siteUrl: string,
-  statusCode: number
-) {
-  try {
-    await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        text: `\ud83d\udd34 *DOWN* \u2014 ${siteUrl} is not responding${statusCode > 0 ? ` (HTTP ${statusCode})` : " (timeout/unreachable)"}. Checked by StatusPing.`,
-      }),
-    });
-  } catch {
-    // Slack notification failures are non-critical
-  }
-}
-
-async function sendSlackRecovery(
-  webhookUrl: string,
-  siteUrl: string,
-  statusCode: number,
-  responseMs: number
-) {
-  try {
-    await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        text: `\ud83d\udfe2 *UP* \u2014 ${siteUrl} is back online (HTTP ${statusCode}, ${responseMs}ms). Checked by StatusPing.`,
-      }),
-    });
-  } catch {
-    // Slack notification failures are non-critical
-  }
-}
