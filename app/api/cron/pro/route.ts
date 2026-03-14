@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
 import { eq, and, sql } from "drizzle-orm";
-import { sendSlackAlert, sendSlackRecovery } from "@/lib/alerts";
+import { sendSlackAlert, sendSlackRecovery, sendEmailAlert, sendEmailRecovery } from "@/lib/alerts";
 
 export const maxDuration = 10;
 
@@ -17,6 +17,7 @@ export async function GET(request: NextRequest) {
     .select({
       id: monitors.id,
       url: monitors.url,
+      email: monitors.email,
       lastStatus: monitors.lastStatus,
       slackWebhookUrl: monitors.slackWebhookUrl,
     })
@@ -73,8 +74,11 @@ export async function GET(request: NextRequest) {
         monitor.lastStatus < 300;
       const isDown = statusCode === 0 || statusCode >= 400;
 
-      if (wasUp && isDown && monitor.slackWebhookUrl) {
-        await sendSlackAlert(monitor.slackWebhookUrl, monitor.url, statusCode);
+      if (wasUp && isDown) {
+        await sendEmailAlert(monitor.email, monitor.url, statusCode);
+        if (monitor.slackWebhookUrl) {
+          await sendSlackAlert(monitor.slackWebhookUrl, monitor.url, statusCode);
+        }
       }
 
       // Detect recovery
@@ -83,13 +87,16 @@ export async function GET(request: NextRequest) {
         (monitor.lastStatus === 0 || monitor.lastStatus >= 400);
       const isUp = statusCode >= 200 && statusCode < 300;
 
-      if (wasDown && isUp && monitor.slackWebhookUrl) {
-        await sendSlackRecovery(
-          monitor.slackWebhookUrl,
-          monitor.url,
-          statusCode,
-          responseMs
-        );
+      if (wasDown && isUp) {
+        await sendEmailRecovery(monitor.email, monitor.url, statusCode, responseMs);
+        if (monitor.slackWebhookUrl) {
+          await sendSlackRecovery(
+            monitor.slackWebhookUrl,
+            monitor.url,
+            statusCode,
+            responseMs
+          );
+        }
       }
 
       return { monitorId: monitor.id, statusCode, responseMs };
