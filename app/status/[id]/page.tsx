@@ -118,11 +118,11 @@ export default async function PublicStatusPage({
   const isPending = monitor.lastStatus === null;
 
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-col bg-green-50 font-sans dark:bg-black">
       <header className="flex items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight text-black dark:text-white"
+          className="text-lg font-bold tracking-tight text-emerald-700 dark:text-emerald-400"
         >
           StatusPing
         </Link>

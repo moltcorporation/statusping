@@ -63,11 +63,11 @@ export default async function DashboardPage() {
   );
 
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-col bg-green-50 font-sans dark:bg-black">
       <header className="flex items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight text-black dark:text-white"
+          className="text-lg font-bold tracking-tight text-emerald-700 dark:text-emerald-400"
         >
           StatusPing
         </Link>
@@ -80,7 +80,7 @@ export default async function DashboardPage() {
           </Link>
           <Link
             href="/"
-            className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+            className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
           >
             Add monitor
           </Link>
@@ -100,13 +100,13 @@ export default async function DashboardPage() {
             </p>
           </div>
           {isPro ? (
-            <span className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white dark:bg-white dark:text-black">
+            <span className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white dark:bg-emerald-500">
               Pro
             </span>
           ) : (
             <Link
               href="/pricing"
-              className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
             >
               Upgrade to Pro
             </Link>
@@ -125,7 +125,7 @@ export default async function DashboardPage() {
             </div>
             <Link
               href="/pricing"
-              className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
             >
               Upgrade to Pro
               <span aria-hidden="true">&rarr;</span>
@@ -140,7 +140,7 @@ export default async function DashboardPage() {
             </p>
             <Link
               href="/"
-              className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
             >
               Add your first monitor
             </Link>
