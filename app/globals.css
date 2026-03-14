@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f0fdf4;
+  --background: #f0f9ff;
   --foreground: #171717;
 }
 
@@ -26,5 +26,5 @@ body {
 }
 
 .hero-gradient {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(16, 185, 129, 0.12), transparent);
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(14, 165, 233, 0.12), transparent);
 }

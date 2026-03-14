@@ -86,7 +86,7 @@ const jsonLd = {
 
 export default function BetterStackComparison() {
   return (
-    <div className="flex min-h-screen flex-col bg-green-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-col bg-sky-50 font-sans dark:bg-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -95,7 +95,7 @@ export default function BetterStackComparison() {
       <header className="flex items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight text-emerald-700 dark:text-emerald-400"
+          className="text-lg font-bold tracking-tight text-sky-700 dark:text-sky-400"
         >
           StatusPing
         </Link>
@@ -108,7 +108,7 @@ export default function BetterStackComparison() {
           </Link>
           <Link
             href="/"
-            className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
+            className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600"
           >
             Monitor your site free
           </Link>
@@ -270,7 +270,7 @@ export default function BetterStackComparison() {
           </p>
           <Link
             href="/"
-            className="rounded-lg bg-emerald-600 px-8 py-3 text-base font-medium text-white transition-colors hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600"
+            className="rounded-lg bg-sky-600 px-8 py-3 text-base font-medium text-white transition-colors hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600"
           >
             Try StatusPing free
           </Link>

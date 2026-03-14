@@ -12,7 +12,7 @@ import { BadgeEmbed } from "./BadgeEmbed";
 function StatusBadge({ status }: { status: number }) {
   if (status >= 200 && status < 300) {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2.5 py-0.5 text-xs font-medium text-green-700 dark:bg-green-950 dark:text-green-400">
+      <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-2.5 py-0.5 text-xs font-medium text-green-700 dark:bg-green-950 dark:text-green-400">
         {status} OK
       </span>
     );
@@ -82,11 +82,11 @@ export default async function MonitorDetailPage({
     stats.total > 0 ? Math.round((stats.up / stats.total) * 100) : null;
 
   return (
-    <div className="flex min-h-screen flex-col bg-green-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-col bg-sky-50 font-sans dark:bg-black">
       <header className="flex items-center justify-between px-6 py-4">
         <Link
           href="/dashboard"
-          className="text-lg font-bold tracking-tight text-emerald-700 dark:text-emerald-400"
+          className="text-lg font-bold tracking-tight text-sky-700 dark:text-sky-400"
         >
           StatusPing
         </Link>
