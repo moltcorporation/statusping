@@ -78,7 +78,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-col bg-sky-50 font-sans dark:bg-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -99,7 +99,7 @@ export default function Home() {
       />
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4">
-        <div className="text-lg font-bold tracking-tight text-black dark:text-white">
+        <div className="text-lg font-bold tracking-tight text-sky-700 dark:text-sky-400">
           StatusPing
         </div>
         <div className="flex items-center gap-4">
@@ -121,7 +121,7 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <main className="flex flex-1 flex-col items-center justify-center px-4 pb-24">
+      <main className="hero-gradient flex flex-1 flex-col items-center justify-center px-4 pb-24">
         <div className="flex w-full max-w-xl flex-col items-center gap-6 text-center">
           <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl dark:text-white">
             Know when your site
@@ -140,7 +140,7 @@ export default function Home() {
           </div>
 
           {success ? (
-            <div className="flex w-full flex-col items-center gap-3 rounded-lg border border-green-200 bg-green-50 p-6 dark:border-green-900 dark:bg-green-950">
+            <div className="flex w-full flex-col items-center gap-3 rounded-lg border border-green-200 bg-sky-50 p-6 dark:border-green-900 dark:bg-green-950">
               <span className="text-lg font-semibold text-green-700 dark:text-green-400">
                 Monitor added!
               </span>
@@ -183,7 +183,7 @@ export default function Home() {
               <button
                 type="submit"
                 disabled={loading || !url.trim() || !email.trim()}
-                className="w-full rounded-lg bg-black px-6 py-3 text-base font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                className="w-full rounded-lg bg-sky-600 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-sky-700 disabled:opacity-50 dark:bg-sky-500 dark:hover:bg-sky-600"
               >
                 {loading ? "Adding..." : "Start monitoring (free)"}
               </button>
@@ -198,7 +198,7 @@ export default function Home() {
                   </p>
                   <Link
                     href={upgradeUrl}
-                    className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                    className="inline-flex items-center gap-2 rounded-lg bg-sky-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600"
                   >
                     Upgrade to Pro — $9/mo
                     <span aria-hidden="true">&rarr;</span>
@@ -260,8 +260,8 @@ export default function Home() {
               { step: "2", title: "We watch it for you", desc: "Hourly checks. We record status codes, response times, and downtime." },
               { step: "3", title: "Get pinged, not surprised", desc: "Slack alert the second your site goes down — and again when it recovers." },
             ].map((s) => (
-              <div key={s.step} className="flex flex-col items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 p-5 text-center dark:border-zinc-800 dark:bg-zinc-900">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm font-bold text-white dark:bg-white dark:text-black">{s.step}</span>
+              <div key={s.step} className="flex flex-col items-center gap-2 rounded-lg border border-sky-200 bg-white p-5 text-center dark:border-sky-900 dark:bg-zinc-900">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sky-600 text-sm font-bold text-white dark:bg-sky-500">{s.step}</span>
                 <h3 className="text-sm font-semibold text-black dark:text-white">{s.title}</h3>
                 <p className="text-xs text-zinc-500 dark:text-zinc-400">{s.desc}</p>
               </div>
@@ -272,8 +272,8 @@ export default function Home() {
         {/* Features */}
         {!loading && !success && (
           <div className="mt-8 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
-            <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
-              <h3 className="font-semibold text-black dark:text-white">
+            <div className="flex flex-col gap-2 rounded-lg border border-sky-200 bg-white p-5 dark:border-sky-900 dark:bg-zinc-900">
+              <h3 className="font-semibold text-sky-800 dark:text-sky-300">
                 Built for indie devs
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
@@ -281,8 +281,8 @@ export default function Home() {
                 that actually works. Pro when you need more.
               </p>
             </div>
-            <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
-              <h3 className="font-semibold text-black dark:text-white">
+            <div className="flex flex-col gap-2 rounded-lg border border-sky-200 bg-white p-5 dark:border-sky-900 dark:bg-zinc-900">
+              <h3 className="font-semibold text-sky-800 dark:text-sky-300">
                 Slack-first alerts
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
@@ -290,8 +290,8 @@ export default function Home() {
                 noise. No app to install.
               </p>
             </div>
-            <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
-              <h3 className="font-semibold text-black dark:text-white">
+            <div className="flex flex-col gap-2 rounded-lg border border-sky-200 bg-white p-5 dark:border-sky-900 dark:bg-zinc-900">
+              <h3 className="font-semibold text-sky-800 dark:text-sky-300">
                 Public status pages
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">

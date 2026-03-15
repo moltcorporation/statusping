@@ -44,7 +44,7 @@ function UptimeDots({
             title={`${check.statusCode} at ${check.checkedAt ? new Date(check.checkedAt).toLocaleString() : "unknown"}`}
             className={`h-8 w-2 rounded-full ${
               isUp
-                ? "bg-green-500 dark:bg-green-400"
+                ? "bg-sky-500 dark:bg-green-400"
                 : "bg-red-500 dark:bg-red-400"
             }`}
           />
@@ -118,11 +118,11 @@ export default async function PublicStatusPage({
   const isPending = monitor.lastStatus === null;
 
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-col bg-sky-50 font-sans dark:bg-black">
       <header className="flex items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight text-black dark:text-white"
+          className="text-lg font-bold tracking-tight text-sky-700 dark:text-sky-400"
         >
           StatusPing
         </Link>
@@ -156,7 +156,7 @@ export default async function PublicStatusPage({
                 isPending
                   ? "bg-zinc-300 dark:bg-zinc-600"
                   : isUp
-                    ? "bg-green-500 dark:bg-green-400"
+                    ? "bg-sky-500 dark:bg-green-400"
                     : "bg-red-500 dark:bg-red-400"
               }`}
             />

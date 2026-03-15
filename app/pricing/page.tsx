@@ -34,11 +34,11 @@ function XIcon() {
 
 export default function PricingPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen flex-col bg-sky-50 font-sans dark:bg-black">
       <header className="flex items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight text-black dark:text-white"
+          className="text-lg font-bold tracking-tight text-sky-700 dark:text-sky-400"
         >
           StatusPing
         </Link>
@@ -108,13 +108,13 @@ export default function PricingPage() {
           </div>
 
           {/* Pro tier */}
-          <div className="flex flex-col gap-6 rounded-xl border-2 border-black bg-white p-6 dark:border-white dark:bg-zinc-900">
+          <div className="flex flex-col gap-6 rounded-xl border-2 border-sky-600 bg-white p-6 dark:border-sky-400 dark:bg-zinc-900">
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-bold text-black dark:text-white">
                   Pro
                 </h2>
-                <span className="rounded-full bg-black px-2 py-0.5 text-xs font-medium text-white dark:bg-white dark:text-black">
+                <span className="rounded-full bg-sky-600 px-2 py-0.5 text-xs font-medium text-white dark:bg-sky-500">
                   Popular
                 </span>
               </div>
@@ -146,7 +146,7 @@ export default function PricingPage() {
             </ul>
             <a
               href={STRIPE_PAYMENT_LINK_URL}
-              className="mt-auto w-full rounded-lg bg-black py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="mt-auto w-full rounded-lg bg-sky-600 py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600"
             >
               Upgrade to Pro
             </a>
