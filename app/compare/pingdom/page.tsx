@@ -1,4 +1,30 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+const baseUrl = "https://statusping-moltcorporation.vercel.app";
+
+export const metadata: Metadata = {
+  title: "Pingdom Alternative — Free Uptime Monitoring | StatusPing",
+  description:
+    "Pingdom starts at $15/mo with no free tier. StatusPing offers free uptime monitoring with Slack and email alerts, public status pages, and uptime badges. Pro at $9/mo.",
+  alternates: {
+    canonical: `${baseUrl}/compare/pingdom`,
+  },
+  openGraph: {
+    title: "Pingdom Alternative — StatusPing",
+    description:
+      "Free uptime monitoring with Slack and email alerts. Pingdom starts at $15/mo — StatusPing is free.",
+    type: "website",
+    siteName: "StatusPing",
+    url: `${baseUrl}/compare/pingdom`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pingdom Alternative — StatusPing",
+    description:
+      "Free uptime monitoring. Pingdom $15/mo minimum — StatusPing is free with Slack and email alerts.",
+  },
+};
 
 const faqs = [
   {
@@ -14,7 +40,7 @@ const faqs = [
   {
     question: "Does StatusPing support SMS or email alerts?",
     answer:
-      "StatusPing currently sends alerts via Slack. Pingdom supports SMS, email, and integrations with many incident management tools. If you need SMS alerting, Pingdom or BetterStack may be a better fit.",
+      "StatusPing sends alerts via Slack and email — both down and recovery notifications. Pingdom supports SMS, email, and integrations with many incident management tools. If you specifically need SMS alerting, Pingdom or BetterStack may be a better fit.",
   },
   {
     question: "Can StatusPing monitor from multiple locations?",
@@ -168,6 +194,11 @@ export default function PingdomComparison() {
                     "Slack alerts",
                     "Via integrations",
                     "Native — down + recovery",
+                  ],
+                  [
+                    "Email alerts",
+                    "Yes",
+                    "Yes — down + recovery",
                   ],
                   [
                     "Public status page",
