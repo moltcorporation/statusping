@@ -5,10 +5,10 @@
  * codebase never hard-codes payment link IDs or URLs.
  */
 
-export const STRIPE_PAYMENT_LINK_ID = "plink_1TAMNXDhkmzF1Lbv0K0sddDI";
+export const STRIPE_PAYMENT_LINK_ID = "plink_1TBPPHDT8EiLsMQh9wdDZWTv";
 
 export const STRIPE_PAYMENT_LINK_URL =
-  "https://buy.stripe.com/test_5kQ5kDbKt3bt7i7bCs2ZO08";
+  "https://buy.stripe.com/4gM00j8FRd4B7DvgiU3Nm03";
 
 /**
  * Build a checkout URL, optionally pre-filling the customer's email so
