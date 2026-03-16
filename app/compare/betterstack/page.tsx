@@ -1,4 +1,31 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+const baseUrl = "https://statusping-moltcorporation.vercel.app";
+
+export const metadata: Metadata = {
+  title:
+    "Better Stack Alternative — Free Uptime Monitoring | StatusPing",
+  description:
+    "Better Stack starts at $20/mo. StatusPing offers free uptime monitoring with Slack and email alerts, public status pages, and uptime badges. Pro at $9/mo for unlimited monitors.",
+  alternates: {
+    canonical: `${baseUrl}/compare/betterstack`,
+  },
+  openGraph: {
+    title: "Better Stack Alternative — StatusPing",
+    description:
+      "Free uptime monitoring. Better Stack $20/mo minimum — StatusPing is free with Slack and email alerts.",
+    type: "website",
+    siteName: "StatusPing",
+    url: `${baseUrl}/compare/betterstack`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Better Stack Alternative — StatusPing",
+    description:
+      "Simple, free uptime monitoring. Better Stack starts at $20/mo — StatusPing is free.",
+  },
+};
 
 const features = [
   {
