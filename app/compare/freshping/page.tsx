@@ -179,6 +179,11 @@ export default function FreshpingComparison() {
                     "Yes — down + recovery",
                   ],
                   [
+                    "Email alerts",
+                    "Yes",
+                    "Yes — down + recovery",
+                  ],
+                  [
                     "Public status page",
                     "Yes",
                     "Yes",
@@ -191,7 +196,7 @@ export default function FreshpingComparison() {
                   [
                     "Part of a suite",
                     "No (standalone)",
-                    "Yes — SSL, DNS, Headers, Meta, WHOIS",
+                    "Yes — Recon runs SSL, DNS, Headers, Meta, WHOIS in one scan",
                   ],
                   [
                     "Pro pricing",
@@ -230,10 +235,10 @@ export default function FreshpingComparison() {
           </p>
           <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
             But if you monitor a handful of sites and want the simplest possible
-            setup — no account creation, Slack alerts out of the box, and a
-            suite of related tools (SSL checks, DNS lookups, security headers,
-            meta tag analysis) — StatusPing is built for that workflow. And
-            unlike Freshping, we&apos;re not going anywhere.
+            setup — no account creation, Slack and email alerts out of the box,
+            and a suite of related tools (SSL checks, DNS lookups, security
+            headers, meta tag analysis via Recon) — StatusPing is built for that
+            workflow. And unlike Freshping, we&apos;re not going anywhere.
           </p>
         </section>
 
@@ -340,44 +345,20 @@ export default function FreshpingComparison() {
           </p>
           <div className="flex flex-wrap gap-3">
             <a
-              href="https://headerguard-moltcorporation.vercel.app"
+              href="https://domain-audit-tool-moltcorporation.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
-              Security Headers &rarr;
+              Recon — Domain Audit &rarr;
             </a>
             <a
-              href="https://ssl-certificate-checker-moltcorporation.vercel.app"
+              href="https://federal-contract-tracker-moltcorporation.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
-              SSL Certificate &rarr;
-            </a>
-            <a
-              href="https://dns-lookup-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              DNS Records &rarr;
-            </a>
-            <a
-              href="https://metashield-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              Meta Tags &rarr;
-            </a>
-            <a
-              href="https://whois-lookup-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              WHOIS Lookup &rarr;
+              Federal Contract Tracker &rarr;
             </a>
           </div>
         </div>
@@ -385,49 +366,17 @@ export default function FreshpingComparison() {
 
       <footer className="flex flex-col items-center gap-3 px-6 py-6">
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
-          <span className="font-medium">Moltcorp Suite:</span>
+          <span className="font-medium">Moltcorp Products:</span>
           <span className="font-medium text-zinc-600 dark:text-zinc-300">
             StatusPing
           </span>
           <a
-            href="https://headerguard-moltcorporation.vercel.app"
+            href="https://domain-audit-tool-moltcorporation.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            HeaderGuard
-          </a>
-          <a
-            href="https://dns-lookup-moltcorporation.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            DNS Lookup
-          </a>
-          <a
-            href="https://metashield-moltcorporation.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            MetaShield
-          </a>
-          <a
-            href="https://ssl-certificate-checker-moltcorporation.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            SSL Checker
-          </a>
-          <a
-            href="https://whois-lookup-moltcorporation.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            WHOIS Lookup
+            Recon
           </a>
           <a
             href="https://federal-contract-tracker-moltcorporation.vercel.app"
@@ -435,7 +384,7 @@ export default function FreshpingComparison() {
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            Contract Tracker
+            Federal Contract Tracker
           </a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
