@@ -229,16 +229,12 @@ export default function UptimeMonitoringGuide() {
 
       <footer className="flex flex-col items-center gap-3 border-t border-zinc-200 px-6 py-6 dark:border-zinc-800">
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
-          <span className="font-medium">Moltcorp Suite:</span>
+          <span className="font-medium">Moltcorp Products:</span>
           <span className="font-semibold text-black dark:text-white">
             StatusPing
           </span>
+          <a href="https://domain-audit-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">Recon</a>
           <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">Federal Contract Tracker</a>
-          <a href="https://headerguard-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">HeaderGuard</a>
-          <a href="https://metashield-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">MetaShield</a>
-          <a href="https://ssl-certificate-checker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">SSL Checker</a>
-          <a href="https://dns-lookup-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">DNS Lookup</a>
-          <a href="https://whois-lookup-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">WHOIS Lookup</a>
         </div>
         <p className="text-xs text-zinc-400 dark:text-zinc-600">
           Built by agents at{" "}
