@@ -43,7 +43,7 @@ const features = [
   },
   {
     feature: "Ecosystem",
-    statusping: "Part of Moltcorp Suite (SSL, DNS, Headers, Meta, WHOIS)",
+    statusping: "Part of Moltcorp Products (Recon: SSL, DNS, Headers, Meta, WHOIS)",
     competitor: "Standalone monitoring tool",
   },
 ];
@@ -68,7 +68,7 @@ const faqs = [
     question:
       "Why choose StatusPing over UptimeRobot if UptimeRobot has more features?",
     answer:
-      "UptimeRobot is a great tool with more features and a longer track record. StatusPing is built for developers who value simplicity and want uptime monitoring as part of a broader website health workflow. With the Moltcorp Suite, you get SSL checking, DNS lookups, security header analysis, and meta tag validation alongside your uptime monitors — all from the same ecosystem.",
+      "UptimeRobot is a great tool with more features and a longer track record. StatusPing is built for developers who value simplicity and want uptime monitoring as part of a broader website health workflow. With Recon, you get SSL, DNS, security headers, meta tags, and WHOIS analysis in one scan — all from the same ecosystem.",
   },
 ];
 
@@ -144,9 +144,9 @@ export default function UptimeRobotComparison() {
             monitors on the free tier, and a longer track record. If you need
             SMS alerts, 50+ monitors, or detailed incident management,
             UptimeRobot is hard to beat. But if you want a simple monitor with a
-            clean dashboard that&apos;s part of a broader website health suite
-            &mdash; with SSL checks, DNS lookups, header analysis, and meta tag
-            validation all in one place &mdash; StatusPing fits that workflow.
+            clean dashboard that&apos;s part of a broader website health workflow
+            &mdash; with Recon covering SSL, DNS, headers, meta tags, and WHOIS
+            in one scan &mdash; StatusPing fits that workflow.
             StatusPing&apos;s pricing is also straightforward: Free or Pro.
             No Solo, Team, or Enterprise tiers to compare.
           </p>
@@ -202,8 +202,8 @@ export default function UptimeRobotComparison() {
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
-                title: "You want a full website health suite",
-                desc: "StatusPing works alongside HeaderGuard, SSL Checker, DNS Lookup, MetaShield, and WHOIS Lookup. One domain, every angle covered.",
+                title: "You want a full website health workflow",
+                desc: "StatusPing works alongside Recon for SSL, DNS, security headers, meta tags, and WHOIS analysis. One domain, every angle covered.",
               },
               {
                 title: "You want minimal setup",
@@ -299,44 +299,20 @@ export default function UptimeRobotComparison() {
           </p>
           <div className="flex flex-wrap gap-3">
             <a
-              href="https://headerguard-moltcorporation.vercel.app"
+              href="https://domain-audit-tool-moltcorporation.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
-              Security Headers &rarr;
+              Recon &mdash; Domain Audit &rarr;
             </a>
             <a
-              href="https://ssl-certificate-checker-moltcorporation.vercel.app"
+              href="https://federal-contract-tracker-moltcorporation.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
-              SSL Certificate &rarr;
-            </a>
-            <a
-              href="https://dns-lookup-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              DNS Records &rarr;
-            </a>
-            <a
-              href="https://metashield-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              Meta Tags &rarr;
-            </a>
-            <a
-              href="https://whois-lookup-moltcorporation.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
-            >
-              WHOIS Lookup &rarr;
+              Federal Contract Tracker &rarr;
             </a>
           </div>
         </div>
@@ -345,49 +321,17 @@ export default function UptimeRobotComparison() {
       {/* Footer */}
       <footer className="flex flex-col items-center gap-3 px-6 py-6">
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
-          <span className="font-medium">Moltcorp Suite:</span>
+          <span className="font-medium">Moltcorp Products:</span>
           <span className="font-medium text-zinc-600 dark:text-zinc-300">
             StatusPing
           </span>
           <a
-            href="https://headerguard-moltcorporation.vercel.app"
+            href="https://domain-audit-tool-moltcorporation.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            HeaderGuard
-          </a>
-          <a
-            href="https://dns-lookup-moltcorporation.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            DNS Lookup
-          </a>
-          <a
-            href="https://metashield-moltcorporation.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            MetaShield
-          </a>
-          <a
-            href="https://ssl-certificate-checker-moltcorporation.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            SSL Checker
-          </a>
-          <a
-            href="https://whois-lookup-moltcorporation.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            WHOIS Lookup
+            Recon
           </a>
           <a
             href="https://federal-contract-tracker-moltcorporation.vercel.app"
@@ -395,7 +339,7 @@ export default function UptimeRobotComparison() {
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            Contract Tracker
+            Federal Contract Tracker
           </a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">

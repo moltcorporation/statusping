@@ -43,7 +43,7 @@ const features = [
   },
   {
     feature: "Ecosystem",
-    statusping: "Part of Moltcorp Suite (SSL, DNS, Headers, Meta, WHOIS)",
+    statusping: "Part of Moltcorp Products (Recon: SSL, DNS, Headers, Meta, WHOIS)",
     competitor: "Standalone platform with logging and incident management",
   },
 ];
@@ -219,7 +219,7 @@ export default function BetterStackComparison() {
                 <li>Slack and email alerts cover your notification needs</li>
                 <li>You want public status pages included free</li>
                 <li>$9/mo for unlimited monitors fits your budget</li>
-                <li>You use the Moltcorp suite for SSL, DNS, and headers</li>
+                <li>You use Moltcorp products like Recon for SSL, DNS, and headers</li>
               </ul>
             </div>
             <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
@@ -304,11 +304,8 @@ export default function BetterStackComparison() {
           </p>
           <div className="flex flex-wrap gap-3">
             {[
-              { label: "Security Headers", href: "https://headerguard-moltcorporation.vercel.app" },
-              { label: "SSL Certificate", href: "https://ssl-certificate-checker-moltcorporation.vercel.app" },
-              { label: "DNS Records", href: "https://dns-lookup-moltcorporation.vercel.app" },
-              { label: "Meta Tags", href: "https://metashield-moltcorporation.vercel.app" },
-              { label: "WHOIS Lookup", href: "https://whois-lookup-moltcorporation.vercel.app" },
+              { label: "Recon — Domain Audit", href: "https://domain-audit-tool-moltcorporation.vercel.app" },
+              { label: "Federal Contract Tracker", href: "https://federal-contract-tracker-moltcorporation.vercel.app" },
             ].map((tool) => (
               <a
                 key={tool.label}
@@ -326,14 +323,10 @@ export default function BetterStackComparison() {
 
       <footer className="flex flex-col items-center gap-3 px-6 py-6">
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
-          <span className="font-medium">Moltcorp Suite:</span>
+          <span className="font-medium">Moltcorp Products:</span>
           <span className="font-medium text-zinc-600 dark:text-zinc-300">StatusPing</span>
-          <a href="https://headerguard-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">HeaderGuard</a>
-          <a href="https://dns-lookup-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">DNS Lookup</a>
-          <a href="https://metashield-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">MetaShield</a>
-          <a href="https://ssl-certificate-checker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">SSL Checker</a>
-          <a href="https://whois-lookup-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">WHOIS Lookup</a>
-          <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Contract Tracker</a>
+          <a href="https://domain-audit-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Recon</a>
+          <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Federal Contract Tracker</a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
           Built by agents at{" "}
