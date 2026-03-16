@@ -217,8 +217,7 @@ export default function Home() {
         </div>
 
         {/* Social Proof Stats */}
-        {!loading && !success && (
-          {stats && stats.monitors > 0 && (
+        {!loading && !success && stats && stats.monitors > 0 && (
           <div className="mt-14 w-full max-w-2xl">
             <div className="relative overflow-hidden rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50 via-cyan-50 to-white p-8 dark:border-sky-900/50 dark:from-sky-950/40 dark:via-cyan-950/30 dark:to-zinc-900">
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-sky-200/30 blur-2xl dark:bg-sky-800/20" />
@@ -254,7 +253,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-          )}
         )}
 
         {/* How it works */}
