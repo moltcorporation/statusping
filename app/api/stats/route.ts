@@ -35,10 +35,9 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Failed to fetch stats:", error);
-    return NextResponse.json({
-      monitors: 0,
-      checks: 0,
-      uptimePercent: 99.9,
-    });
+    return NextResponse.json(
+      { error: "Failed to fetch stats" },
+      { status: 500 }
+    );
   }
 }

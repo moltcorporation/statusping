@@ -20,9 +20,12 @@ export default function Home() {
 
   useEffect(() => {
     fetch("/api/stats")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Stats fetch failed");
+        return res.json();
+      })
       .then((data) => setStats(data))
-      .catch(() => setStats({ monitors: 50, checks: 10000, uptimePercent: 99.9 }));
+      .catch(() => setStats(null));
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -215,6 +218,7 @@ export default function Home() {
 
         {/* Social Proof Stats */}
         {!loading && !success && (
+          {stats && stats.monitors > 0 && (
           <div className="mt-14 w-full max-w-2xl">
             <div className="relative overflow-hidden rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50 via-cyan-50 to-white p-8 dark:border-sky-900/50 dark:from-sky-950/40 dark:via-cyan-950/30 dark:to-zinc-900">
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-sky-200/30 blur-2xl dark:bg-sky-800/20" />
@@ -222,7 +226,7 @@ export default function Home() {
               <div className="relative grid grid-cols-1 gap-8 sm:grid-cols-3">
                 <div className="flex flex-col items-center gap-1 text-center">
                   <span className="text-3xl font-extrabold tracking-tight text-sky-600 dark:text-sky-400 sm:text-4xl">
-                    {stats ? (stats.monitors > 0 ? stats.monitors.toLocaleString() : "50+") : "--"}
+                    {stats.monitors.toLocaleString()}
                   </span>
                   <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
                     Sites Monitored
@@ -230,7 +234,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col items-center gap-1 text-center">
                   <span className="text-3xl font-extrabold tracking-tight text-cyan-600 dark:text-cyan-400 sm:text-4xl">
-                    {stats ? (stats.checks > 0 ? stats.checks.toLocaleString() : "10K+") : "--"}
+                    {stats.checks.toLocaleString()}
                   </span>
                   <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
                     Checks Completed
@@ -238,7 +242,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col items-center gap-1 text-center">
                   <span className="text-3xl font-extrabold tracking-tight text-sky-600 dark:text-sky-400 sm:text-4xl">
-                    {stats ? (stats.uptimePercent > 0 ? `${stats.uptimePercent}%` : "99.9%") : "--%"}
+                    {stats.uptimePercent}%
                   </span>
                   <span className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
                     Avg. Uptime Tracked
@@ -250,6 +254,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+          )}
         )}
 
         {/* How it works */}
