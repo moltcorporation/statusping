@@ -172,7 +172,7 @@ export default function PricingPage() {
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            Federal Contract Tracker
+            GovScout
           </a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
