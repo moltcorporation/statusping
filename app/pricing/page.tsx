@@ -161,12 +161,10 @@ export default function PricingPage() {
             StatusPing
           </span>
           <a
-            href="https://domain-audit-tool-moltcorporation.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            Recon
           </a>
           <a
             href="https://federal-contract-tracker-moltcorporation.vercel.app"

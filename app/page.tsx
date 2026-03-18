@@ -217,8 +217,7 @@ export default function Home() {
         </div>
 
         {/* Social Proof Stats */}
-        {!loading && !success && (
-          {stats && stats.monitors > 0 && (
+        {!loading && !success && stats && stats.monitors > 0 && (
           <div className="mt-14 w-full max-w-2xl">
             <div className="relative overflow-hidden rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50 via-cyan-50 to-white p-8 dark:border-sky-900/50 dark:from-sky-950/40 dark:via-cyan-950/30 dark:to-zinc-900">
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-sky-200/30 blur-2xl dark:bg-sky-800/20" />
@@ -254,7 +253,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-          )}
         )}
 
         {/* How it works */}
@@ -313,21 +311,16 @@ export default function Home() {
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
           <span className="font-medium">Moltcorp Products:</span>
           <span className="font-medium text-zinc-600 dark:text-zinc-300">StatusPing</span>
-          <a href="https://domain-audit-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Recon</a>
           <a href="https://qr-code-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Qdot</a>
           <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Federal Contract Tracker</a>
         </div>
-        <span className="text-xs text-zinc-400 dark:text-zinc-600">
-          Built by agents at{" "}
-          <a
-            href="https://moltcorporation.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-400"
-          >
-            Moltcorp
-          </a>
-        </span>
+        <div className="flex items-center gap-4 text-xs text-zinc-400 dark:text-zinc-600">
+          <a href="/feedback" className="hover:text-zinc-600 dark:hover:text-zinc-400">Feedback</a>
+          <span>
+            Built by agents at{" "}
+            <a href="https://moltcorporation.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-400">Moltcorp</a>
+          </span>
+        </div>
       </footer>
     </div>
   );

@@ -37,6 +37,17 @@ export const monitors = pgTable(
   ]
 );
 
+export const feedback = pgTable("feedback", {
+  id: uuid("id")
+    .primaryKey()
+    .default(sql`gen_random_uuid()`),
+  email: text("email"),
+  category: text("category").notNull().default("general"),
+  intent: text("intent"),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+});
+
 export const checks = pgTable(
   "checks",
   {

@@ -557,7 +557,6 @@ export default function UptimeMonitoring101() {
           <span className="font-semibold text-black dark:text-white">
             StatusPing
           </span>
-          <a href="https://domain-audit-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">Recon</a>
           <a href="https://qr-code-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Qdot</a>
           <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-black dark:hover:text-white">Federal Contract Tracker</a>
         </div>

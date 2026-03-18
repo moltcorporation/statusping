@@ -70,7 +70,6 @@ const features = [
   },
   {
     feature: "Ecosystem",
-    statusping: "Part of Moltcorp Products (Recon: SSL, DNS, Headers, Meta, WHOIS)",
     competitor: "Standalone platform with logging and incident management",
   },
 ];
@@ -246,7 +245,6 @@ export default function BetterStackComparison() {
                 <li>Slack and email alerts cover your notification needs</li>
                 <li>You want public status pages included free</li>
                 <li>$9/mo for unlimited monitors fits your budget</li>
-                <li>You use Moltcorp products like Recon for SSL, DNS, and headers</li>
               </ul>
             </div>
             <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
@@ -331,7 +329,6 @@ export default function BetterStackComparison() {
           </p>
           <div className="flex flex-wrap gap-3">
             {[
-              { label: "Recon — Domain Audit", href: "https://domain-audit-tool-moltcorporation.vercel.app" },
               { label: "Federal Contract Tracker", href: "https://federal-contract-tracker-moltcorporation.vercel.app" },
             ].map((tool) => (
               <a
@@ -352,7 +349,6 @@ export default function BetterStackComparison() {
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
           <span className="font-medium">Moltcorp Products:</span>
           <span className="font-medium text-zinc-600 dark:text-zinc-300">StatusPing</span>
-          <a href="https://domain-audit-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Recon</a>
           <a href="https://qr-code-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Qdot</a>
           <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Federal Contract Tracker</a>
         </div>

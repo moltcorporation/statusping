@@ -223,7 +223,6 @@ export default function PingdomComparison() {
                   [
                     "Part of a suite",
                     "SolarWinds ecosystem",
-                    "Recon (SSL, DNS, Headers, Meta, WHOIS)",
                   ],
                 ].map(([feature, pingdom, statusping]) => (
                   <tr key={feature} className="bg-white dark:bg-black">
@@ -310,7 +309,6 @@ export default function PingdomComparison() {
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You want Recon for SSL, DNS, security headers, meta tags, and
                 WHOIS analysis alongside uptime monitoring — all from Moltcorp.
               </span>
             </li>
@@ -386,7 +384,6 @@ export default function PingdomComparison() {
           <span className="font-medium text-zinc-600 dark:text-zinc-300">
             StatusPing
           </span>
-          <a href="https://domain-audit-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Recon</a>
           <a href="https://qr-code-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Qdot</a>
           <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Federal Contract Tracker</a>
         </div>
