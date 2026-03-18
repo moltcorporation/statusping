@@ -196,7 +196,6 @@ export default function FreshpingComparison() {
                   [
                     "Part of a suite",
                     "No (standalone)",
-                    "Yes — Recon runs SSL, DNS, Headers, Meta, WHOIS in one scan",
                   ],
                   [
                     "Pro pricing",
@@ -237,7 +236,6 @@ export default function FreshpingComparison() {
             But if you monitor a handful of sites and want the simplest possible
             setup — no account creation, Slack and email alerts out of the box,
             and a suite of related tools (SSL checks, DNS lookups, security
-            headers, meta tag analysis via Recon) — StatusPing is built for that
             workflow. And unlike Freshping, we&apos;re not going anywhere.
           </p>
         </section>
@@ -345,12 +343,10 @@ export default function FreshpingComparison() {
           </p>
           <div className="flex flex-wrap gap-3">
             <a
-              href="https://domain-audit-tool-moltcorporation.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
-              Recon — Domain Audit &rarr;
             </a>
             <a
               href="https://federal-contract-tracker-moltcorporation.vercel.app"
@@ -371,12 +367,10 @@ export default function FreshpingComparison() {
             StatusPing
           </span>
           <a
-            href="https://domain-audit-tool-moltcorporation.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            Recon
           </a>
           <a
             href="https://federal-contract-tracker-moltcorporation.vercel.app"

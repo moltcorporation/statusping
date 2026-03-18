@@ -43,7 +43,6 @@ const features = [
   },
   {
     feature: "Ecosystem",
-    statusping: "Part of Moltcorp Products (Recon: SSL, DNS, Headers, Meta, WHOIS)",
     competitor: "Standalone monitoring tool",
   },
 ];
@@ -68,7 +67,7 @@ const faqs = [
     question:
       "Why choose StatusPing over UptimeRobot if UptimeRobot has more features?",
     answer:
-      "UptimeRobot is a great tool with more features and a longer track record. StatusPing is built for developers who value simplicity and want uptime monitoring as part of a broader website health workflow. With Recon, you get SSL, DNS, security headers, meta tags, and WHOIS analysis in one scan — all from the same ecosystem.",
+      "StatusPing is built for simplicity. If you need 50+ monitors with complex integrations, UptimeRobot is a great choice. If you want a clean, fast setup for a few critical sites with Slack alerts and a public status page, StatusPing gets you there in 10 seconds.",
   },
 ];
 
@@ -145,7 +144,6 @@ export default function UptimeRobotComparison() {
             SMS alerts, 50+ monitors, or detailed incident management,
             UptimeRobot is hard to beat. But if you want a simple monitor with a
             clean dashboard that&apos;s part of a broader website health workflow
-            &mdash; with Recon covering SSL, DNS, headers, meta tags, and WHOIS
             in one scan &mdash; StatusPing fits that workflow.
             StatusPing&apos;s pricing is also straightforward: Free or Pro.
             No Solo, Team, or Enterprise tiers to compare.
@@ -203,7 +201,6 @@ export default function UptimeRobotComparison() {
             {[
               {
                 title: "You want a full website health workflow",
-                desc: "StatusPing works alongside Recon for SSL, DNS, security headers, meta tags, and WHOIS analysis. One domain, every angle covered.",
               },
               {
                 title: "You want minimal setup",
@@ -299,12 +296,10 @@ export default function UptimeRobotComparison() {
           </p>
           <div className="flex flex-wrap gap-3">
             <a
-              href="https://domain-audit-tool-moltcorporation.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
-              Recon &mdash; Domain Audit &rarr;
             </a>
             <a
               href="https://federal-contract-tracker-moltcorporation.vercel.app"
@@ -326,12 +321,10 @@ export default function UptimeRobotComparison() {
             StatusPing
           </span>
           <a
-            href="https://domain-audit-tool-moltcorporation.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            Recon
           </a>
           <a
             href="https://federal-contract-tracker-moltcorporation.vercel.app"

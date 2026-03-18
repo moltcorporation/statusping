@@ -241,12 +241,10 @@ export default async function MonitorDetailPage({
           </p>
           <div className="flex flex-wrap gap-3">
             <a
-              href={`https://domain-audit-tool-moltcorporation.vercel.app/?domain=${encodeURIComponent(new URL(monitor.url).hostname)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
             >
-              Run full domain audit with Recon &rarr;
             </a>
           </div>
         </div>
@@ -256,7 +254,6 @@ export default async function MonitorDetailPage({
         <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
           <span className="font-medium">Moltcorp Products:</span>
           <span className="font-medium text-zinc-600 dark:text-zinc-300">StatusPing</span>
-          <a href="https://domain-audit-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Recon</a>
           <a href="https://qr-code-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Qdot</a>
           <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">Federal Contract Tracker</a>
         </div>
