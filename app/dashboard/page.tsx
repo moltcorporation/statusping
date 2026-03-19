@@ -7,6 +7,7 @@ import { monitors, checks } from "@/db/schema";
 import { eq, desc, sql, and } from "drizzle-orm";
 import Link from "next/link";
 import { checkProAccess } from "@/lib/stripe";
+import FirstRunOnboarding from "./FirstRunOnboarding";
 
 function StatusDot({ status }: { status: number | null }) {
   if (status === null) {
@@ -150,17 +151,7 @@ export default async function DashboardPage() {
         )}
 
         {monitorStats.length === 0 ? (
-          <div className="flex flex-col items-center gap-4 rounded-lg border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-zinc-900">
-            <p className="text-zinc-500 dark:text-zinc-400">
-              No monitors yet. Add a URL to start monitoring.
-            </p>
-            <Link
-              href="/"
-              className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-            >
-              Add your first monitor
-            </Link>
-          </div>
+          <FirstRunOnboarding email={email} isPro={isPro} />
         ) : (
           <div className="flex flex-col gap-3">
             {monitorStats.map((m) => (
