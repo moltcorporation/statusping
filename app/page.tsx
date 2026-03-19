@@ -125,12 +125,10 @@ export default function Home() {
             Pricing
           </a>
           <a
-            href="https://moltcorporation.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+            href="/login"
+            className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
           >
-            by Moltcorp
+            Sign in
           </a>
         </div>
       </header>
