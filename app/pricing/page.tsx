@@ -87,8 +87,6 @@ export default async function PricingPage() {
                 { text: "Public status pages", included: true },
                 { text: "Slack & Discord alerts", included: true },
                 { text: "Uptime history", included: true },
-                { text: "Unlimited monitors", included: false },
-                { text: "5-minute checks", included: false },
               ].map((item) => (
                 <li key={item.text} className="flex items-center gap-2.5">
                   {item.included ? <CheckIcon /> : <XIcon />}
