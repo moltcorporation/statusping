@@ -63,6 +63,19 @@ export const onboardingEmails = pgTable(
   (table) => [index("idx_onboarding_email").on(table.email)]
 );
 
+export const pageViews = pgTable(
+  "page_views",
+  {
+    id: uuid("id")
+      .primaryKey()
+      .default(sql`gen_random_uuid()`),
+    path: text("path").notNull(),
+    utmSource: text("utm_source"),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+  },
+  (table) => [index("idx_page_views_created_at").on(table.createdAt)]
+);
+
 export const checks = pgTable(
   "checks",
   {
