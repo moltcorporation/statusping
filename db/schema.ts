@@ -4,6 +4,7 @@
 
 import {
   pgTable,
+  serial,
   uuid,
   text,
   smallint,
@@ -45,6 +46,13 @@ export const feedback = pgTable("feedback", {
   category: text("category").notNull().default("general"),
   intent: text("intent"),
   message: text("message").notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+});
+
+export const emailSubscribers = pgTable("email_subscribers", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull().unique(),
+  source: text("source"),
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
 });
 
