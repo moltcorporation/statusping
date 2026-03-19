@@ -29,7 +29,7 @@ export function Drip3LimitNudge({ email }: { email?: string }) {
           </Text>
           <Text style={paragraph}>
             <Link href={buildCheckoutUrl(email)} style={link}>
-              Add unlimited monitors for $9/mo
+              Unlock unlimited monitors for $9/mo
             </Link>
           </Text>
           <Hr style={hr} />

@@ -99,7 +99,7 @@ export default function FirstRunOnboarding({
                   href="/pricing"
                   className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
                 >
-                  Upgrade
+                  Unlock Pro
                 </Link>
               )}
             </div>
@@ -108,7 +108,7 @@ export default function FirstRunOnboarding({
           {!isPro && (
             <div className="rounded-lg border border-emerald-200 bg-white dark:border-emerald-900 dark:bg-zinc-900 p-3">
               <div className="text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-                Go Pro for:
+                Unlock Pro:
               </div>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
                 <li>✓ 5-minute checks (vs 15-min)</li>
@@ -191,7 +191,7 @@ export default function FirstRunOnboarding({
               href="/pricing"
               className="font-medium text-emerald-700 hover:underline dark:text-emerald-300"
             >
-              Go Pro for unlimited
+              Unlock unlimited monitoring
             </Link>
           </>
         )}

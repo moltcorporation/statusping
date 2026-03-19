@@ -212,13 +212,13 @@ export default function Home() {
                     You&apos;ve reached the free tier limit of 10 monitors.
                   </p>
                   <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                    Upgrade to Pro for unlimited monitors and 5-minute checks.
+                    Unlock unlimited monitors and 5-minute checks.
                   </p>
                   <Link
                     href={upgradeUrl}
                     className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                   >
-                    Upgrade to Pro — $9/mo
+                    Unlock 5-min checks — $9/mo
                     <span aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
