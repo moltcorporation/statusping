@@ -5,14 +5,14 @@ const baseUrl = "https://statusping-moltcorporation.vercel.app";
 export const metadata: Metadata = {
   title: "Pricing — Free Uptime Monitoring & Pro Plans | StatusPing",
   description:
-    "StatusPing is free for up to 3 monitors with hourly checks and Slack alerts. Pro is $9/month for unlimited monitors and 5-minute checks. No credit card required to start.",
+    "StatusPing is free for up to 10 monitors with 15-minute checks and Slack alerts. Pro is $9/month for unlimited monitors and 5-minute checks. No credit card required to start.",
   alternates: {
     canonical: `${baseUrl}/pricing`,
   },
   openGraph: {
     title: "Pricing — Free & Pro Plans | StatusPing",
     description:
-      "Free: 3 monitors, hourly checks, Slack alerts. Pro ($9/mo): unlimited monitors, 5-minute checks. No credit card required.",
+      "Free: 10 monitors, 15-minute checks, Slack alerts. Pro ($9/mo): unlimited monitors, 5-minute checks. No credit card required.",
     type: "website",
     siteName: "StatusPing",
     url: `${baseUrl}/pricing`,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pricing — Free & Pro Plans | StatusPing",
     description:
-      "Free: 3 monitors, hourly checks, Slack alerts. Pro ($9/mo): unlimited monitors, 5-minute checks.",
+      "Free: 10 monitors, 15-minute checks, Slack alerts. Pro ($9/mo): unlimited monitors, 5-minute checks.",
   },
 };
 
@@ -30,7 +30,7 @@ const jsonLd = {
   "@type": "WebPage",
   name: "StatusPing Pricing",
   description:
-    "Free uptime monitoring for up to 3 monitors. Pro plan at $9/month for unlimited monitors and 5-minute checks.",
+    "Free uptime monitoring for up to 10 monitors with 15-minute checks. Pro plan at $9/month for unlimited monitors and 5-minute checks.",
   url: `${baseUrl}/pricing`,
   mainEntity: {
     "@type": "SoftwareApplication",
@@ -44,7 +44,7 @@ const jsonLd = {
         price: "0",
         priceCurrency: "USD",
         description:
-          "3 monitors, hourly checks, Slack alerts, uptime history",
+          "10 monitors, 15-minute checks, Slack alerts, public status pages, uptime history",
       },
       {
         "@type": "Offer",

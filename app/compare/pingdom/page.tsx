@@ -30,12 +30,12 @@ const faqs = [
   {
     question: "Is StatusPing really free?",
     answer:
-      "Yes. The free tier gives you 3 monitors with hourly checks and Slack alerts. No credit card, no trial that expires. If you need unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
+      "Yes. The free tier gives you 10 monitors with 15-minute checks and Slack alerts. No credit card, no trial that expires. If you need unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
   },
   {
     question: "How does StatusPing compare to Pingdom's free tier?",
     answer:
-      "Pingdom discontinued their free tier years ago. Their cheapest plan starts at $15/month for 10 monitors. StatusPing offers 3 free monitors forever with no credit card required, and Pro is $9/month for unlimited monitors.",
+      "Pingdom discontinued their free tier years ago. Their cheapest plan starts at $15/month for 10 monitors. StatusPing offers 10 free monitors forever with no credit card required, and Pro is $9/month for unlimited monitors.",
   },
   {
     question: "Does StatusPing support SMS or email alerts?",
@@ -168,7 +168,7 @@ export default function PingdomComparison() {
                   [
                     "Free tier",
                     "None (removed)",
-                    "3 monitors, forever free",
+                    "10 monitors, forever free",
                   ],
                   [
                     "Cheapest paid plan",

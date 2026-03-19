@@ -9,12 +9,12 @@ const faqs = [
   {
     question: "Is StatusPing really free?",
     answer:
-      "Yes. The free tier gives you 3 monitors with hourly checks and Slack alerts. No credit card, no trial expiration. If you need unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
+      "Yes. The free tier gives you 10 monitors with 15-minute checks and Slack alerts. No credit card, no trial expiration. If you need unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
   },
   {
     question: "Can I monitor 50 sites like I did on Freshping?",
     answer:
-      "On the free tier, you get 3 monitors. The Pro plan ($9/mo) gives you unlimited monitors. If you were using all 50 Freshping monitors, Pro is the way to go.",
+      "On the free tier, you get 10 monitors. The Pro plan ($9/mo) gives you unlimited monitors. If you were using all 50 Freshping monitors, Pro is the way to go.",
   },
   {
     question: "Will StatusPing also shut down?",
@@ -161,12 +161,12 @@ export default function FreshpingComparison() {
                   [
                     "Free monitors",
                     "50 monitors",
-                    "3 monitors",
+                    "10 monitors",
                   ],
                   [
                     "Check interval (free)",
                     "1 minute",
-                    "1 hour (Pro: 5 min)",
+                    "15 minutes (Pro: 5 min)",
                   ],
                   [
                     "Setup time",
@@ -227,7 +227,7 @@ export default function FreshpingComparison() {
           </h2>
           <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
             Freshping&apos;s free tier was more generous than ours — 50 monitors
-            with 1-minute checks vs our 3 monitors with hourly checks.
+            with 1-minute checks vs our 10 monitors with 15-minute checks.
             That&apos;s a real gap. If you need dozens of monitors with
             sub-minute intervals, you&apos;ll want to look at UptimeRobot or
             BetterUptime.

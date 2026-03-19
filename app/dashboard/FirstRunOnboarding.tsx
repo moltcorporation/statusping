@@ -92,14 +92,14 @@ export default function FirstRunOnboarding({
             <div className="flex items-center justify-between">
               <span className="text-sm font-medium text-black dark:text-white">
                 {isPro ? "Pro" : "Free"} — Checking every{" "}
-                {isPro ? "5 minutes" : "hour"}
+                {isPro ? "5 minutes" : "15 minutes"}
               </span>
               {!isPro && (
                 <Link
                   href="/pricing"
                   className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
                 >
-                  Upgrade
+                  Unlock Pro
                 </Link>
               )}
             </div>
@@ -108,11 +108,11 @@ export default function FirstRunOnboarding({
           {!isPro && (
             <div className="rounded-lg border border-emerald-200 bg-white dark:border-emerald-900 dark:bg-zinc-900 p-3">
               <div className="text-xs font-medium text-zinc-700 dark:text-zinc-300 mb-2">
-                Go Pro for:
+                Unlock Pro:
               </div>
               <ul className="text-xs text-zinc-600 dark:text-zinc-400 space-y-1">
-                <li>✓ 5-minute checks (vs hourly)</li>
-                <li>✓ Unlimited monitors (vs 3)</li>
+                <li>✓ 5-minute checks (vs 15-min)</li>
+                <li>✓ Unlimited monitors (vs 10)</li>
                 <li>✓ SMS alerts</li>
               </ul>
             </div>
@@ -182,7 +182,7 @@ export default function FirstRunOnboarding({
       </form>
 
       <p className="text-xs text-zinc-500 dark:text-zinc-400 text-center">
-        Free tier: 3 monitors, hourly checks
+        Free tier: 10 monitors, 15-minute checks
         {!isPro && (
           <>
             {" "}
@@ -191,7 +191,7 @@ export default function FirstRunOnboarding({
               href="/pricing"
               className="font-medium text-emerald-700 hover:underline dark:text-emerald-300"
             >
-              Go Pro for unlimited
+              Unlock unlimited monitoring
             </Link>
           </>
         )}

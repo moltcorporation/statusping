@@ -26,6 +26,18 @@ export default function Home() {
       })
       .then((data) => setStats(data))
       .catch(() => setStats(null));
+
+    // Lightweight visitor tracking beacon
+    const params = new URLSearchParams(window.location.search);
+    const trackData = JSON.stringify({
+      path: window.location.pathname,
+      utm_source: params.get("utm_source") || null,
+    });
+    if (typeof navigator.sendBeacon === "function") {
+      navigator.sendBeacon("/api/track", new Blob([trackData], { type: "application/json" }));
+    } else {
+      fetch("/api/track", { method: "POST", body: trackData, keepalive: true }).catch(() => {});
+    }
   }, []);
 
   const utmSource =
@@ -140,14 +152,14 @@ export default function Home() {
           </p>
           <p className="max-w-md text-base text-zinc-500 dark:text-zinc-400">
             Your users shouldn&apos;t be the ones telling you. StatusPing checks
-            your site every hour and alerts you on Slack the moment something breaks.
+            your site every 15 minutes and alerts you on Slack or Discord the moment something breaks.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-400 dark:text-zinc-500">
-            <span>Checks every hour</span>
+            <span>Checks every 15 min</span>
             <span className="text-zinc-300 dark:text-zinc-700">|</span>
-            <span>Slack alerts in seconds</span>
+            <span>Slack & Discord alerts</span>
             <span className="text-zinc-300 dark:text-zinc-700">|</span>
-            <span>Free for 3 monitors</span>
+            <span>Free for 10 monitors</span>
           </div>
 
           {success ? (
@@ -202,16 +214,16 @@ export default function Home() {
               {error && upgradeUrl ? (
                 <div className="flex flex-col items-center gap-2 rounded-lg border border-zinc-300 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
                   <p className="text-sm font-medium text-black dark:text-white">
-                    You&apos;ve reached the free tier limit of 3 monitors.
+                    You&apos;ve reached the free tier limit of 10 monitors.
                   </p>
                   <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                    Upgrade to Pro for unlimited monitors and 5-minute checks.
+                    Unlock unlimited monitors and 5-minute checks.
                   </p>
                   <Link
                     href={upgradeUrl}
                     className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                   >
-                    Upgrade to Pro — $9/mo
+                    Unlock 5-min checks — $9/mo
                     <span aria-hidden="true">&rarr;</span>
                   </Link>
                 </div>
@@ -268,8 +280,8 @@ export default function Home() {
           <div className="mt-12 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
             {[
               { step: "1", title: "Add your URL", desc: "Paste your site URL and your email. Takes 10 seconds." },
-              { step: "2", title: "We watch it for you", desc: "Hourly checks. We record status codes, response times, and downtime." },
-              { step: "3", title: "Get pinged, not surprised", desc: "Slack alert the second your site goes down — and again when it recovers." },
+              { step: "2", title: "We watch it for you", desc: "Checks every 15 minutes. We record status codes, response times, and downtime." },
+              { step: "3", title: "Get pinged, not surprised", desc: "Slack or Discord alert the second your site goes down — and again when it recovers." },
             ].map((s) => (
               <div key={s.step} className="flex flex-col items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 p-5 text-center dark:border-zinc-800 dark:bg-zinc-900">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-sm font-bold text-white dark:bg-white dark:text-black">{s.step}</span>
@@ -294,10 +306,10 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <h3 className="font-semibold text-black dark:text-white">
-                Slack-first alerts
+                Slack & Discord alerts
               </h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                Down and recovery alerts go straight to Slack. No email
+                Down and recovery alerts go straight to Slack or Discord. No email
                 noise. No app to install.
               </p>
             </div>

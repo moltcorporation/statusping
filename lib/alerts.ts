@@ -120,3 +120,44 @@ export async function sendSlackRecovery(
     // Slack notification failures are non-critical
   }
 }
+
+// ---------------------------------------------------------------------------
+// Discord alerts
+// ---------------------------------------------------------------------------
+
+export async function sendDiscordAlert(
+  webhookUrl: string,
+  siteUrl: string,
+  statusCode: number
+) {
+  try {
+    await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `🔴 **DOWN** — ${siteUrl} is not responding${statusCode > 0 ? ` (HTTP ${statusCode})` : " (timeout/unreachable)"}. Checked by StatusPing.`,
+      }),
+    });
+  } catch {
+    // Discord notification failures are non-critical
+  }
+}
+
+export async function sendDiscordRecovery(
+  webhookUrl: string,
+  siteUrl: string,
+  statusCode: number,
+  responseMs: number
+) {
+  try {
+    await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `🟢 **UP** — ${siteUrl} is back online (HTTP ${statusCode}, ${responseMs}ms). Checked by StatusPing.`,
+      }),
+    });
+  } catch {
+    // Discord notification failures are non-critical
+  }
+}

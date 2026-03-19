@@ -82,9 +82,10 @@ export default async function PricingPage() {
             </div>
             <ul className="flex flex-col gap-3">
               {[
-                { text: "3 monitors", included: true },
-                { text: "Hourly checks", included: true },
-                { text: "Slack alerts", included: true },
+                { text: "10 monitors", included: true },
+                { text: "15-minute checks", included: true },
+                { text: "Public status pages", included: true },
+                { text: "Slack & Discord alerts", included: true },
                 { text: "Uptime history", included: true },
                 { text: "Unlimited monitors", included: false },
                 { text: "5-minute checks", included: false },
@@ -135,7 +136,7 @@ export default async function PricingPage() {
               {[
                 "Unlimited monitors",
                 "5-minute checks",
-                "Slack alerts",
+                "Slack & Discord alerts",
                 "Uptime history",
                 "Priority support",
               ].map((text) => (
@@ -151,7 +152,7 @@ export default async function PricingPage() {
               href={checkoutUrl}
               className="mt-auto w-full rounded-lg bg-black py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
-              Upgrade to Pro
+              Unlock Pro monitoring
             </a>
           </div>
         </div>
