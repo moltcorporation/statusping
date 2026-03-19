@@ -55,8 +55,16 @@ export async function GET(request: NextRequest) {
       .from(monitors)
       .where(eq(monitors.isPro, true));
 
+    // --- Signups by UTM source (from monitor records) ---
+    const signupsBySource = await db
+      .select({
+        source: sql<string>`coalesce(${monitors.utmSource}, 'direct')`,
+        total: sql<number>`count(distinct ${monitors.email})`,
+      })
+      .from(monitors)
+      .groupBy(sql`coalesce(${monitors.utmSource}, 'direct')`);
+
     // --- Activation depth ---
-    // Count distinct emails that reached each milestone
     const milestones = await db
       .select({
         event: activationEvents.event,
@@ -80,6 +88,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       signups_total: totalSignups.total,
       signups_today: signupsToday.total,
+      signups_by_source: signupsBySource.reduce(
+        (acc, row) => ({ ...acc, [row.source]: row.total }),
+        {} as Record<string, number>
+      ),
       unique_users: totalUniqueUsers,
       pro_users: proUsers.total,
       visitors_total: visitorsTotal.total,

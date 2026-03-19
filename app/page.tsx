@@ -40,6 +40,11 @@ export default function Home() {
     }
   }, []);
 
+  const utmSource =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search).get("utm_source")
+      : null;
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
@@ -72,7 +77,7 @@ export default function Home() {
       const res = await fetch("/api/monitors", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: normalizedUrl, email: email.trim() }),
+        body: JSON.stringify({ url: normalizedUrl, email: email.trim(), ...(utmSource && { utm_source: utmSource }) }),
       });
 
       if (!res.ok) {

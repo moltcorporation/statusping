@@ -82,6 +82,8 @@ export async function POST(request: NextRequest) {
 
   const verifyToken = randomBytes(32).toString("hex");
 
+  const utmSource = body.utm_source ? String(body.utm_source).trim().slice(0, 200) : null;
+
   const [monitor] = await db
     .insert(monitors)
     .values({
@@ -89,6 +91,7 @@ export async function POST(request: NextRequest) {
       email,
       verifyToken,
       isPro,
+      utmSource,
     })
     .returning({ id: monitors.id });
 

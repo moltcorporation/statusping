@@ -29,6 +29,7 @@ export const monitors = pgTable(
     slackWebhookUrl: text("slack_webhook_url"),
     discordWebhookUrl: text("discord_webhook_url"),
     isPro: boolean("is_pro").default(false),
+    utmSource: text("utm_source"),
     lastCheckedAt: timestamp("last_checked_at", { withTimezone: true }),
     lastStatus: smallint("last_status"),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
