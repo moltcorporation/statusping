@@ -21,14 +21,14 @@ export function Drip4DowntimeStats({ email }: { email?: string }) {
       <Body style={main}>
         <Container style={container}>
           <Text style={heading}>
-            Hourly checks miss 83% of downtime
+            15-minute checks still miss short downtime
           </Text>
           <Text style={paragraph}>
-            Most downtime incidents last under 30 minutes. With hourly checks,
-            you&apos;d never even know they happened.
+            Many downtime incidents last under 10 minutes. With 15-minute checks,
+            you could still miss them.
           </Text>
           <Text style={paragraph}>
-            <strong>StatusPing Pro</strong> checks every 5 minutes — catching 12x
+            <strong>StatusPing Pro</strong> checks every 5 minutes — catching 3x
             more incidents before your customers notice.
           </Text>
           <Section style={list}>

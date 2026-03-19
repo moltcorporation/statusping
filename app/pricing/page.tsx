@@ -82,8 +82,9 @@ export default async function PricingPage() {
             </div>
             <ul className="flex flex-col gap-3">
               {[
-                { text: "3 monitors", included: true },
-                { text: "Hourly checks", included: true },
+                { text: "10 monitors", included: true },
+                { text: "15-minute checks", included: true },
+                { text: "Public status pages", included: true },
                 { text: "Slack alerts", included: true },
                 { text: "Uptime history", included: true },
                 { text: "Unlimited monitors", included: false },

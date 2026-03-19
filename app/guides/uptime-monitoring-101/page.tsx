@@ -4,7 +4,7 @@ const faqs = [
   {
     question: "How do I monitor my website uptime for free?",
     answer:
-      "Sign up for a free monitoring tool like StatusPing, enter your website URL and email, and monitoring starts immediately. StatusPing's free tier includes 3 monitors with hourly checks and Slack alerts — no credit card required. Other free options include UptimeRobot and Freshping, though features vary.",
+      "Sign up for a free monitoring tool like StatusPing, enter your website URL and email, and monitoring starts immediately. StatusPing's free tier includes 10 monitors with 15-minute checks and Slack alerts — no credit card required. Other free options include UptimeRobot and Freshping, though features vary.",
   },
   {
     question: "What is a good uptime percentage for a website?",
@@ -349,7 +349,7 @@ export default function UptimeMonitoring101() {
           <div className="flex flex-col gap-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
             <p>
               <strong className="text-black dark:text-white">When free is enough:</strong>{" "}
-              If you have 1-3 sites, hourly checks are acceptable, and email or Slack
+              If you have up to 10 sites, 15-minute checks are solid, and email or Slack
               alerts work for your workflow, a free tier handles the job. Personal
               projects, side projects, and early-stage startups fit here perfectly.
             </p>
@@ -387,7 +387,7 @@ export default function UptimeMonitoring101() {
               {
                 step: "3",
                 title: "Verify and go",
-                body: "Click the verification link in your email. StatusPing begins checking your site on an hourly schedule immediately. You'll get Slack alerts the moment your site goes down — and again when it recovers.",
+                body: "Click the verification link in your email. StatusPing begins checking your site every 15 minutes immediately. You'll get Slack alerts the moment your site goes down — and again when it recovers.",
               },
             ].map((item) => (
               <div
@@ -410,7 +410,7 @@ export default function UptimeMonitoring101() {
           </div>
           <div className="flex flex-col gap-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
             <p>
-              The free tier gives you 3 monitors with hourly checks and Slack
+              The free tier gives you 10 monitors with 15-minute checks and Slack
               alerts. Need more? The{" "}
               <Link href="/pricing" className="font-medium text-sky-600 underline hover:text-sky-700 dark:text-sky-400 dark:hover:text-sky-300">
                 Pro plan at $9/month
@@ -428,7 +428,7 @@ export default function UptimeMonitoring101() {
           <p className="max-w-md text-sm text-zinc-600 dark:text-zinc-400">
             Enter your URL and email on the StatusPing homepage. Monitoring starts
             immediately — no account required, no credit card, no setup wizards.
-            Free tier includes 3 monitors with hourly checks and Slack alerts.
+            Free tier includes 10 monitors with 15-minute checks and Slack alerts.
           </p>
           <Link
             href="/"

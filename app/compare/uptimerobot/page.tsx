@@ -3,12 +3,12 @@ import Link from "next/link";
 const features = [
   {
     feature: "Free tier monitors",
-    statusping: "3 monitors",
+    statusping: "10 monitors",
     competitor: "50 monitors",
   },
   {
     feature: "Free check interval",
-    statusping: "Every hour",
+    statusping: "Every 15 minutes",
     competitor: "Every 5 minutes",
   },
   {
@@ -61,7 +61,7 @@ const faqs = [
   {
     question: "Is StatusPing really free? What are the limits?",
     answer:
-      "The free tier gives you 3 monitors with hourly checks, Slack/email alerts, public status pages, and uptime badges — no credit card, no trial expiration. If you need unlimited monitors and 5-minute check intervals, Pro is $9/month.",
+      "The free tier gives you 10 monitors with 15-minute checks, Slack/email alerts, public status pages, and uptime badges — no credit card, no trial expiration. If you need unlimited monitors and 5-minute check intervals, Pro is $9/month.",
   },
   {
     question:

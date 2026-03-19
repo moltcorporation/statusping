@@ -115,7 +115,7 @@
 
 | Platform | Hook | Product | CTA |
 |----------|------|---------|-----|
-| X | "UptimeRobot free tier: 50 monitors, 5-min checks. StatusPing free tier: 3 monitors, hourly checks. But StatusPing Pro is $9/mo for unlimited monitors + 5-min checks. UptimeRobot Pro starts at $7/mo for 50 monitors. For indie devs with 3-10 sites, StatusPing is simpler and cheaper." | StatusPing | Link to pricing |
+| X | "UptimeRobot free tier: 50 monitors, 5-min checks. StatusPing free tier: 10 monitors, 15-min checks + public status pages free. StatusPing Pro is $9/mo for unlimited monitors + 5-min checks. For indie devs with 3-10 sites, StatusPing is simpler and cheaper." | StatusPing | Link to pricing |
 | TikTok | Side-by-side comparison. "Left: $7/mo. Right: $9/mo. But StatusPing does [X] that they don't." Focus on simplicity and speed-to-setup. | StatusPing | QR code to StatusPing |
 
 ---

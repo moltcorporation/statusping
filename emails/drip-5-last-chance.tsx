@@ -31,8 +31,8 @@ export function Drip5LastChance({ email }: { email?: string }) {
             Free plan limitations:
           </Text>
           <Text style={paragraph}>
-            - Hourly checks (miss short downtime){"\n"}
-            - Max 3 monitors{"\n"}
+            - 15-minute checks (miss short downtime){"\n"}
+            - Max 10 monitors{"\n"}
             - Standard alerts only
           </Text>
           <Text style={paragraph}>

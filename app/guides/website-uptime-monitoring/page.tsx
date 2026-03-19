@@ -36,7 +36,7 @@ const faqs = [
   {
     question: "How often should I check my website's uptime?",
     answer:
-      "It depends on how critical your site is. For personal sites and blogs, hourly checks are sufficient. For SaaS products and e-commerce sites, 5-minute checks catch most outages before users notice. For high-traffic APIs or payment systems, 1-minute checks are standard. StatusPing offers hourly checks on the free tier and 5-minute checks on Pro ($9/month).",
+      "It depends on how critical your site is. For personal sites and blogs, 15-minute checks are sufficient. For SaaS products and e-commerce sites, 5-minute checks catch most outages before users notice. For high-traffic APIs or payment systems, 1-minute checks are standard. StatusPing offers 15-minute checks on the free tier and 5-minute checks on Pro ($9/month).",
   },
   {
     question: "What's a good uptime percentage?",
@@ -46,7 +46,7 @@ const faqs = [
   {
     question: "Can I monitor my website for free?",
     answer:
-      "Yes. StatusPing offers free uptime monitoring with 3 monitors, hourly checks, and Slack alerts — no credit card or account creation required. Enter your URL and email, and monitoring starts immediately. For unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
+      "Yes. StatusPing offers free uptime monitoring with 10 monitors, 15-minute checks, and Slack alerts — no credit card or account creation required. Enter your URL and email, and monitoring starts immediately. For unlimited monitors and 5-minute checks, the Pro plan is $9/month.",
   },
   {
     question: "What's the difference between uptime monitoring and APM?",
@@ -166,8 +166,8 @@ export default function UptimeMonitoringGuide() {
           </h2>
           <p className="max-w-md text-sm text-zinc-600 dark:text-zinc-400">
             Enter your URL and email. StatusPing starts checking immediately —
-            no account creation, no credit card, no setup. Free tier includes 3
-            monitors with hourly checks and Slack alerts.
+            no account creation, no credit card, no setup. Free tier includes 10
+            monitors with 15-minute checks and Slack alerts.
           </p>
           <Link
             href="/"

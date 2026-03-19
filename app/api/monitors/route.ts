@@ -48,16 +48,16 @@ export async function POST(request: NextRequest) {
       .where(eq(monitors.email, email));
   }
 
-  // Check monitor limit: max 3 per email (free tier), unlimited for Pro
+  // Check monitor limit: max 10 per email (free tier), unlimited for Pro
   const [existing] = await db
     .select({ count: count() })
     .from(monitors)
     .where(eq(monitors.email, email));
 
-  if (!isPro && existing.count >= 3) {
+  if (!isPro && existing.count >= 10) {
     return NextResponse.json(
       {
-        error: "You've reached your free plan limit of 3 monitors. Upgrade to Pro for unlimited monitors and 5-minute checks.",
+        error: "You've reached your free plan limit of 10 monitors. Upgrade to Pro for unlimited monitors and 5-minute checks.",
         upgradeUrl: buildCheckoutUrl(email),
         limitType: "monitors",
       },
@@ -108,7 +108,7 @@ export async function POST(request: NextRequest) {
     id: monitor.id,
     url,
     message:
-      "Monitor added and activated. We will check your site every hour.",
+      "Monitor added and activated. We will check your site every 15 minutes.",
   });
 
   // Set email cookie so the dashboard knows who this user is

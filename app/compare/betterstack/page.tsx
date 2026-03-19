@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const features = [
   {
     feature: "Free tier",
-    statusping: "3 monitors, hourly checks, Slack + email alerts",
+    statusping: "10 monitors, 15-min checks, Slack + email alerts",
     competitor: "No free tier — 14-day trial only",
   },
   {

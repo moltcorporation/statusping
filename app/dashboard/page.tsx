@@ -105,7 +105,7 @@ export default async function DashboardPage() {
             <p className="text-sm text-zinc-500 dark:text-zinc-400">
               {isPro
                 ? `${userMonitors.length} monitors (Pro)`
-                : `${userMonitors.length}/3 monitors used (free tier)`}
+                : `${userMonitors.length}/10 monitors used (free tier)`}
             </p>
           </div>
           {isPro ? (
@@ -130,11 +130,11 @@ export default async function DashboardPage() {
           )}
         </div>
 
-        {!isPro && userMonitors.length >= 3 && (
+        {!isPro && userMonitors.length >= 10 && (
           <div className="flex items-center justify-between rounded-lg border border-zinc-300 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
             <div className="flex flex-col gap-0.5">
               <span className="text-sm font-medium text-black dark:text-white">
-                You&apos;ve used all 3 free monitors.
+                You&apos;ve used all 10 free monitors.
               </span>
               <span className="text-xs text-zinc-500 dark:text-zinc-400">
                 Upgrade to Pro for unlimited monitors and 5-minute checks — $9/mo.
@@ -213,8 +213,8 @@ export default async function DashboardPage() {
                   </svg>
                 </span>
                 <div className="flex flex-col">
-                  <span className="text-sm font-medium text-black dark:text-white">Checking hourly (Free)</span>
-                  <span className="text-xs text-zinc-500 dark:text-zinc-400">Pro checks every 5 minutes — catch downtime 12x faster.</span>
+                  <span className="text-sm font-medium text-black dark:text-white">Checking every 15 min (Free)</span>
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400">Pro checks every 5 minutes — catch downtime 3x faster.</span>
                 </div>
               </div>
               <a
