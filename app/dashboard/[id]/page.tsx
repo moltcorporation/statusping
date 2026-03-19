@@ -6,7 +6,7 @@ import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
 import { eq, desc, and, sql } from "drizzle-orm";
 import Link from "next/link";
-import { DeleteButton, SlackWebhookForm, ShareStatusButton } from "./MonitorActions";
+import { DeleteButton, SlackWebhookForm, DiscordWebhookForm, ShareStatusButton } from "./MonitorActions";
 import { BadgeEmbed } from "./BadgeEmbed";
 
 function StatusBadge({ status }: { status: number }) {
@@ -115,6 +115,7 @@ export default async function MonitorDetailPage({
           <div className="flex items-center gap-4 text-sm text-zinc-500 dark:text-zinc-400">
             <span>Checking every {monitor.isPro ? "5 minutes" : "hour"}</span>
             {monitor.slackWebhookUrl && <span>Slack alerts enabled</span>}
+            {monitor.discordWebhookUrl && <span>Discord alerts enabled</span>}
             <ShareStatusButton monitorId={monitor.id} />
           </div>
         </div>
@@ -171,6 +172,10 @@ export default async function MonitorDetailPage({
           <SlackWebhookForm
             monitorId={monitor.id}
             currentWebhook={monitor.slackWebhookUrl}
+          />
+          <DiscordWebhookForm
+            monitorId={monitor.id}
+            currentWebhook={monitor.discordWebhookUrl}
           />
           <div className="border-t border-zinc-200 pt-4 dark:border-zinc-800">
             <DeleteButton monitorId={monitor.id} />

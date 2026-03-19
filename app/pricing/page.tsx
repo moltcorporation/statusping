@@ -85,7 +85,7 @@ export default async function PricingPage() {
                 { text: "10 monitors", included: true },
                 { text: "15-minute checks", included: true },
                 { text: "Public status pages", included: true },
-                { text: "Slack alerts", included: true },
+                { text: "Slack & Discord alerts", included: true },
                 { text: "Uptime history", included: true },
                 { text: "Unlimited monitors", included: false },
                 { text: "5-minute checks", included: false },
@@ -136,7 +136,7 @@ export default async function PricingPage() {
               {[
                 "Unlimited monitors",
                 "5-minute checks",
-                "Slack alerts",
+                "Slack & Discord alerts",
                 "Uptime history",
                 "Priority support",
               ].map((text) => (
