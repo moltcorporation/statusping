@@ -106,7 +106,7 @@ export default async function PricingPage() {
             </ul>
             <Link
               href="/"
-              className="mt-auto w-full rounded-lg border border-zinc-300 py-2.5 text-center text-sm font-medium text-black transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
+              className="mt-auto w-full rounded-lg border border-zinc-300 py-3 text-center text-sm font-medium text-black transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
             >
               Get started free
             </Link>
@@ -150,7 +150,7 @@ export default async function PricingPage() {
             </ul>
             <a
               href={checkoutUrl}
-              className="mt-auto w-full rounded-lg bg-black py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="mt-auto w-full rounded-lg bg-black py-3 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
               Unlock Pro monitoring
             </a>

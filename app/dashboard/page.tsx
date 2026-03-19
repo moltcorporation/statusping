@@ -89,7 +89,7 @@ export default async function DashboardPage() {
           </Link>
           <Link
             href="/"
-            className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+            className="rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
           >
             Add monitor
           </Link>
@@ -123,7 +123,7 @@ export default async function DashboardPage() {
           ) : (
             <Link
               href="/pricing"
-              className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
               Unlock Pro
             </Link>
@@ -142,7 +142,7 @@ export default async function DashboardPage() {
             </div>
             <Link
               href="/pricing"
-              className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
               Unlock Pro
               <span aria-hidden="true">&rarr;</span>
@@ -219,7 +219,7 @@ export default async function DashboardPage() {
               </div>
               <a
                 href={buildCheckoutUrl(email)}
-                className="shrink-0 rounded-lg bg-black px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                className="shrink-0 rounded-lg bg-black px-3 py-2.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
               >
                 Unlock 5-min checks
               </a>
@@ -245,7 +245,7 @@ export default async function DashboardPage() {
                 </div>
                 <a
                   href={buildCheckoutUrl(email)}
-                  className="shrink-0 rounded-lg bg-black px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                  className="shrink-0 rounded-lg bg-black px-3 py-2.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                 >
                   Unlock Pro
                 </a>

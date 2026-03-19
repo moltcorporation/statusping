@@ -114,7 +114,7 @@ export default function PaymentSuccessPage() {
           {/* CTA */}
           <Link
             href="/dashboard"
-            className="block w-full rounded-lg bg-black py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+            className="block w-full rounded-lg bg-black py-3 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
           >
             Go to Dashboard
           </Link>
