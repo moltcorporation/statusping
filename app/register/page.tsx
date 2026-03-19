@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -19,7 +19,7 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/auth/login", {
+      const res = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim() }),
@@ -58,10 +58,10 @@ export default function LoginPage() {
       <main className="flex flex-1 flex-col items-center justify-center px-4 pb-24">
         <div className="flex w-full max-w-sm flex-col items-center gap-6">
           <h1 className="text-2xl font-bold tracking-tight text-black dark:text-white">
-            Welcome back
+            Get started free
           </h1>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            Enter the email you used to add your monitors.
+            Enter your email to start monitoring your sites.
           </p>
 
           <form onSubmit={handleSubmit} className="flex w-full flex-col gap-3">
@@ -79,7 +79,7 @@ export default function LoginPage() {
               disabled={loading || !email.trim()}
               className="w-full rounded-lg bg-black px-6 py-3 text-base font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
-              {loading ? "Signing in..." : "Sign in"}
+              {loading ? "Creating account..." : "Create free account"}
             </button>
 
             {error && (
@@ -88,12 +88,12 @@ export default function LoginPage() {
           </form>
 
           <p className="text-sm text-zinc-400 dark:text-zinc-500">
-            New here?{" "}
+            Already have an account?{" "}
             <Link
-              href="/register"
+              href="/login"
               className="font-medium text-black hover:underline dark:text-white"
             >
-              Create a free account
+              Sign in
             </Link>
           </p>
         </div>
