@@ -147,14 +147,14 @@ export default function Home() {
           </p>
           <p className="max-w-md text-base text-zinc-500 dark:text-zinc-400">
             Your users shouldn&apos;t be the ones telling you. StatusPing checks
-            your site every hour and alerts you on Slack the moment something breaks.
+            your site every 15 minutes and alerts you on Slack the moment something breaks.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-zinc-400 dark:text-zinc-500">
-            <span>Checks every hour</span>
+            <span>Checks every 15 min</span>
             <span className="text-zinc-300 dark:text-zinc-700">|</span>
             <span>Slack alerts in seconds</span>
             <span className="text-zinc-300 dark:text-zinc-700">|</span>
-            <span>Free for 3 monitors</span>
+            <span>Free for 10 monitors</span>
           </div>
 
           {success ? (
@@ -209,7 +209,7 @@ export default function Home() {
               {error && upgradeUrl ? (
                 <div className="flex flex-col items-center gap-2 rounded-lg border border-zinc-300 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
                   <p className="text-sm font-medium text-black dark:text-white">
-                    You&apos;ve reached the free tier limit of 3 monitors.
+                    You&apos;ve reached the free tier limit of 10 monitors.
                   </p>
                   <p className="text-xs text-zinc-500 dark:text-zinc-400">
                     Upgrade to Pro for unlimited monitors and 5-minute checks.
@@ -275,7 +275,7 @@ export default function Home() {
           <div className="mt-12 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
             {[
               { step: "1", title: "Add your URL", desc: "Paste your site URL and your email. Takes 10 seconds." },
-              { step: "2", title: "We watch it for you", desc: "Hourly checks. We record status codes, response times, and downtime." },
+              { step: "2", title: "We watch it for you", desc: "Checks every 15 minutes. We record status codes, response times, and downtime." },
               { step: "3", title: "Get pinged, not surprised", desc: "Slack alert the second your site goes down — and again when it recovers." },
             ].map((s) => (
               <div key={s.step} className="flex flex-col items-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 p-5 text-center dark:border-zinc-800 dark:bg-zinc-900">

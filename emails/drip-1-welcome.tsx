@@ -40,8 +40,8 @@ export function Drip1Welcome() {
             </Link>
           </Text>
           <Text style={paragraph}>
-            <strong>Tip:</strong> Add up to 3 monitors on the free plan. We
-            check every hour and notify you the moment something goes down.
+            <strong>Tip:</strong> Add up to 10 monitors on the free plan. We
+            check every 15 minutes and notify you the moment something goes down.
           </Text>
           <Hr style={hr} />
           <Text style={footer}>

@@ -35,7 +35,7 @@ function getEmailForStep(
           "",
           `Check your dashboard: ${APP_URL}/dashboard`,
           "",
-          "Tip: Add up to 3 monitors on the free plan. We check every hour and notify you the moment something goes down.",
+          "Tip: Add up to 10 monitors on the free plan. We check every 15 minutes and notify you the moment something goes down.",
           "",
           "— StatusPing",
         ].join("\n"),
@@ -48,11 +48,11 @@ function getEmailForStep(
         body: [
           "Hey! Your monitors have been running and tracking uptime.",
           "",
-          "With the free plan, we check every hour. But downtime under 60 minutes? You might miss it entirely.",
+          "With the free plan, we check every 15 minutes. But downtime under 15 minutes? You might miss it entirely.",
           "",
           "StatusPing Pro unlocks:",
           "- 5-minute check intervals (12x more frequent)",
-          "- Unlimited monitors (free plan caps at 3)",
+          "- Unlimited monitors (free plan caps at 10)",
           "- Priority alerting",
           "",
           `Upgrade for $9/mo: ${buildCheckoutUrl()}`,
@@ -62,11 +62,11 @@ function getEmailForStep(
       };
 
     case 3:
-      if (monitorCount < 3) return null;
+      if (monitorCount < 10) return null;
       return {
         subject: "[StatusPing] You're at the free monitor limit",
         body: [
-          `You're using ${monitorCount}/3 free monitors. Need to watch more sites?`,
+          `You're using ${monitorCount}/10 free monitors. Need to watch more sites?`,
           "",
           "StatusPing Pro gives you unlimited monitors plus 5-minute checks — so you catch downtime before your users do.",
           "",
@@ -81,9 +81,9 @@ function getEmailForStep(
         subject:
           "[StatusPing] Hourly checks miss 83% of short downtime",
         body: [
-          "Quick fact: most downtime incidents last under 30 minutes. With hourly checks, you'd never even know they happened.",
+          "Quick fact: most downtime incidents last under 10 minutes. With 15-minute checks, you could still miss them.",
           "",
-          "StatusPing Pro checks every 5 minutes — catching 12x more incidents before your customers notice.",
+          "StatusPing Pro checks every 5 minutes — catching 3x more incidents before your customers notice.",
           "",
           "For $9/mo, you get:",
           "- 5-minute check frequency",

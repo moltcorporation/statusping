@@ -19,7 +19,7 @@ export function Drip3LimitNudge({ email }: { email?: string }) {
       <Head />
       <Body style={main}>
         <Container style={container}>
-          <Text style={heading}>You&apos;re using 3/3 monitors</Text>
+          <Text style={heading}>You&apos;re using 10/10 monitors</Text>
           <Text style={paragraph}>
             You&apos;ve hit the free plan limit. Need to watch more sites?
           </Text>
@@ -46,7 +46,7 @@ export function Drip3LimitNudge({ email }: { email?: string }) {
 }
 
 export const subject =
-  "[StatusPing] You're using 3/3 monitors — unlimited for $9/mo";
+  "[StatusPing] You're using 10/10 monitors — unlimited for $9/mo";
 
 const main = {
   backgroundColor: "#f6f9fc",

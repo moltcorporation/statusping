@@ -4,7 +4,7 @@ const faqs = [
   {
     question: "Is HetrixTools free?",
     answer:
-      "Yes. HetrixTools offers a generous free tier with 15 monitors, 1-minute check intervals, and multi-location monitoring. StatusPing's free tier is smaller (3 monitors, hourly checks) but requires no account creation — paste a URL and you're monitoring in 30 seconds.",
+      "Yes. HetrixTools offers a generous free tier with 15 monitors, 1-minute check intervals, and multi-location monitoring. StatusPing's free tier offers 10 monitors with 15-minute checks and requires no account creation — paste a URL and you're monitoring in 30 seconds.",
   },
   {
     question: "Why choose StatusPing over HetrixTools if HetrixTools has more free monitors?",
@@ -215,7 +215,7 @@ export default function HetrixToolsComparison() {
             <li className="flex gap-2">
               <span className="shrink-0 text-zinc-400">&bull;</span>
               <span>
-                You need more than 3 free monitors — HetrixTools gives you 15
+                You need more than 10 free monitors — HetrixTools gives you 15
                 with 1-minute intervals, which is genuinely hard to beat.
               </span>
             </li>

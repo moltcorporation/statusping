@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title:
     "Pingdom Alternative — Free Uptime Monitoring | StatusPing",
   description:
-    "Looking for a free Pingdom alternative? StatusPing monitors your site with Slack alerts and public status pages. Free for 3 monitors, no credit card required.",
+    "Looking for a free Pingdom alternative? StatusPing monitors your site with Slack alerts and public status pages. Free for 10 monitors, no credit card required.",
   alternates: {
     canonical: `${baseUrl}/compare/pingdom`,
   },

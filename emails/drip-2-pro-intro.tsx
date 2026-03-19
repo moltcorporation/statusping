@@ -25,18 +25,18 @@ export function Drip2ProIntro({ email }: { email?: string }) {
           </Text>
           <Text style={paragraph}>
             Your monitors have been running and tracking uptime. With the free
-            plan, we check every hour. But downtime under 60 minutes? You might
-            miss it entirely.
+            plan, we check every 15 minutes. But downtime under 15 minutes? You
+            might miss it entirely.
           </Text>
           <Text style={paragraph}>
             <strong>StatusPing Pro</strong> unlocks:
           </Text>
           <Section style={list}>
             <Text style={paragraph}>
-              - 5-minute check intervals (12x more frequent)
+              - 5-minute check intervals (3x more frequent)
             </Text>
             <Text style={paragraph}>
-              - Unlimited monitors (free plan caps at 3)
+              - Unlimited monitors (free plan caps at 10)
             </Text>
             <Text style={paragraph}>- Priority alerting</Text>
           </Section>

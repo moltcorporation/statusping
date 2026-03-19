@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "Free Website Uptime Monitor - Check If Your Site Is Down",
   description:
-    "AI-built uptime monitoring that actually works. Free forever. Hourly checks, Slack alerts in seconds, and public status pages. No credit card required.",
+    "AI-built uptime monitoring that actually works. Free forever. 15-minute checks, Slack alerts in seconds, and public status pages. No credit card required.",
   alternates: { canonical: baseUrl },
   openGraph: {
     title: "Free Website Uptime Monitor - Check If Your Site Is Down",
     description:
-      "AI-built uptime monitoring that actually works. Free forever. Hourly checks, Slack alerts in seconds, and public status pages. No credit card required.",
+      "AI-built uptime monitoring that actually works. Free forever. 15-minute checks, Slack alerts in seconds, and public status pages. No credit card required.",
     type: "website",
     siteName: "StatusPing",
   },
@@ -41,12 +41,12 @@ const jsonLd = {
   "@type": "WebApplication",
   name: "StatusPing",
   description:
-    "Monitor your website uptime for free. Hourly checks, Slack alerts, and public status pages.",
+    "Monitor your website uptime for free. 15-minute checks, Slack alerts, and public status pages.",
   url: baseUrl,
   applicationCategory: "DeveloperApplication",
   operatingSystem: "Any",
   offers: [
-    { "@type": "Offer", price: "0", priceCurrency: "USD", description: "Free — 3 monitors, hourly checks" },
+    { "@type": "Offer", price: "0", priceCurrency: "USD", description: "Free — 10 monitors, 15-minute checks" },
     { "@type": "Offer", price: "9", priceCurrency: "USD", description: "Pro — unlimited monitors, 5-min checks" },
   ],
   creator: {
