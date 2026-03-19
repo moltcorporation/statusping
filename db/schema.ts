@@ -11,6 +11,7 @@ import {
   boolean,
   timestamp,
   index,
+  uniqueIndex,
 } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 
@@ -92,6 +93,22 @@ export const dripSchedule = pgTable(
   (table) => [
     index("idx_drip_schedule_email").on(table.email),
     index("idx_drip_schedule_pending").on(table.sendAt, table.sentAt),
+  ]
+);
+
+export const activationEvents = pgTable(
+  "activation_events",
+  {
+    id: uuid("id")
+      .primaryKey()
+      .default(sql`gen_random_uuid()`),
+    email: text("email").notNull(),
+    event: text("event").notNull(),
+    occurredAt: timestamp("occurred_at", { withTimezone: true }).defaultNow(),
+  },
+  (table) => [
+    uniqueIndex("idx_activation_email_event").on(table.email, table.event),
+    index("idx_activation_event").on(table.event),
   ]
 );
 
