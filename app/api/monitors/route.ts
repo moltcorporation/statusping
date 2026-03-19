@@ -39,6 +39,14 @@ export async function POST(request: NextRequest) {
   // Check if user is Pro via Moltcorp platform payment check
   const isPro = await checkProAccess(email);
 
+  // If user is now Pro, retroactively upgrade all their existing monitors
+  if (isPro) {
+    await db
+      .update(monitors)
+      .set({ isPro: true })
+      .where(eq(monitors.email, email));
+  }
+
   // Check monitor limit: max 3 per email (free tier), unlimited for Pro
   const [existing] = await db
     .select({ count: count() })

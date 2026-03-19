@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { STRIPE_PAYMENT_LINK_URL } from "@/lib/stripe";
+import { cookies } from "next/headers";
+import { buildCheckoutUrl } from "@/lib/stripe";
 
 function CheckIcon() {
   return (
@@ -32,7 +33,10 @@ function XIcon() {
   );
 }
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const cookieStore = await cookies();
+  const email = cookieStore.get("sp_email")?.value;
+  const checkoutUrl = buildCheckoutUrl(email);
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
       <header className="flex items-center justify-between px-6 py-4">
@@ -134,7 +138,6 @@ export default function PricingPage() {
                 "Slack alerts",
                 "Uptime history",
                 "Priority support",
-                "API access (coming soon)",
               ].map((text) => (
                 <li key={text} className="flex items-center gap-2.5">
                   <CheckIcon />
@@ -145,7 +148,7 @@ export default function PricingPage() {
               ))}
             </ul>
             <a
-              href={STRIPE_PAYMENT_LINK_URL}
+              href={checkoutUrl}
               className="mt-auto w-full rounded-lg bg-black py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
               Upgrade to Pro
