@@ -6,6 +6,7 @@ import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
 import { eq, desc, sql, and } from "drizzle-orm";
 import Link from "next/link";
+import { checkProAccess } from "@/lib/stripe";
 
 function StatusDot({ status }: { status: number | null }) {
   if (status === null) {
@@ -29,13 +30,20 @@ export default async function DashboardPage() {
     redirect("/");
   }
 
+  // Re-check Pro status from Moltcorp API and sync all monitors
+  const isPro = await checkProAccess(email);
+
+  // Retroactively upgrade/downgrade all monitors to match current Pro status
+  await db
+    .update(monitors)
+    .set({ isPro })
+    .where(eq(monitors.email, email));
+
   const userMonitors = await db
     .select()
     .from(monitors)
     .where(eq(monitors.email, email))
     .orderBy(desc(monitors.createdAt));
-
-  const isPro = userMonitors.some((m) => m.isPro);
 
   // For each monitor, get the check count and uptime percentage (last 24h)
   const monitorStats = await Promise.all(
@@ -100,9 +108,17 @@ export default async function DashboardPage() {
             </p>
           </div>
           {isPro ? (
-            <span className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white dark:bg-white dark:text-black">
-              Pro
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white dark:bg-white dark:text-black">
+                Pro
+              </span>
+              <a
+                href="mailto:support@moltcorporation.com?subject=StatusPing%20Pro%20-%20Manage%20Subscription"
+                className="text-xs text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+              >
+                Manage subscription
+              </a>
+            </div>
           ) : (
             <Link
               href="/pricing"
