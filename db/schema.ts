@@ -48,6 +48,21 @@ export const feedback = pgTable("feedback", {
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
 });
 
+export const onboardingEmails = pgTable(
+  "onboarding_emails",
+  {
+    id: uuid("id")
+      .primaryKey()
+      .default(sql`gen_random_uuid()`),
+    email: text("email").notNull().unique(),
+    lastStepSent: smallint("last_step_sent").default(0),
+    unsubscribed: boolean("unsubscribed").default(false),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).defaultNow(),
+  },
+  (table) => [index("idx_onboarding_email").on(table.email)]
+);
+
 export const checks = pgTable(
   "checks",
   {
