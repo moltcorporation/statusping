@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { db } from "@/db";
 import { monitors } from "@/db/schema";
 import { eq, and } from "drizzle-orm";
+import { trackActivation } from "@/lib/activation";
 
 export async function DELETE(
   _request: NextRequest,
@@ -112,6 +113,11 @@ export async function PATCH(
   }
 
   await db.update(monitors).set(updates).where(eq(monitors.id, id));
+
+  // Track alert_configured milestone when a webhook is set
+  if (updates.slackWebhookUrl || updates.discordWebhookUrl) {
+    trackActivation(email, "alert_configured");
+  }
 
   return NextResponse.json({ updated: true });
 }

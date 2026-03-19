@@ -62,6 +62,11 @@ export function ShareStatusButton({ monitorId }: { monitorId: string }) {
     await navigator.clipboard.writeText(url);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+    fetch("/api/activation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event: "status_page_shared" }),
+    }).catch(() => {});
   }
 
   return (

@@ -5,6 +5,7 @@ import { eq, and, count } from "drizzle-orm";
 import { randomBytes } from "crypto";
 import { checkProAccess, buildCheckoutUrl } from "@/lib/stripe";
 import { scheduleDripEmails } from "@/lib/drip";
+import { trackActivation } from "@/lib/activation";
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
@@ -55,6 +56,7 @@ export async function POST(request: NextRequest) {
     .where(eq(monitors.email, email));
 
   if (!isPro && existing.count >= 10) {
+    trackActivation(email, "hit_free_limit");
     return NextResponse.json(
       {
         error: "You've reached your free plan limit of 10 monitors. Upgrade to Pro for unlimited monitors and 5-minute checks.",
@@ -96,6 +98,11 @@ export async function POST(request: NextRequest) {
     .update(monitors)
     .set({ emailVerified: true })
     .where(eq(monitors.id, monitor.id));
+
+  // Track first monitor activation milestone
+  if (existing.count === 0) {
+    trackActivation(email, "first_monitor_added");
+  }
 
   // Schedule drip email sequence for new users (idempotent — skips if already scheduled)
   if (!isPro) {
