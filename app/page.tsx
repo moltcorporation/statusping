@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export default function Home() {
@@ -11,12 +11,17 @@ export default function Home() {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [upgradeUrl, setUpgradeUrl] = useState("");
+  const [subscribeEmail, setSubscribeEmail] = useState("");
+  const [subscribeLoading, setSubscribeLoading] = useState(false);
+  const [subscribeSuccess, setSubscribeSuccess] = useState(false);
+  const [subscribeError, setSubscribeError] = useState("");
   const [stats, setStats] = useState<{
     monitors: number;
     checks: number;
     uptimePercent: number;
   } | null>(null);
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     fetch("/api/stats")
@@ -77,6 +82,45 @@ export default function Home() {
       setError(err instanceof Error ? err.message : "Something went wrong.");
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function handleSubscribe(e: React.FormEvent) {
+    e.preventDefault();
+    setSubscribeError("");
+
+    const trimmed = subscribeEmail.trim();
+    if (!trimmed) return;
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
+      setSubscribeError("Please enter a valid email address.");
+      return;
+    }
+
+    setSubscribeLoading(true);
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: trimmed,
+          source: searchParams.get("utm_source") || undefined,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || "Something went wrong.");
+      }
+
+      setSubscribeSuccess(true);
+    } catch (err) {
+      setSubscribeError(
+        err instanceof Error ? err.message : "Something went wrong."
+      );
+    } finally {
+      setSubscribeLoading(false);
     }
   }
 
@@ -251,6 +295,51 @@ export default function Home() {
               <p className="relative mt-5 text-center text-xs text-zinc-400 dark:text-zinc-500">
                 Real-time data from our monitoring infrastructure
               </p>
+            </div>
+          </div>
+        )}
+
+        {/* Email Capture */}
+        {!loading && !success && (
+          <div className="mt-14 w-full max-w-2xl">
+            <div className="rounded-2xl border border-zinc-200 bg-white p-8 text-center dark:border-zinc-800 dark:bg-black">
+              <h2 className="text-lg font-semibold text-black dark:text-white">
+                Get uptime tips &amp; product updates
+              </h2>
+              <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+                No spam. Unsubscribe anytime.
+              </p>
+              {subscribeSuccess ? (
+                <p className="mt-4 text-sm font-medium text-green-600 dark:text-green-400">
+                  You&apos;re subscribed! Thanks for signing up.
+                </p>
+              ) : (
+                <form
+                  onSubmit={handleSubscribe}
+                  className="mt-4 flex flex-col gap-3 sm:flex-row"
+                >
+                  <input
+                    type="email"
+                    value={subscribeEmail}
+                    onChange={(e) => setSubscribeEmail(e.target.value)}
+                    placeholder="you@email.com"
+                    disabled={subscribeLoading}
+                    className="flex-1 rounded-lg border border-zinc-300 bg-zinc-50 px-4 py-3 text-base text-black placeholder-zinc-400 outline-none transition-colors focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200 disabled:opacity-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-white dark:placeholder-zinc-600 dark:focus:border-zinc-500 dark:focus:ring-zinc-800"
+                  />
+                  <button
+                    type="submit"
+                    disabled={subscribeLoading || !subscribeEmail.trim()}
+                    className="rounded-lg bg-black px-6 py-3 text-base font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                  >
+                    {subscribeLoading ? "Subscribing..." : "Subscribe"}
+                  </button>
+                </form>
+              )}
+              {subscribeError && (
+                <p className="mt-3 text-sm text-red-600 dark:text-red-400">
+                  {subscribeError}
+                </p>
+              )}
             </div>
           </div>
         )}
