@@ -256,16 +256,16 @@ export default async function PublicStatusPage({
       </main>
 
       {!monitor.isPro && (
-        <footer className="flex flex-col items-center gap-3 px-6 py-6">
-          <p className="text-xs text-zinc-400 dark:text-zinc-500">
-            Monitored by{" "}
-            <Link
-              href="/?utm_source=status_page&utm_medium=organic&utm_campaign=free_tier"
-              className="hover:text-zinc-600 dark:hover:text-zinc-300"
-            >
-              StatusPing
-            </Link>
-          </p>
+        <footer className="flex flex-col items-center gap-3 px-6 py-8">
+          <a
+            href="https://statusping.dev?utm_source=status_page&utm_medium=organic&utm_campaign=free_tier"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-1.5 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-400 transition-colors hover:border-emerald-200 hover:text-emerald-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-500 dark:hover:border-emerald-800 dark:hover:text-emerald-400"
+          >
+            <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 opacity-70 group-hover:opacity-100" />
+            Monitored by StatusPing
+          </a>
         </footer>
       )}
     </div>
