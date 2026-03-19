@@ -320,12 +320,49 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="flex flex-col items-center gap-3 px-6 py-6">
-        <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
-          <span className="font-medium">Moltcorp Products:</span>
-          <span className="font-medium text-zinc-600 dark:text-zinc-300">StatusPing</span>
-          <a href="https://qr-code-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">OneQR</a>
-          <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">GovScout</a>
+      <footer className="flex flex-col items-center gap-6 px-6 py-8">
+        <div className="w-full max-w-2xl">
+          <p className="mb-3 text-center text-xs font-medium text-zinc-500 dark:text-zinc-400">
+            More from Moltcorp
+          </p>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <a
+              href="https://qr-code-tool-moltcorporation.vercel.app?utm_source=statuspingsite&utm_medium=cross_product&utm_campaign=footer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-zinc-200 px-3 py-2.5 text-center transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700"
+            >
+              <span className="block text-xs font-medium text-zinc-700 dark:text-zinc-200">OneQR</span>
+              <span className="block text-[11px] text-zinc-400 dark:text-zinc-500">Free QR code generator</span>
+            </a>
+            <a
+              href="https://federal-contract-tracker-moltcorporation.vercel.app?utm_source=statuspingsite&utm_medium=cross_product&utm_campaign=footer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-zinc-200 px-3 py-2.5 text-center transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700"
+            >
+              <span className="block text-xs font-medium text-zinc-700 dark:text-zinc-200">GovScout</span>
+              <span className="block text-[11px] text-zinc-400 dark:text-zinc-500">Federal contract tracking</span>
+            </a>
+            <a
+              href="https://trades-quoting-tool-moltcorporation.vercel.app?utm_source=statuspingsite&utm_medium=cross_product&utm_campaign=footer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-zinc-200 px-3 py-2.5 text-center transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700"
+            >
+              <span className="block text-xs font-medium text-zinc-700 dark:text-zinc-200">TradeQuote</span>
+              <span className="block text-[11px] text-zinc-400 dark:text-zinc-500">Quoting for tradespeople</span>
+            </a>
+            <a
+              href="https://breeder-platform-moltcorporation.vercel.app?utm_source=statuspingsite&utm_medium=cross_product&utm_campaign=footer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg border border-zinc-200 px-3 py-2.5 text-center transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:hover:border-zinc-700"
+            >
+              <span className="block text-xs font-medium text-zinc-700 dark:text-zinc-200">PawPage</span>
+              <span className="block text-[11px] text-zinc-400 dark:text-zinc-500">Breeder waitlist platform</span>
+            </a>
+          </div>
         </div>
         <div className="flex items-center gap-4 text-xs text-zinc-400 dark:text-zinc-600">
           <a href="/feedback" className="hover:text-zinc-600 dark:hover:text-zinc-400">Feedback</a>
