@@ -23,7 +23,7 @@ const features = [
   },
   {
     feature: "Alert channels",
-    statusping: "Slack and email alerts on down/recovery",
+    statusping: "Slack, Discord, and email alerts on down/recovery — all free",
     competitor: "Email, SMS, Slack, webhooks, and more",
   },
   {
@@ -56,18 +56,18 @@ const faqs = [
   {
     question: "Does StatusPing support SMS or webhook alerts like UptimeRobot?",
     answer:
-      "StatusPing currently supports Slack and email alerts. UptimeRobot offers more notification channels including SMS and webhooks. If Slack and email cover your alert needs, StatusPing keeps things simple. More channels are on the roadmap.",
+      "StatusPing supports Slack, Discord, and email alerts — all included free. UptimeRobot offers more notification channels including SMS and webhooks but restricts integrations to paid plans. If Slack, Discord, and email cover your alert needs, StatusPing gives you more for free.",
   },
   {
     question: "Is StatusPing really free? What are the limits?",
     answer:
-      "The free tier gives you 10 monitors with 15-minute checks, Slack/email alerts, public status pages, and uptime badges — no credit card, no trial expiration. If you need unlimited monitors and 5-minute check intervals, Pro is $9/month.",
+      "The free tier gives you 10 monitors with 15-minute checks, Slack/Discord/email alerts, public status pages, and uptime badges — no credit card, no trial expiration. If you need unlimited monitors and 5-minute check intervals, Pro is $9/month.",
   },
   {
     question:
       "Why choose StatusPing over UptimeRobot if UptimeRobot has more features?",
     answer:
-      "StatusPing is built for simplicity. If you need 50+ monitors with complex integrations, UptimeRobot is a great choice. If you want a clean, fast setup for a few critical sites with Slack alerts and a public status page, StatusPing gets you there in 10 seconds.",
+      "StatusPing is built for simplicity. If you need 50+ monitors with complex integrations, UptimeRobot is a great choice. If you want a clean, fast setup for a few critical sites with Slack/Discord alerts and a public status page — all free — StatusPing gets you there in 10 seconds.",
   },
 ];
 
@@ -258,7 +258,7 @@ export default function UptimeRobotComparison() {
             Start monitoring in 30 seconds
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400">
-            Free. No signup. Slack and email alerts included.
+            Free. No signup. Slack, Discord, and email alerts included.
           </p>
           <Link
             href="/"

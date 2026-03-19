@@ -5,6 +5,8 @@ import { eq, sql } from "drizzle-orm";
 import {
   sendSlackAlert,
   sendSlackRecovery,
+  sendDiscordAlert,
+  sendDiscordRecovery,
   sendEmailAlert,
   sendEmailRecovery,
 } from "@/lib/alerts";
@@ -26,6 +28,7 @@ export async function GET(request: NextRequest) {
       email: monitors.email,
       lastStatus: monitors.lastStatus,
       slackWebhookUrl: monitors.slackWebhookUrl,
+      discordWebhookUrl: monitors.discordWebhookUrl,
     })
     .from(monitors)
     .where(
@@ -89,6 +92,9 @@ export async function GET(request: NextRequest) {
         if (monitor.slackWebhookUrl) {
           await sendSlackAlert(monitor.slackWebhookUrl, monitor.url, statusCode);
         }
+        if (monitor.discordWebhookUrl) {
+          await sendDiscordAlert(monitor.discordWebhookUrl, monitor.url, statusCode);
+        }
         await sendEmailAlert(monitor.email, monitor.url, statusCode);
       }
 
@@ -102,6 +108,14 @@ export async function GET(request: NextRequest) {
         if (monitor.slackWebhookUrl) {
           await sendSlackRecovery(
             monitor.slackWebhookUrl,
+            monitor.url,
+            statusCode,
+            responseMs
+          );
+        }
+        if (monitor.discordWebhookUrl) {
+          await sendDiscordRecovery(
+            monitor.discordWebhookUrl,
             monitor.url,
             statusCode,
             responseMs

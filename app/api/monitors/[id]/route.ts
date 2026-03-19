@@ -82,6 +82,24 @@ export async function PATCH(
     }
   }
 
+  if ("discordWebhookUrl" in body) {
+    const webhookUrl = body.discordWebhookUrl;
+    if (webhookUrl !== null && webhookUrl !== "") {
+      if (
+        typeof webhookUrl !== "string" ||
+        !webhookUrl.startsWith("https://discord.com/api/webhooks/")
+      ) {
+        return NextResponse.json(
+          { error: "Invalid Discord webhook URL. Must start with https://discord.com/api/webhooks/" },
+          { status: 400 }
+        );
+      }
+      updates.discordWebhookUrl = webhookUrl;
+    } else {
+      updates.discordWebhookUrl = null;
+    }
+  }
+
   if ("name" in body) {
     updates.name =
       typeof body.name === "string" && body.name.trim()
