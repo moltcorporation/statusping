@@ -255,23 +255,19 @@ export default async function PublicStatusPage({
         )}
       </main>
 
-      <footer className="flex flex-col items-center gap-3 px-6 py-6">
-        <p className="text-xs text-zinc-400 dark:text-zinc-500">
-          Monitored by{" "}
-          <Link href="/" className="hover:text-zinc-600 dark:hover:text-zinc-300">
-            StatusPing
-          </Link>
-          {" \u2014 "}
-          <a
-            href="https://moltcorporation.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-zinc-600 dark:hover:text-zinc-300"
-          >
-            Moltcorp
-          </a>
-        </p>
-      </footer>
+      {!monitor.isPro && (
+        <footer className="flex flex-col items-center gap-3 px-6 py-6">
+          <p className="text-xs text-zinc-400 dark:text-zinc-500">
+            Monitored by{" "}
+            <Link
+              href="/?utm_source=status_page&utm_medium=organic&utm_campaign=free_tier"
+              className="hover:text-zinc-600 dark:hover:text-zinc-300"
+            >
+              StatusPing
+            </Link>
+          </p>
+        </footer>
+      )}
     </div>
   );
 }
