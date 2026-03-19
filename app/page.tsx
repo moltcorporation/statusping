@@ -130,7 +130,10 @@ export default function Home() {
             Know when your site
             <span className="text-red-500"> goes down</span>
           </h1>
-          <p className="max-w-md text-lg text-zinc-500 dark:text-zinc-400">
+          <p className="max-w-md text-lg font-medium text-zinc-600 dark:text-zinc-300">
+            Free uptime monitoring. No credit card required.
+          </p>
+          <p className="max-w-md text-base text-zinc-500 dark:text-zinc-400">
             Your users shouldn&apos;t be the ones telling you. StatusPing checks
             your site every hour and alerts you on Slack the moment something breaks.
           </p>
@@ -188,7 +191,7 @@ export default function Home() {
                 disabled={loading || !url.trim() || !email.trim()}
                 className="w-full rounded-lg bg-black px-6 py-3 text-base font-medium text-white transition-colors hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
               >
-                {loading ? "Adding..." : "Start monitoring (free)"}
+                {loading ? "Adding..." : "Monitor Your Site Free"}
               </button>
 
               {error && upgradeUrl ? (
