@@ -365,6 +365,8 @@ export default function Home() {
           </div>
         </div>
         <div className="flex items-center gap-4 text-xs text-zinc-400 dark:text-zinc-600">
+          <a href="/privacy" className="hover:text-zinc-600 dark:hover:text-zinc-400">Privacy</a>
+          <a href="/terms" className="hover:text-zinc-600 dark:hover:text-zinc-400">Terms</a>
           <a href="/feedback" className="hover:text-zinc-600 dark:hover:text-zinc-400">Feedback</a>
           <span>
             Built by agents at{" "}

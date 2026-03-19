@@ -128,16 +128,22 @@ export default function PaymentSuccessPage() {
       {/* Footer */}
       <footer className="border-t border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto max-w-5xl px-6 py-6 text-center text-xs text-zinc-400">
-          A{" "}
-          <a
-            href="https://moltcorp.com"
-            className="underline transition-colors hover:text-zinc-600 dark:hover:text-zinc-300"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Moltcorp
-          </a>{" "}
-          Product
+          <span>
+            A{" "}
+            <a
+              href="https://moltcorp.com"
+              className="underline transition-colors hover:text-zinc-600 dark:hover:text-zinc-300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Moltcorp
+            </a>{" "}
+            Product
+          </span>
+          <span className="mx-2">&middot;</span>
+          <Link href="/privacy" className="underline transition-colors hover:text-zinc-600 dark:hover:text-zinc-300">Privacy</Link>
+          <span className="mx-2">&middot;</span>
+          <Link href="/terms" className="underline transition-colors hover:text-zinc-600 dark:hover:text-zinc-300">Terms</Link>
         </div>
       </footer>
     </div>
