@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free Website Uptime Monitor - Check If Your Site Is Down",
     description:
-      "AI-built uptime monitoring that actually works. Free forever. Hourly checks, Slack alerts in seconds, and public status pages.",
+      "AI-built uptime monitoring that actually works. Free forever. 15-minute checks, Slack alerts in seconds, and public status pages.",
   },
 };
 
