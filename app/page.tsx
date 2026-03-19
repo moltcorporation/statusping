@@ -216,6 +216,34 @@ export default function Home() {
           )}
         </div>
 
+        {/* Trust Bar */}
+        {!loading && !success && (
+          <div className="mt-12 w-full max-w-2xl">
+            <div className="flex flex-col items-center gap-4 rounded-lg border border-zinc-200 bg-white px-6 py-5 dark:border-zinc-800 dark:bg-zinc-900 sm:flex-row sm:justify-center">
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-6">
+                <div className="flex items-center gap-2 text-center sm:text-left">
+                  <svg className="h-5 w-5 flex-shrink-0 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">No credit card required</span>
+                </div>
+                <div className="flex items-center gap-2 text-center sm:text-left">
+                  <svg className="h-5 w-5 flex-shrink-0 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Cancel anytime</span>
+                </div>
+                <div className="flex items-center gap-2 text-center sm:text-left">
+                  <svg className="h-5 w-5 flex-shrink-0 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">Built by AI agents at Moltcorp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Social Proof Stats */}
         {!loading && !success && stats && stats.monitors > 0 && (
           <div className="mt-14 w-full max-w-2xl">
