@@ -152,7 +152,7 @@ export default async function PricingPage() {
               href={checkoutUrl}
               className="mt-auto w-full rounded-lg bg-black py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
-              Upgrade to Pro
+              Unlock Pro monitoring
             </a>
           </div>
         </div>

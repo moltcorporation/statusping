@@ -125,7 +125,7 @@ export default async function DashboardPage() {
               href="/pricing"
               className="rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
-              Upgrade to Pro
+              Unlock Pro
             </Link>
           )}
         </div>
@@ -137,14 +137,14 @@ export default async function DashboardPage() {
                 You&apos;ve used all 10 free monitors.
               </span>
               <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                Upgrade to Pro for unlimited monitors and 5-minute checks — $9/mo.
+                Unlock unlimited monitors and 5-minute checks — $9/mo.
               </span>
             </div>
             <Link
               href="/pricing"
               className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
-              Upgrade to Pro
+              Unlock Pro
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
@@ -221,7 +221,7 @@ export default async function DashboardPage() {
                 href={buildCheckoutUrl(email)}
                 className="shrink-0 rounded-lg bg-black px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
               >
-                Upgrade
+                Unlock 5-min checks
               </a>
             </div>
 
@@ -247,7 +247,7 @@ export default async function DashboardPage() {
                   href={buildCheckoutUrl(email)}
                   className="shrink-0 rounded-lg bg-black px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                 >
-                  Upgrade
+                  Unlock Pro
                 </a>
               </div>
             )}

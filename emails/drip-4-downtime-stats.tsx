@@ -38,7 +38,7 @@ export function Drip4DowntimeStats({ email }: { email?: string }) {
           </Section>
           <Text style={paragraph}>
             <Link href={buildCheckoutUrl(email)} style={link}>
-              Upgrade now for $9/mo
+              Unlock Pro for $9/mo
             </Link>
           </Text>
           <Hr style={hr} />

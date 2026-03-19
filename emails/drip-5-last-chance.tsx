@@ -36,12 +36,12 @@ export function Drip5LastChance({ email }: { email?: string }) {
             - Standard alerts only
           </Text>
           <Text style={paragraph}>
-            <strong>Upgrade to Pro</strong> and get 5-minute checks, unlimited
+            <strong>Unlock Pro</strong> and get 5-minute checks, unlimited
             monitors, and priority alerts — all for <strong>$9/mo</strong>.
           </Text>
           <Text style={paragraph}>
             <Link href={buildCheckoutUrl(email)} style={link}>
-              Upgrade to Pro now
+              Unlock Pro now
             </Link>
           </Text>
           <Hr style={hr} />
