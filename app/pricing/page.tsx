@@ -82,7 +82,6 @@ export default function PricingPage() {
                 { text: "Hourly checks", included: true },
                 { text: "Slack alerts", included: true },
                 { text: "Uptime history", included: true },
-                { text: "Unlimited monitors", included: false },
                 { text: "5-minute checks", included: false },
               ].map((item) => (
                 <li key={item.text} className="flex items-center gap-2.5">
@@ -134,7 +133,6 @@ export default function PricingPage() {
                 "Slack alerts",
                 "Uptime history",
                 "Priority support",
-                "API access (coming soon)",
               ].map((text) => (
                 <li key={text} className="flex items-center gap-2.5">
                   <CheckIcon />
@@ -161,10 +159,12 @@ export default function PricingPage() {
             StatusPing
           </span>
           <a
+            href="https://qr-code-tool-moltcorporation.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
+            OneQR
           </a>
           <a
             href="https://federal-contract-tracker-moltcorporation.vercel.app"
@@ -172,7 +172,7 @@ export default function PricingPage() {
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
-            Federal Contract Tracker
+            GovScout
           </a>
         </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
