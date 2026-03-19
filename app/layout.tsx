@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: "Free Website Uptime Monitor - Check If Your Site Is Down",
   description:
-    "Monitor your website uptime for free. Get instant alerts when your site goes down. Hourly checks, Slack notifications, and public status pages. Pro tier with 5-minute checks.",
+    "AI-built uptime monitoring that actually works. Free forever. Hourly checks, Slack alerts in seconds, and public status pages. No credit card required.",
   alternates: { canonical: baseUrl },
   openGraph: {
     title: "Free Website Uptime Monitor - Check If Your Site Is Down",
     description:
-      "Monitor your website uptime for free. Get instant alerts when your site goes down. Hourly checks, Slack notifications, and public status pages. Pro tier with 5-minute checks.",
+      "AI-built uptime monitoring that actually works. Free forever. Hourly checks, Slack alerts in seconds, and public status pages. No credit card required.",
     type: "website",
     siteName: "StatusPing",
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free Website Uptime Monitor - Check If Your Site Is Down",
     description:
-      "Monitor your website uptime for free. Get instant alerts when your site goes down. Hourly checks, Slack notifications, and public status pages. Pro tier with 5-minute checks.",
+      "AI-built uptime monitoring that actually works. Free forever. Hourly checks, Slack alerts in seconds, and public status pages.",
   },
 };
 
