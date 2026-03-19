@@ -6,7 +6,7 @@ import { db } from "@/db";
 import { monitors, checks } from "@/db/schema";
 import { eq, desc, sql, and } from "drizzle-orm";
 import Link from "next/link";
-import { checkProAccess } from "@/lib/stripe";
+import { checkProAccess, buildCheckoutUrl } from "@/lib/stripe";
 import FirstRunOnboarding from "./FirstRunOnboarding";
 
 function StatusDot({ status }: { status: number | null }) {
@@ -198,6 +198,59 @@ export default async function DashboardPage() {
                 </div>
               </Link>
             ))}
+          </div>
+        )}
+
+        {/* Upgrade nudges for free users with monitors */}
+        {!isPro && monitorStats.length > 0 && (
+          <div className="mt-6 flex flex-col gap-3">
+            {/* Check frequency callout */}
+            <div className="flex items-center justify-between rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
+              <div className="flex items-center gap-3">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300">
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </span>
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium text-black dark:text-white">Checking hourly (Free)</span>
+                  <span className="text-xs text-zinc-500 dark:text-zinc-400">Pro checks every 5 minutes — catch downtime 12x faster.</span>
+                </div>
+              </div>
+              <a
+                href={buildCheckoutUrl(email)}
+                className="shrink-0 rounded-lg bg-black px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              >
+                Upgrade
+              </a>
+            </div>
+
+            {/* Pro feature teaser — show when user has had monitors for 24h+ */}
+            {monitorStats.some((m) => m.createdAt && Date.now() - new Date(m.createdAt).getTime() > 24 * 60 * 60 * 1000) && (
+              <div className="flex items-center justify-between rounded-lg border border-zinc-200 bg-white p-4 dark:border-zinc-800 dark:bg-zinc-900">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                  </span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-medium text-black dark:text-white">
+                      {monitorStats.some((m) => m.uptime !== null && m.uptime >= 99)
+                        ? "Your sites are looking healthy."
+                        : "Stay on top of downtime."}
+                    </span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">Pro users get instant email + Slack alerts when something goes down.</span>
+                  </div>
+                </div>
+                <a
+                  href={buildCheckoutUrl(email)}
+                  className="shrink-0 rounded-lg bg-black px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+                >
+                  Upgrade
+                </a>
+              </div>
+            )}
           </div>
         )}
       </main>
