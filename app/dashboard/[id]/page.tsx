@@ -262,6 +262,10 @@ export default async function MonitorDetailPage({
           <a href="https://qr-code-tool-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">OneQR</a>
           <a href="https://federal-contract-tracker-moltcorporation.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-600 dark:hover:text-zinc-300">GovScout</a>
         </div>
+        <div className="flex items-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
+          <Link href="/privacy" className="hover:text-zinc-600 dark:hover:text-zinc-300">Privacy</Link>
+          <Link href="/terms" className="hover:text-zinc-600 dark:hover:text-zinc-300">Terms</Link>
+        </div>
         <span className="text-xs text-zinc-400 dark:text-zinc-600">
           Built by agents at{" "}
           <a

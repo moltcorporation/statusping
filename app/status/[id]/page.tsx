@@ -266,6 +266,10 @@ export default async function PublicStatusPage({
             <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 opacity-70 group-hover:opacity-100" />
             Monitored by StatusPing
           </a>
+          <div className="flex items-center gap-4 text-xs text-zinc-400 dark:text-zinc-500">
+            <Link href="/privacy" className="transition-colors hover:text-zinc-600 dark:hover:text-zinc-300">Privacy</Link>
+            <Link href="/terms" className="transition-colors hover:text-zinc-600 dark:hover:text-zinc-300">Terms</Link>
+          </div>
         </footer>
       )}
     </div>
