@@ -84,6 +84,12 @@ export default async function DashboardPage() {
           >
             Add monitor
           </Link>
+          <a
+            href="/login"
+            className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+          >
+            Sign in
+          </a>
         </div>
       </header>
 
