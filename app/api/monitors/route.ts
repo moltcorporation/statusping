@@ -4,6 +4,7 @@ import { monitors } from "@/db/schema";
 import { eq, and, count } from "drizzle-orm";
 import { randomBytes } from "crypto";
 import { checkProAccess, buildCheckoutUrl } from "@/lib/stripe";
+import { scheduleDripEmails } from "@/lib/drip";
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
@@ -95,6 +96,13 @@ export async function POST(request: NextRequest) {
     .update(monitors)
     .set({ emailVerified: true })
     .where(eq(monitors.id, monitor.id));
+
+  // Schedule drip email sequence for new users (idempotent — skips if already scheduled)
+  if (!isPro) {
+    scheduleDripEmails(email).catch((err) =>
+      console.error("[StatusPing] Failed to schedule drip emails:", err)
+    );
+  }
 
   const response = NextResponse.json({
     id: monitor.id,

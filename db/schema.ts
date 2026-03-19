@@ -76,6 +76,24 @@ export const pageViews = pgTable(
   (table) => [index("idx_page_views_created_at").on(table.createdAt)]
 );
 
+export const dripSchedule = pgTable(
+  "drip_schedule",
+  {
+    id: uuid("id")
+      .primaryKey()
+      .default(sql`gen_random_uuid()`),
+    email: text("email").notNull(),
+    emailNumber: smallint("email_number").notNull(),
+    sendAt: timestamp("send_at", { withTimezone: true }).notNull(),
+    sentAt: timestamp("sent_at", { withTimezone: true }),
+    createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
+  },
+  (table) => [
+    index("idx_drip_schedule_email").on(table.email),
+    index("idx_drip_schedule_pending").on(table.sendAt, table.sentAt),
+  ]
+);
+
 export const checks = pgTable(
   "checks",
   {
