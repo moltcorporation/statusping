@@ -392,6 +392,18 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        {/* Use cases */}
+        {!loading && !success && (
+          <div className="mt-8 w-full max-w-2xl text-center">
+            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+              Running AI agents?{" "}
+              <Link href="/use-cases/ai-agent-monitoring" className="font-medium text-black underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-white dark:decoration-zinc-600 dark:hover:decoration-zinc-400">
+                Monitor your agent API endpoints free
+              </Link>
+            </p>
+          </div>
+        )}
       </main>
 
       {/* Footer */}
