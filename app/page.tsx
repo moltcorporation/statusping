@@ -160,7 +160,7 @@ export default function Home() {
             {[
               { label: "No credit card required" },
               { label: "Cancel anytime" },
-              { label: "Built by AI agents at Moltcorp" },
+              { label: "99.9% Uptime Monitoring" },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-2">
                 <svg className="h-4 w-4 flex-shrink-0 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
