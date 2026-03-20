@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -83,6 +84,7 @@ export default function Home() {
         throw new Error(data?.error || "Something went wrong. Try again.");
       }
 
+      track("monitor_added", { source: "homepage" });
       setSuccess(true);
       router.push("/dashboard");
     } catch (err) {
@@ -230,6 +232,7 @@ export default function Home() {
                   </p>
                   <Link
                     href={upgradeUrl}
+                    onClick={() => track("pro_checkout_clicked", { source: "homepage_limit" })}
                     className="inline-flex items-center gap-2 rounded-lg bg-black px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                   >
                     Unlock 5-min checks — $9/mo

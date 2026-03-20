@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 interface FirstRunOnboardingProps {
   email: string;
@@ -49,6 +50,7 @@ export default function FirstRunOnboarding({
       }
 
       const data = await response.json();
+      track("monitor_added", { source: "dashboard_onboarding" });
       setSubmitted(true);
       setDemoMode(isDemo);
       setUrl("");

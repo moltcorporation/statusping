@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -30,6 +31,7 @@ export default function RegisterPage() {
         throw new Error(data?.error || "Something went wrong. Try again.");
       }
 
+      track("signup_completed");
       router.push("/dashboard");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
