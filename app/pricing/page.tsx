@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { cookies } from "next/headers";
 import { buildCheckoutUrl } from "@/lib/stripe";
+import ProCheckoutLink from "./ProCheckoutLink";
 
 function CheckIcon() {
   return (
@@ -146,12 +147,12 @@ export default async function PricingPage() {
                 </li>
               ))}
             </ul>
-            <a
+            <ProCheckoutLink
               href={checkoutUrl}
-              className="mt-auto w-full rounded-lg bg-black py-3 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              className="mt-auto block w-full rounded-lg bg-black py-3 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
             >
               Unlock Pro monitoring
-            </a>
+            </ProCheckoutLink>
           </div>
         </div>
       </main>
