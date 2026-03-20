@@ -245,6 +245,65 @@ export default function Home() {
           )}
         </div>
 
+        {/* Dashboard Preview */}
+        {!loading && !success && (
+          <div className="mt-10 w-full max-w-2xl">
+            <p className="mb-3 text-center text-sm font-medium text-zinc-500 dark:text-zinc-400">
+              See what you get
+            </p>
+            <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
+              <div className="flex items-center justify-between border-b border-zinc-100 px-5 py-3 dark:border-zinc-800">
+                <span className="text-sm font-semibold text-black dark:text-white">Your Monitors</span>
+                <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-[11px] font-medium text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-400">
+                  All systems operational
+                </span>
+              </div>
+              <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
+                {[
+                  { url: "api.myapp.io", status: "up", ms: 42, uptime: 100 },
+                  { url: "dashboard.myapp.io", status: "up", ms: 118, uptime: 99.98 },
+                  { url: "myapp.io", status: "up", ms: 87, uptime: 99.95 },
+                  { url: "staging.myapp.io", status: "down", ms: null, uptime: 97.2 },
+                ].map((m) => (
+                  <div key={m.url} className="flex items-center justify-between px-5 py-3">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`inline-block h-2.5 w-2.5 rounded-full ${
+                          m.status === "up" ? "bg-green-500" : "bg-red-500"
+                        }`}
+                      />
+                      <span className="text-sm font-medium text-black dark:text-white">{m.url}</span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      {m.ms !== null ? (
+                        <span className="text-xs text-zinc-400 dark:text-zinc-500">{m.ms}ms</span>
+                      ) : (
+                        <span className="text-xs text-red-400">timeout</span>
+                      )}
+                      <span
+                        className={`text-xs font-semibold ${
+                          m.uptime >= 99
+                            ? "text-green-600 dark:text-green-400"
+                            : m.uptime >= 95
+                              ? "text-yellow-600 dark:text-yellow-400"
+                              : "text-red-600 dark:text-red-400"
+                        }`}
+                      >
+                        {m.uptime}%
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="border-t border-zinc-100 px-5 py-2.5 text-center dark:border-zinc-800">
+                <span className="text-[11px] text-zinc-400 dark:text-zinc-500">
+                  Live dashboard preview — sign up free to start monitoring
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Social Proof Stats */}
         {!loading && !success && stats && stats.monitors > 0 && (
           <div className="mt-14 w-full max-w-2xl">
