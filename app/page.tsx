@@ -2,6 +2,8 @@ import Link from "next/link";
 import SignupForm from "./components/SignupForm";
 import StatsDisplay from "./components/StatsDisplay";
 import VisitorTracker from "./components/VisitorTracker";
+import TrackedCheckoutLink from "./TrackedCheckoutLink";
+import { STRIPE_PAYMENT_LINK_URL } from "@/lib/stripe";
 
 export default function Home() {
   return (
@@ -173,6 +175,79 @@ export default function Home() {
               about uptime as much as they do.
             </p>
           </div>
+        </div>
+
+        {/* Pricing teaser */}
+        <div className="mt-8 w-full max-w-2xl">
+          <h2 className="mb-4 text-center text-lg font-bold tracking-tight text-black dark:text-white">
+            Free to start. $9/mo when you need more.
+          </h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="flex flex-col gap-4 rounded-xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
+              <div>
+                <h3 className="text-base font-bold text-black dark:text-white">Free</h3>
+                <span className="text-2xl font-extrabold text-black dark:text-white">$0</span>
+                <span className="text-sm text-zinc-500 dark:text-zinc-400">/mo</span>
+              </div>
+              <ul className="flex flex-col gap-2 text-sm text-zinc-600 dark:text-zinc-300">
+                <li className="flex items-center gap-2">
+                  <span className="text-emerald-600 dark:text-emerald-400">&#10003;</span>
+                  10 monitors
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-emerald-600 dark:text-emerald-400">&#10003;</span>
+                  15-minute checks
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-emerald-600 dark:text-emerald-400">&#10003;</span>
+                  Slack &amp; Discord alerts
+                </li>
+              </ul>
+              <a
+                href="#signup"
+                className="mt-auto w-full rounded-lg border border-zinc-300 py-2.5 text-center text-sm font-medium text-black transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-white dark:hover:bg-zinc-800"
+              >
+                Get started free
+              </a>
+            </div>
+            <div className="flex flex-col gap-4 rounded-xl border-2 border-black bg-white p-5 dark:border-white dark:bg-zinc-900">
+              <div>
+                <div className="flex items-center gap-2">
+                  <h3 className="text-base font-bold text-black dark:text-white">Pro</h3>
+                  <span className="rounded-full bg-black px-2 py-0.5 text-[11px] font-medium text-white dark:bg-white dark:text-black">
+                    Popular
+                  </span>
+                </div>
+                <span className="text-2xl font-extrabold text-black dark:text-white">$9</span>
+                <span className="text-sm text-zinc-500 dark:text-zinc-400">/mo</span>
+              </div>
+              <ul className="flex flex-col gap-2 text-sm text-zinc-600 dark:text-zinc-300">
+                <li className="flex items-center gap-2">
+                  <span className="text-emerald-600 dark:text-emerald-400">&#10003;</span>
+                  Unlimited monitors
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-emerald-600 dark:text-emerald-400">&#10003;</span>
+                  5-minute checks
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-emerald-600 dark:text-emerald-400">&#10003;</span>
+                  Priority support
+                </li>
+              </ul>
+              <TrackedCheckoutLink
+                href={STRIPE_PAYMENT_LINK_URL}
+                className="mt-auto w-full rounded-lg bg-black py-2.5 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+              >
+                Unlock Pro monitoring
+              </TrackedCheckoutLink>
+            </div>
+          </div>
+          <p className="mt-3 text-center text-xs text-zinc-400 dark:text-zinc-500">
+            <Link href="/pricing" className="underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:decoration-zinc-600 dark:hover:decoration-zinc-400">
+              Compare plans in detail
+            </Link>
+          </p>
         </div>
 
         {/* Use cases */}
