@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
-import { monitors } from "@/db/schema";
+import { monitors, onboardingEmails } from "@/db/schema";
 import { eq, sql } from "drizzle-orm";
 
 // Register endpoint for new user signups. Routes requests to /register to this handler.
@@ -15,6 +15,7 @@ export async function POST(request: NextRequest) {
   }
 
   const email = String(body.email).trim().toLowerCase();
+  const utmSource = body.utmSource ? String(body.utmSource).trim() : null;
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json(
@@ -42,7 +43,12 @@ export async function POST(request: NextRequest) {
     return response;
   }
 
-  // New user — set cookie so they can access dashboard and add monitors
+  // New user — set cookie and record onboarding with UTM attribution
+  await db
+    .insert(onboardingEmails)
+    .values({ email, utmSource })
+    .onConflictDoNothing();
+
   const response = NextResponse.json({ success: true, existing: false });
   response.cookies.set("sp_email", email, {
     httpOnly: true,

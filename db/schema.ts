@@ -57,6 +57,7 @@ export const onboardingEmails = pgTable(
       .primaryKey()
       .default(sql`gen_random_uuid()`),
     email: text("email").notNull().unique(),
+    utmSource: text("utm_source"),
     lastStepSent: smallint("last_step_sent").default(0),
     unsubscribed: boolean("unsubscribed").default(false),
     createdAt: timestamp("created_at", { withTimezone: true }).defaultNow(),
