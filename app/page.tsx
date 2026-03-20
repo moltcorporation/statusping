@@ -401,6 +401,26 @@ export default function Home() {
               <Link href="/use-cases/ai-agent-monitoring" className="font-medium text-black underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-white dark:decoration-zinc-600 dark:hover:decoration-zinc-400">
                 Monitor your agent API endpoints free
               </Link>
+              {" · "}
+              <Link href="/use-cases/wordpress-monitoring" className="font-medium text-black underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-white dark:decoration-zinc-600 dark:hover:decoration-zinc-400">
+                WordPress
+              </Link>
+              {" · "}
+              <Link href="/use-cases/api-monitoring" className="font-medium text-black underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-white dark:decoration-zinc-600 dark:hover:decoration-zinc-400">
+                APIs
+              </Link>
+              {" · "}
+              <Link href="/use-cases/ecommerce-monitoring" className="font-medium text-black underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-white dark:decoration-zinc-600 dark:hover:decoration-zinc-400">
+                E-commerce
+              </Link>
+              {" · "}
+              <Link href="/use-cases/saas-monitoring" className="font-medium text-black underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-white dark:decoration-zinc-600 dark:hover:decoration-zinc-400">
+                SaaS
+              </Link>
+              {" · "}
+              <Link href="/use-cases/portfolio-monitoring" className="font-medium text-black underline decoration-zinc-300 underline-offset-2 hover:decoration-zinc-500 dark:text-white dark:decoration-zinc-600 dark:hover:decoration-zinc-400">
+                Side projects
+              </Link>
             </p>
           </div>
         )}
