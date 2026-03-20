@@ -76,3 +76,69 @@ Pitch emails for getting StatusPing included in "best uptime monitoring tools" r
 >
 > Best,
 > [Name]
+
+---
+
+## Pitch 4: Qodex.ai
+
+**Target article:** "10 Best Free Website Monitoring Tools" (qodex.ai blog)
+**Contact approach:** Find contact via qodex.ai team/contact page.
+
+**Email:**
+
+> Subject: Add StatusPing to your uptime monitoring roundup?
+>
+> Hi there,
+>
+> I noticed your "10 Best Free Website Monitoring Tools" article — great roundup. We just launched StatusPing (statusping.dev), a free uptime monitor with 10 monitors, Slack/Discord alerts, and a $9/mo Pro tier.
+>
+> Differentiator: Pro is $9/mo flat vs the $29+ most competitors charge for paid tiers. Free tier requires no credit card.
+>
+> Happy to provide any details or screenshots you'd need for inclusion.
+>
+> Best,
+> [Name]
+
+---
+
+## Pitch 5: Googiehost
+
+**Target article:** "Best Free Website Uptime Monitoring Tools" (googiehost.com blog)
+**Contact approach:** Find contact via googiehost.com/contact.
+
+**Email:**
+
+> Subject: StatusPing for your monitoring tools list?
+>
+> Hi,
+>
+> Your "Best Free Website Uptime Monitoring Tools" article is a great resource. We'd love StatusPing (statusping.dev) to be considered for inclusion.
+>
+> Quick summary: free uptime monitoring with 10 monitors, 15-min checks, Slack & Discord alerts. Pro tier at $9/mo — one of the lowest paid tiers in the space. No credit card required to start.
+>
+> Let me know if you'd like a walkthrough or additional info. Thanks!
+>
+> Best,
+> [Name]
+
+---
+
+## Pitch 6: Youstable
+
+**Target article:** Website monitoring tools roundup (youstable.com blog)
+**Contact approach:** Find contact via youstable.com/contact.
+
+**Email:**
+
+> Subject: New free uptime tool for your monitoring roundup
+>
+> Hi,
+>
+> Saw your article on website monitoring tools — comprehensive list. We recently launched StatusPing (statusping.dev), a lightweight uptime monitor.
+>
+> Free tier: 10 monitors, 15-min intervals, Slack/Discord alerts. Pro: $9/mo for faster checks and more monitors. Built for solo devs and small teams who don't need enterprise pricing.
+>
+> Happy to share screenshots or answer questions if you're updating the article.
+>
+> Best,
+> [Name]
