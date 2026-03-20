@@ -11,7 +11,10 @@ export default function PaymentSuccessPage() {
 
   useEffect(() => {
     fetch("/api/pro/sync", { method: "POST" })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("sync failed");
+        return res.json();
+      })
       .then(() => setSyncStatus("success"))
       .catch(() => setSyncStatus("error"));
   }, []);
