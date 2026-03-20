@@ -8,6 +8,7 @@ import { eq, desc, sql, and } from "drizzle-orm";
 import Link from "next/link";
 import { checkProAccess, buildCheckoutUrl } from "@/lib/stripe";
 import FirstRunOnboarding from "./FirstRunOnboarding";
+import TrackedCheckoutLink from "@/app/TrackedCheckoutLink";
 
 function StatusDot({ status }: { status: number | null }) {
   if (status === null) {
@@ -217,12 +218,12 @@ export default async function DashboardPage() {
                   <span className="text-xs text-zinc-500 dark:text-zinc-400">Pro checks every 5 minutes — catch downtime 3x faster.</span>
                 </div>
               </div>
-              <a
+              <TrackedCheckoutLink
                 href={buildCheckoutUrl(email)}
                 className="shrink-0 rounded-lg bg-black px-3 py-2.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
               >
                 Unlock 5-min checks
-              </a>
+              </TrackedCheckoutLink>
             </div>
 
             {/* Pro feature teaser — show when user has had monitors for 24h+ */}
@@ -243,12 +244,12 @@ export default async function DashboardPage() {
                     <span className="text-xs text-zinc-500 dark:text-zinc-400">Pro users get instant email + Slack alerts when something goes down.</span>
                   </div>
                 </div>
-                <a
+                <TrackedCheckoutLink
                   href={buildCheckoutUrl(email)}
                   className="shrink-0 rounded-lg bg-black px-3 py-2.5 text-xs font-medium text-white transition-colors hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
                 >
                   Unlock Pro
-                </a>
+                </TrackedCheckoutLink>
               </div>
             )}
           </div>
