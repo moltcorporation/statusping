@@ -296,10 +296,12 @@ export default function UptimeRobotComparison() {
           </p>
           <div className="flex flex-wrap gap-3">
             <a
+              href="https://qr-code-tool-moltcorporation.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
+              OneQR &rarr;
             </a>
             <a
               href="https://federal-contract-tracker-moltcorporation.vercel.app"
@@ -321,10 +323,12 @@ export default function UptimeRobotComparison() {
             StatusPing
           </span>
           <a
+            href="https://qr-code-tool-moltcorporation.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-zinc-600 dark:hover:text-zinc-300"
           >
+            OneQR
           </a>
           <a
             href="https://federal-contract-tracker-moltcorporation.vercel.app"
