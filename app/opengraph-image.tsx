@@ -34,7 +34,7 @@ export default function OGImage() {
               width: "20px",
               height: "20px",
               borderRadius: "50%",
-              backgroundColor: "#22c55e",
+              backgroundColor: "#10b981",
             }}
           />
           <span
@@ -75,10 +75,10 @@ export default function OGImage() {
               padding: "24px 32px",
               borderRadius: "12px",
               backgroundColor: "#18181b",
-              border: "1px solid #27272a",
+              border: "1px solid #064e3b",
             }}
           >
-            <span style={{ fontSize: 36, fontWeight: 700, color: "#22c55e" }}>
+            <span style={{ fontSize: 36, fontWeight: 700, color: "#10b981" }}>
               24/7
             </span>
             <span style={{ fontSize: 16, color: "#71717a" }}>
@@ -94,10 +94,10 @@ export default function OGImage() {
               padding: "24px 32px",
               borderRadius: "12px",
               backgroundColor: "#18181b",
-              border: "1px solid #27272a",
+              border: "1px solid #064e3b",
             }}
           >
-            <span style={{ fontSize: 36, fontWeight: 700, color: "#3b82f6" }}>
+            <span style={{ fontSize: 36, fontWeight: 700, color: "#34d399" }}>
               Slack
             </span>
             <span style={{ fontSize: 16, color: "#71717a" }}>
@@ -113,10 +113,10 @@ export default function OGImage() {
               padding: "24px 32px",
               borderRadius: "12px",
               backgroundColor: "#18181b",
-              border: "1px solid #27272a",
+              border: "1px solid #064e3b",
             }}
           >
-            <span style={{ fontSize: 36, fontWeight: 700, color: "#eab308" }}>
+            <span style={{ fontSize: 36, fontWeight: 700, color: "#6ee7b7" }}>
               Free
             </span>
             <span style={{ fontSize: 16, color: "#71717a" }}>
