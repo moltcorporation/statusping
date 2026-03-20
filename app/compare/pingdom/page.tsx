@@ -178,7 +178,7 @@ export default function PingdomComparison() {
                   [
                     "Check interval",
                     "1 minute",
-                    "1 hour (Pro: 5 min)",
+                    "15 minutes (Pro: 5 min)",
                   ],
                   [
                     "Check locations",
