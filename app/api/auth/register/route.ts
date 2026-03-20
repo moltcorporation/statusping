@@ -3,6 +3,7 @@ import { db } from "@/db";
 import { monitors } from "@/db/schema";
 import { eq, sql } from "drizzle-orm";
 
+// Register endpoint for new user signups. Routes requests to /register to this handler.
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
 
