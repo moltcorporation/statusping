@@ -5,95 +5,101 @@ const baseUrl = "https://statusping-moltcorporation.vercel.app";
 
 export const metadata: Metadata = {
   title:
-    "Better Stack Alternative — Free Uptime Monitoring | StatusPing",
+    "StatusPing vs statusping.dev — Free Uptime Monitoring Comparison | StatusPing",
   description:
-    "Better Stack starts at $20/mo. StatusPing offers free uptime monitoring with Slack and email alerts, public status pages, and uptime badges. Pro at $9/mo for unlimited monitors.",
+    "StatusPing vs statusping.dev: both offer uptime monitoring at $9/mo Pro. StatusPing gives you 10 free monitors vs 3, free status pages, and no account required to start.",
   alternates: {
-    canonical: `${baseUrl}/compare/betterstack`,
+    canonical: `${baseUrl}/compare/statusping-dev`,
   },
   openGraph: {
-    title: "Better Stack Alternative — StatusPing",
+    title: "StatusPing vs statusping.dev — Uptime Monitoring Comparison",
     description:
-      "Free uptime monitoring. Better Stack $20/mo minimum — StatusPing is free with Slack and email alerts.",
+      "10 free monitors vs 3. Free status pages included. Compare both tools side by side.",
     type: "website",
     siteName: "StatusPing",
-    url: `${baseUrl}/compare/betterstack`,
+    url: `${baseUrl}/compare/statusping-dev`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Better Stack Alternative — StatusPing",
+    title: "StatusPing vs statusping.dev — Uptime Monitoring Comparison",
     description:
-      "Simple, free uptime monitoring. Better Stack starts at $20/mo — StatusPing is free.",
+      "10 free monitors vs 3. Free status pages included. Compare both tools side by side.",
   },
 };
 
 const features = [
   {
-    feature: "Free tier",
-    statusping: "10 monitors, 15-min checks, Slack + email alerts",
-    competitor: "No free tier — 14-day trial only",
+    feature: "Free monitors",
+    statusping: "10 monitors included free",
+    competitor: "3 monitors on free tier",
+  },
+  {
+    feature: "Free check interval",
+    statusping: "15 minutes",
+    competitor: "5 minutes",
   },
   {
     feature: "Pro pricing",
     statusping: "$9/mo — unlimited monitors, 5-min checks",
-    competitor: "$20/mo — 10 monitors, 3-min checks",
+    competitor: "$9/mo — 20 monitors, 1-min checks",
   },
   {
-    feature: "Check interval (Pro)",
-    statusping: "5 minutes",
-    competitor: "30 seconds (higher tiers)",
-  },
-  {
-    feature: "Incident management",
-    statusping: "Slack and email alerts on down/recovery",
-    competitor: "Full incident management with on-call schedules, escalation policies, and integrations",
+    feature: "Team pricing",
+    statusping: "Not available — flat $9/mo Pro",
+    competitor: "$29/mo — 100 monitors, 30-sec checks",
   },
   {
     feature: "Status pages",
-    statusping: "Included free — shareable URL for every monitor",
-    competitor: "Included — custom domains, branded pages",
+    statusping: "Included free — public shareable URL per monitor",
+    competitor: "Available on paid plans",
   },
   {
     feature: "Uptime badges",
-    statusping: "Embeddable Markdown and HTML badges",
-    competitor: "Available",
+    statusping: "Embeddable Markdown and HTML badges — free",
+    competitor: "Not listed",
   },
   {
-    feature: "Log management",
-    statusping: "Not included — focused on uptime only",
-    competitor: "Built-in log management and search",
+    feature: "Alerts",
+    statusping: "Slack and email on down/recovery",
+    competitor: "Email, Slack, Discord, Telegram, webhooks",
   },
   {
-    feature: "Setup",
-    statusping: "30 seconds — no account required",
-    competitor: "Account required, team setup, integration configuration",
+    feature: "Account required",
+    statusping: "No — start monitoring in 30 seconds",
+    competitor: "Yes — email signup required",
   },
   {
-    feature: "Ecosystem",
-    competitor: "Standalone platform with logging and incident management",
+    feature: "Check types",
+    statusping: "HTTP/HTTPS uptime checks",
+    competitor: "HTTP, keyword, port, ping, DNS",
+  },
+  {
+    feature: "Pricing model",
+    statusping: "Simple: Free or $9/mo. No tiers.",
+    competitor: "3 tiers: Free, Pro ($9), Team ($29)",
   },
 ];
 
 const faqs = [
   {
-    question: "What is Better Stack?",
+    question: "What is statusping.dev?",
     answer:
-      "Better Stack (formerly BetterUptime) is an observability platform that combines uptime monitoring, incident management, on-call scheduling, and log management. Their monitoring plans start at $20/mo for 10 monitors with 3-minute checks.",
+      "statusping.dev is an uptime monitoring service offering 3 free monitors with 5-minute checks, Pro at $9/mo for 20 monitors with 1-minute checks, and Team at $29/mo for 100 monitors with 30-second checks. They support HTTP, keyword, port, ping, and DNS checks.",
   },
   {
-    question: "Is StatusPing a good alternative to Better Stack?",
+    question: "How is StatusPing different from statusping.dev?",
     answer:
-      "For straightforward uptime monitoring with alerts — yes. StatusPing handles the core job: check if your site is up, alert you when it goes down, show a public status page. If you need on-call scheduling, incident escalation policies, or log management, Better Stack is more comprehensive.",
+      "Both offer uptime monitoring at similar price points. StatusPing gives you more free monitors (10 vs 3), includes free public status pages and uptime badges, and requires no account to start. statusping.dev offers faster check intervals on free tier (5 min vs 15 min), more check types (port, ping, DNS), and a Team plan for larger setups.",
   },
   {
-    question: "Why is Better Stack more expensive?",
+    question: "Which is better for a single site?",
     answer:
-      "Better Stack is a full observability platform — not just uptime monitoring. Their price includes incident management, on-call schedules, log ingestion, and team collaboration features. StatusPing focuses on one thing — uptime monitoring — and prices accordingly.",
+      "For monitoring a single site for free, both work. StatusPing lets you start in 30 seconds without creating an account and includes a shareable public status page. statusping.dev requires signup but offers 5-minute checks on the free tier vs StatusPing's 15 minutes.",
   },
   {
-    question: "Does StatusPing have incident management?",
+    question: "Which is better for teams?",
     answer:
-      "StatusPing sends Slack and email alerts when your site goes down and when it recovers. It does not have on-call schedules, escalation policies, or incident timelines. For simple alerting, this is enough. For full incident management workflows, consider Better Stack or PagerDuty.",
+      "statusping.dev has a dedicated Team plan at $29/mo with 100 monitors and 30-second checks. StatusPing's Pro plan covers unlimited monitors at $9/mo with 5-minute checks. If you need sub-minute checks or 100+ monitors with granular intervals, statusping.dev's Team plan may fit better. If unlimited monitors at a lower price matters more, StatusPing Pro is the better deal.",
   },
 ];
 
@@ -110,7 +116,7 @@ const jsonLd = {
   })),
 };
 
-export default function BetterStackComparison() {
+export default function StatusPingDevComparison() {
   return (
     <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-black">
       <script
@@ -145,22 +151,26 @@ export default function BetterStackComparison() {
         {/* Hero */}
         <div className="flex flex-col gap-4">
           <h1 className="text-3xl font-bold text-black sm:text-4xl dark:text-white">
-            Better Stack Alternative
+            StatusPing vs statusping.dev
             <span className="block text-zinc-500 dark:text-zinc-400">
-              Simple Uptime Monitoring
+              Two Uptime Monitors, Same Name
             </span>
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Better Stack (formerly BetterUptime) is a full observability
-            platform — uptime monitoring, incident management, on-call, and
-            logs. Starts at{" "}
-            <strong className="text-black dark:text-white">$20/mo</strong> for
-            10 monitors. StatusPing does one thing well: monitor your sites,
-            alert you when they go down, and give you public status pages.{" "}
+            Both StatusPing and statusping.dev offer uptime monitoring with Pro
+            plans at{" "}
+            <strong className="text-black dark:text-white">$9/mo</strong>.
+            StatusPing gives you{" "}
             <strong className="text-black dark:text-white">
-              Free or $9/mo
+              10 free monitors
             </strong>{" "}
-            for unlimited.
+            with public status pages and no signup required.
+            statusping.dev offers{" "}
+            <strong className="text-black dark:text-white">
+              3 free monitors
+            </strong>{" "}
+            with faster check intervals and more check types. Here&apos;s how
+            they compare.
           </p>
         </div>
 
@@ -170,27 +180,26 @@ export default function BetterStackComparison() {
             An honest comparison
           </h2>
           <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            Better Stack is significantly more feature-rich than StatusPing.
-            They offer on-call scheduling with escalation policies, full
-            incident management with timelines and postmortems, log management
-            with search and alerting, and 30-second check intervals on higher
-            plans. If your team needs those capabilities, Better Stack is
-            worth the price.
+            statusping.dev offers faster free-tier check intervals (5 minutes
+            vs our 15 minutes), more check types including port, ping, and DNS
+            monitoring, and a Team plan at $29/mo for teams needing 100+
+            monitors with 30-second checks. If those capabilities matter to
+            you, statusping.dev is a solid choice.
           </p>
           <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-            StatusPing exists for teams that don&apos;t need all of that. If
-            your question is simply &ldquo;is my site up?&rdquo; and you want
-            Slack alerts when it goes down, StatusPing handles that in 30
-            seconds without creating an account. Most small teams and indie
-            developers don&apos;t need incident escalation policies — they
-            need a ping that says &ldquo;your site is down.&rdquo;
+            StatusPing is built for simplicity. You get more free monitors (10
+            vs 3), public status pages and embeddable uptime badges included
+            at no cost, and you can start monitoring without creating an
+            account. Our Pro plan at $9/mo gives you unlimited monitors — no
+            cap. If you want straightforward monitoring with the most generous
+            free tier, that&apos;s us.
           </p>
         </div>
 
         {/* Comparison table */}
         <div className="flex flex-col gap-4">
           <h2 className="text-xl font-semibold text-black dark:text-white">
-            StatusPing vs Better Stack
+            Feature comparison
           </h2>
           <div className="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
             <table className="w-full text-sm">
@@ -203,7 +212,7 @@ export default function BetterStackComparison() {
                     StatusPing
                   </th>
                   <th className="px-4 py-3 text-left font-medium text-zinc-500 dark:text-zinc-500">
-                    Better Stack
+                    statusping.dev
                   </th>
                 </tr>
               </thead>
@@ -240,24 +249,23 @@ export default function BetterStackComparison() {
                 Choose StatusPing when...
               </h3>
               <ul className="flex flex-col gap-1.5 text-sm text-zinc-600 dark:text-zinc-400">
-                <li>You need simple uptime monitoring — is my site up?</li>
-                <li>You want free monitoring with no trial expiration</li>
-                <li>Slack and email alerts cover your notification needs</li>
-                <li>You want public status pages included free</li>
-                <li>$9/mo for unlimited monitors fits your budget</li>
+                <li>You want the most free monitors (10 vs 3)</li>
+                <li>You need public status pages included free</li>
+                <li>You want to start without creating an account</li>
+                <li>You need unlimited monitors on Pro ($9/mo)</li>
+                <li>You want embeddable uptime badges</li>
               </ul>
             </div>
             <div className="flex flex-col gap-2 rounded-lg border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-zinc-900">
               <h3 className="font-semibold text-zinc-500 dark:text-zinc-400">
-                Choose Better Stack when...
+                Choose statusping.dev when...
               </h3>
               <ul className="flex flex-col gap-1.5 text-sm text-zinc-500 dark:text-zinc-500">
-                <li>You need on-call scheduling and escalation policies</li>
-                <li>You want full incident management with postmortems</li>
-                <li>You need log management alongside monitoring</li>
-                <li>You need sub-minute check intervals</li>
-                <li>Your team needs multi-user dashboards and roles</li>
-                <li>You need integrations with PagerDuty, Jira, or Opsgenie</li>
+                <li>You need faster free-tier checks (5 min vs 15 min)</li>
+                <li>You need port, ping, or DNS monitoring</li>
+                <li>You want 30-second check intervals (Team plan)</li>
+                <li>You need 100+ monitors on the Team plan</li>
+                <li>You prefer multi-channel alerts (Discord, Telegram)</li>
               </ul>
             </div>
           </div>
@@ -291,7 +299,7 @@ export default function BetterStackComparison() {
             Start monitoring in 30 seconds
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400">
-            Free. No signup. Slack and email alerts included.
+            Free. No signup. 10 monitors with Slack and email alerts.
           </p>
           <Link
             href="/"
@@ -310,6 +318,9 @@ export default function BetterStackComparison() {
             <Link href="/compare/uptimerobot" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
               vs UptimeRobot &rarr;
             </Link>
+            <Link href="/compare/betterstack" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
+              vs Better Stack &rarr;
+            </Link>
             <Link href="/compare/freshping" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
               vs Freshping &rarr;
             </Link>
@@ -318,9 +329,6 @@ export default function BetterStackComparison() {
             </Link>
             <Link href="/compare/hetrixtools" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
               vs HetrixTools &rarr;
-            </Link>
-            <Link href="/compare/statusping-dev" className="rounded-lg border border-zinc-200 px-4 py-2 text-sm font-medium text-zinc-700 transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800">
-              vs statusping.dev &rarr;
             </Link>
           </div>
         </div>
