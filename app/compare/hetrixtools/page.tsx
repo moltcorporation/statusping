@@ -137,12 +137,12 @@ export default function HetrixToolsComparison() {
                   [
                     "Free monitors",
                     "15",
-                    "3",
+                    "10",
                   ],
                   [
                     "Check interval (free)",
                     "1 minute",
-                    "1 hour",
+                    "15 minutes",
                   ],
                   [
                     "Check locations",

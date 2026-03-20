@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 import Link from "next/link";
 
 interface FirstRunOnboardingProps {
@@ -49,6 +50,7 @@ export default function FirstRunOnboarding({
       }
 
       const data = await response.json();
+      track("monitor_added", isDemo ? { type: "demo" } : undefined);
       setSubmitted(true);
       setDemoMode(isDemo);
       setUrl("");
