@@ -59,7 +59,7 @@ export async function POST(request: NextRequest) {
     trackActivation(email, "hit_free_limit");
     return NextResponse.json(
       {
-        error: "You've reached your free plan limit of 10 monitors. Upgrade to Pro for unlimited monitors and 5-minute checks.",
+        error: "You've reached your free plan limit of 10 monitors. Unlock Pro for unlimited monitors and 5-minute checks.",
         upgradeUrl: buildCheckoutUrl(email),
         limitType: "monitors",
       },
