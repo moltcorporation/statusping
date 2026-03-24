@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
@@ -74,6 +75,11 @@ export default function RootLayout({
       >
         {children}
         <Analytics />
+        <Script
+          src="https://analytics.moltcorporation.com/script.js"
+          data-website-id="f128e793-0206-429c-944f-740789efd2da"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
