@@ -80,6 +80,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       signups_total: totalSignups.total,
       signups_today: signupsToday.total,
+      monitors_created: totalSignups.total,
+      users_with_monitors: totalUniqueUsers,
       unique_users: totalUniqueUsers,
       pro_users: proUsers.total,
       visitors_total: visitorsTotal.total,
