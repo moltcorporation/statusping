@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     title: "Free Website Uptime Monitor - Check If Your Site Is Down",
     description:
       "AI-built uptime monitoring that actually works. Free forever. 15-minute checks, Slack alerts in seconds, and public status pages. No credit card required.",
+    url: baseUrl,
     type: "website",
     siteName: "StatusPing",
   },
