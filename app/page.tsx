@@ -131,6 +131,48 @@ export default function Home() {
         {/* Social Proof Stats */}
         <StatsDisplay />
 
+        {/* Dashboard Preview */}
+        {!loading && !success && (
+          <div className="mt-14 w-full max-w-2xl">
+            <p className="mb-4 text-center text-sm font-medium text-zinc-500 dark:text-zinc-400">
+              See what you get
+            </p>
+            <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-lg dark:border-zinc-800 dark:bg-zinc-900">
+              {/* Mock dashboard header */}
+              <div className="flex items-center justify-between border-b border-zinc-100 px-5 py-3 dark:border-zinc-800">
+                <span className="text-sm font-semibold text-black dark:text-white">Your Monitors</span>
+                <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400">All systems operational</span>
+              </div>
+              {/* Mock monitor rows */}
+              <div className="divide-y divide-zinc-100 dark:divide-zinc-800">
+                {[
+                  { name: "api.myapp.com", status: "up", ms: "142ms", uptime: "99.98%" },
+                  { name: "myapp.com", status: "up", ms: "89ms", uptime: "100%" },
+                  { name: "docs.myapp.com", status: "up", ms: "201ms", uptime: "99.95%" },
+                ].map((m) => (
+                  <div key={m.name} className="flex items-center gap-3 px-5 py-3">
+                    <span className="h-2.5 w-2.5 flex-shrink-0 rounded-full bg-emerald-500" />
+                    <span className="flex-1 text-sm font-medium text-black dark:text-white">{m.name}</span>
+                    <div className="hidden items-center gap-1 sm:flex">
+                      {Array.from({ length: 20 }).map((_, i) => (
+                        <span key={i} className="h-5 w-1 rounded-full bg-emerald-400/60 dark:bg-emerald-500/40" />
+                      ))}
+                    </div>
+                    <span className="text-xs text-zinc-400 dark:text-zinc-500">{m.ms}</span>
+                    <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">{m.uptime}</span>
+                  </div>
+                ))}
+              </div>
+              {/* Mock footer */}
+              <div className="border-t border-zinc-100 bg-zinc-50/50 px-5 py-2.5 dark:border-zinc-800 dark:bg-zinc-950/50">
+                <p className="text-center text-[11px] text-zinc-400 dark:text-zinc-500">
+                  Sample dashboard — your monitors will appear here after signup
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* How it works */}
         <div className="mt-12 grid w-full max-w-2xl grid-cols-1 gap-6 sm:grid-cols-3">
           {[
